@@ -416,75 +416,62 @@ Finalmente, las restricciones de idioma, acceso al texto completo, tipo document
 
 \section{Resultados}\label{sec3}
 
-Los resultados se organizaron de acuerdo con la pregunta general de investigación,
-las cinco preguntas específicas (RQ1--RQ5) y el análisis bibliométrico complementario.
-Para la síntesis de la revisión sistemática se distinguieron dos niveles de evidencia.
-El corpus final elegible estuvo conformado por 99 estudios que superaron la evaluación
-de calidad y constituye la base de los conteos y frecuencias globales. Dentro de este
-conjunto, 35 estudios conformaron el \textit{Reporting Core}, utilizado para realizar
-una síntesis detallada y mantener la trazabilidad de los principales hallazgos hacia
-estudios concretos.
+Los resultados se organizaron en tres niveles. Primero, se presenta una síntesis
+integral orientada a responder la pregunta general de investigación mediante los
+estudios que conforman el \textit{Reporting Core}. Posteriormente, se desarrollan
+las cinco preguntas específicas de investigación (RQ1--RQ5), considerando los
+modelos de Inteligencia Artificial, los eventos de seguridad abordados, los
+conjuntos de datos y escenarios utilizados, las métricas de evaluación y la
+evidencia de implementación. Finalmente, se presentan los resultados del análisis
+bibliométrico desarrollado a partir de los registros recuperados de Scopus.
 
-Los 64 estudios restantes no fueron excluidos de la revisión, sino que permanecieron
-dentro del corpus elegible y fueron considerados en los análisis cuantitativos globales.
-Debido a que un mismo estudio puede emplear más de una arquitectura, abordar varios
-eventos de seguridad, utilizar múltiples conjuntos de datos o reportar distintas
-métricas, varias clasificaciones fueron tratadas como multietiqueta; por esta razón,
-sus porcentajes no necesariamente suman 100\,\%.
+El corpus final estuvo conformado por 99 estudios que superaron la evaluación de
+calidad. Estos trabajos constituyen la base de los conteos y frecuencias globales.
+Dentro de este conjunto se seleccionaron 35 estudios como \textit{Reporting Core},
+los cuales fueron utilizados para profundizar la síntesis cualitativa y conservar
+la trazabilidad de los principales hallazgos hacia publicaciones específicas.
 
+Debido a que un mismo estudio puede utilizar diferentes arquitecturas, analizar
+más de un evento de seguridad, emplear varios conjuntos de datos o reportar
+múltiples métricas, algunas categorías fueron consideradas multietiqueta. Por ello,
+los porcentajes correspondientes no necesariamente suman 100\,\%.
 
 % ============================================================
-% 3.1 PREGUNTA GENERAL DE INVESTIGACIÓN
+% 3.1 PREGUNTA GENERAL
 % ============================================================
 
-\subsection{Resultados de la pregunta general de investigación}
+\subsection{Síntesis de la pregunta general de investigación}
 \label{subsec:rq_general}
 
-La pregunta general examinó qué modelos y técnicas de Inteligencia Artificial se han
-aplicado entre 2021 y 2026 para la detección y seguimiento de actividades delictivas
-en sistemas de videovigilancia, incluyendo las capacidades de identificación,
-seguimiento de personas y las evidencias de evaluación e implementación reportadas
-por los estudios.
+La pregunta general buscó determinar qué modelos y técnicas de Inteligencia
+Artificial han sido aplicados entre 2021 y 2026 en sistemas de videovigilancia
+orientados a la detección de actividades delictivas y al seguimiento de personas
+u objetos relacionados con eventos de seguridad, considerando también el desempeño
+alcanzado y las evidencias de implementación reportadas.
 
-En el corpus final ($N=99$), las familias tecnológicas con mayor presencia fueron
-las CNN bidimensionales (25/99), los detectores de objetos basados principalmente
-en YOLO (20/99), las arquitecturas recurrentes LSTM (16/99) y las 3D-CNN
-(13/99). La violencia o agresión física fue el evento de seguridad más estudiado
-(52/99), seguida por la detección de armas de fuego (29/99). En contraste, las
-capacidades relacionadas con seguimiento e identificación tuvieron una menor
-representación: la unión deduplicada de los estudios que incorporaron alguna de
-estas funciones alcanzó 18/99.
+Para responder esta pregunta de manera integrada, los estudios del
+\textit{Reporting Core} fueron organizados según cuatro dimensiones principales:
+la tecnología de Inteligencia Artificial empleada, el tipo de actividad o evento
+de seguridad analizado, las capacidades de identificación o seguimiento y la
+evidencia relacionada con evaluación e implementación. La
+Tabla~\ref{tab:general_synthesis} resume esta información.
 
-En cuanto a la evaluación experimental, 56 de los 99 estudios utilizaron
-principalmente conjuntos de datos públicos o benchmarks. Accuracy fue la métrica
-reportada con mayor frecuencia (60/99), seguida por F1-Score (30/99), Precision
-y Recall (28/99 cada una). Respecto de la implementación, 31 estudios demostraron
-experimentalmente procesamiento en tiempo real y otros 27 lo declararon; sin embargo,
-únicamente 21 estudios describieron una arquitectura de despliegue.
-
-Para complementar estos resultados globales, la
-Tabla~\ref{tab:general_results} presenta una síntesis de los 35 estudios que
-conforman el \textit{Reporting Core}. Siguiendo la lógica de la pregunta general,
-cada estudio se organizó según cuatro dimensiones: los modelos o técnicas de
-Inteligencia Artificial utilizados, las actividades o eventos de seguridad abordados,
-las capacidades de identificación y seguimiento, y las condiciones de evaluación
-e implementación reportadas.
-
+\begingroup
 \footnotesize
 \setlength{\tabcolsep}{2.5pt}
 \renewcommand{\arraystretch}{1.12}
 
 \begin{longtable}{@{}L{2.0cm}L{2.5cm}L{2.55cm}L{2.4cm}L{2.9cm}@{}}
 
-\caption{Síntesis de los estudios del Reporting Core para responder la pregunta general de investigación}
-\label{tab:general_results}\\
+\caption{Síntesis de los estudios del Reporting Core para la pregunta general de investigación}
+\label{tab:general_synthesis}\\
 
 \toprule
 \textbf{Referencia} &
 \textbf{Modelos y técnicas de IA} &
-\textbf{Actividades o eventos detectados} &
+\textbf{Actividad o evento de seguridad} &
 \textbf{Identificación y seguimiento} &
-\textbf{Evaluación e implementación} \\
+\textbf{Desempeño e implementación} \\
 \midrule
 \endfirsthead
 
@@ -494,9 +481,9 @@ e implementación reportadas.
 \toprule
 \textbf{Referencia} &
 \textbf{Modelos y técnicas de IA} &
-\textbf{Actividades o eventos detectados} &
+\textbf{Actividad o evento de seguridad} &
 \textbf{Identificación y seguimiento} &
-\textbf{Evaluación e implementación} \\
+\textbf{Desempeño e implementación} \\
 \midrule
 \endhead
 
@@ -507,274 +494,245 @@ e implementación reportadas.
 \bottomrule
 \endlastfoot
 
-
 \citet{munoz2025} &
 YOLO / detector de objetos &
-Arma de fuego &
+Armas de fuego &
 No reportado &
-Dataset propio; tiempo real declarado; despliegue descrito \\
-
+mAP; tiempo real declarado; despliegue descrito \\
 
 \citet{ciampi2024} &
 CNN 2D &
 Violencia / agresión física &
 No reportado &
-SCF, RLVS y RWF-2000; tiempo real no reportado \\
-
+Evaluación en SCF, RLVS y RWF-2000 \\
 
 \citet{singhal2026} &
 LSTM y 3D-CNN &
-Arma de fuego y múltiples actividades delictivas &
+Actividades delictivas y armas &
 No reportado &
-UCF-Crime y DCSASS; evaluación mediante Accuracy, Precision, Recall, F1 y AUC \\
-
+Accuracy, Precision, Recall, F1 y AUC \\
 
 \citet{bhavani2025} &
-Modelo basado en esqueleto / pose &
+Esqueleto / pose &
 Violencia y actividades delictivas &
 Seguimiento de movimiento &
-UCF-101; evaluación mediante Accuracy, Precision, Recall y F1 \\
-
+Accuracy, Precision, Recall y F1 \\
 
 \citet{janbi2024} &
-GCN, ensemble y esqueleto / pose &
-Violencia / agresión física &
+GCN, ensemble y pose &
+Violencia &
 Seguimiento de personas y esqueleto &
-RLVS y NTU-Violence; tiempo real no reportado \\
-
+Evaluación en RLVS y NTU-Violence \\
 
 \citet{shah2023} &
 Enfoque inspirado en computación cuántica &
-Detección de armas &
+Armas &
 No reportado &
-SCAD; procesamiento en tiempo real declarado \\
-
+Tiempo real declarado \\
 
 \citet{ciampi2022} &
 Transformer, LSTM y 3D-CNN &
-Violencia / agresión física &
+Violencia &
 No reportado &
-Bus Violence, SCF, RLVS y RWF-2000; tiempo real no reportado \\
-
+Evaluación en múltiples benchmarks \\
 
 \citet{fierrosilva2026} &
 YOLO / detector de objetos &
-Detección de armas &
+Armas &
 Seguimiento multicámara &
-Sohas Weapon Detection; tiempo real demostrado; despliegue descrito \\
-
+Tiempo real demostrado; despliegue descrito \\
 
 \citet{huszar2023} &
 3D-CNN &
-Violencia / agresión física &
+Violencia &
 No reportado &
-Evaluación en múltiples datasets, incluyendo Hockey Fight, RLVS y RWF-2000 \\
-
+Evaluación sobre múltiples datasets \\
 
 \citet{fathy2022} &
 YOLO / detector de objetos &
-Detección de armas &
+Armas &
 No reportado &
-Sohas Weapon Detection; tiempo real demostrado; despliegue descrito \\
-
+Tiempo real demostrado; despliegue descrito \\
 
 \citet{muriithi2024} &
-Modelo basado en esqueleto / pose &
-Detección de armas &
+Esqueleto / pose &
+Armas &
 Seguimiento de personas y movimiento &
-Dataset propio; tiempo real no reportado \\
-
+Evaluación experimental \\
 
 \citet{shin2025} &
 Transformer y 3D-CNN &
-Comportamiento sospechoso / anómalo &
+Comportamiento anómalo &
 No reportado &
-XD-Violence, ShanghaiTech y UCF-Crime \\
-
+Evaluación en XD-Violence, ShanghaiTech y UCF-Crime \\
 
 \citet{pangavhane2025} &
 LSTM &
-Comportamiento sospechoso / anómalo &
+Comportamiento anómalo &
 No reportado &
-KTH Human Motion; tiempo real no reportado \\
-
+Evaluación en KTH Human Motion \\
 
 \citet{dalal2024} &
 YOLO / detector de objetos &
 Personas u objetos de interés &
 No reportado &
-Dataset propio basado en Roboflow; tiempo real no reportado \\
-
+Evaluación en dataset basado en Roboflow \\
 
 \citet{ingle2022} &
 CNN 2D &
-Detección de armas &
+Armas &
 No reportado &
-ImageNet e IMFDB; tiempo real demostrado; despliegue descrito \\
-
+Tiempo real demostrado; despliegue descrito \\
 
 \citet{saleem2022} &
 CNN 2D &
-Comportamiento sospechoso / anómalo &
+Comportamiento anómalo &
 No reportado &
-UCF-Crime y UCF-Crime2Local; tiempo real demostrado; despliegue descrito \\
-
+Tiempo real demostrado; despliegue descrito \\
 
 \citet{azzakhnini2025} &
 LSTM &
-Violencia / agresión física &
+Violencia &
 No reportado &
-Hockey Fight, Violent-Flows, RLVS y RWF-2000; tiempo real demostrado \\
-
+Tiempo real demostrado \\
 
 \citet{g2025} &
 GCN &
-Violencia / agresión física &
+Violencia &
 No reportado &
-SCVD; procesamiento en tiempo real declarado \\
-
+Tiempo real declarado \\
 
 \citet{sernani2021} &
 3D-CNN &
-Violencia / agresión física &
+Violencia &
 No reportado &
-AIRTLab; evaluación experimental; tiempo real no reportado \\
-
+Evaluación experimental \\
 
 \citet{salman2026} &
 GRU &
-Violencia / agresión física &
+Violencia &
 No reportado &
-Hockey Fight, RLVS, Violent-Flows y ShanghaiTech; tiempo real demostrado \\
-
+Tiempo real demostrado \\
 
 \citet{shah2025} &
 Enfoque inspirado en computación cuántica &
-Detección de armas &
+Armas &
 No reportado &
-SCAD; procesamiento en tiempo real declarado \\
-
+Tiempo real declarado \\
 
 \citet{silva2026} &
 YOLO / detector de objetos &
-Detección de armas &
+Armas &
 No reportado &
-Sohas Weapon Detection; tiempo real demostrado; despliegue descrito \\
-
+Tiempo real demostrado; despliegue descrito \\
 
 \citet{park2024} &
 3D-CNN &
-Violencia / agresión física &
+Violencia &
 No reportado &
-UBI-Fights; procesamiento en tiempo real demostrado \\
-
+Tiempo real demostrado \\
 
 \citet{pereatrigo2023} &
 CNN 2D &
-Detección de armas &
+Armas &
 No reportado &
-Dataset propio; tiempo real demostrado; despliegue descrito \\
-
+Tiempo real demostrado; despliegue descrito \\
 
 \citet{donia2023} &
-Aprendizaje automático clásico e ingeniería de características &
-Violencia / agresión física &
+ML clásico e ingeniería de características &
+Violencia &
 No reportado &
-SBU-Kinect y Hockey Fight; tiempo real no reportado \\
-
+Evaluación experimental \\
 
 \citet{azam2026} &
 LSTM &
-Comportamiento sospechoso / anómalo &
+Comportamiento anómalo &
 No reportado &
-Movie Fights; tiempo real demostrado; despliegue descrito \\
-
+Tiempo real demostrado; despliegue descrito \\
 
 \citet{singh2026} &
 Autoencoder / GAN &
-Detección de armas &
+Armas &
 No reportado &
-VISILAB; procesamiento en tiempo real demostrado \\
-
+Tiempo real demostrado \\
 
 \citet{jokhio2024} &
 Ensemble &
-Comportamiento sospechoso / anómalo &
+Comportamiento anómalo &
 No reportado &
-Road Anomaly Dataset; procesamiento en tiempo real declarado \\
-
+Tiempo real declarado \\
 
 \citet{sandhya2022} &
 Autoencoder / GAN &
 Identificación de personas &
 Reconocimiento facial &
-LFW; evaluación experimental; tiempo real no reportado \\
-
+Evaluación experimental \\
 
 \citet{matei2025} &
 CNN 2D &
 Actividades delictivas &
 Seguimiento de personas y esquelético &
-HR-Crime; tiempo real no reportado \\
-
+Evaluación experimental \\
 
 \citet{lin2025} &
 CNN 2D &
 Personas u objetos de interés &
 No reportado &
-Dataset propio; arquitectura de despliegue descrita \\
-
+Arquitectura de despliegue descrita \\
 
 \citet{garciacobo2023} &
-Modelo basado en esqueleto / pose &
-Violencia / agresión física &
+Esqueleto / pose &
+Violencia &
 Seguimiento de personas y esqueleto &
-RWF-2000; procesamiento en tiempo real demostrado \\
-
+Tiempo real demostrado \\
 
 \citet{tonmoy2025} &
 Aprendizaje federado &
 Violencia y armas &
 No reportado &
-Hockey Fight, Weapon Violence Dataset 2.0 y Firearm Action; tiempo real declarado \\
-
+Tiempo real declarado \\
 
 \citet{gao2026} &
-GRU y enfoque causal guiado por conocimiento &
-Comportamiento sospechoso / anómalo &
+GRU y enfoque causal &
+Comportamiento anómalo &
 No reportado &
-XD-Violence y UCF-Crime; procesamiento en tiempo real demostrado \\
-
+Tiempo real demostrado \\
 
 \citet{leyva2024} &
 GCN y modelo bayesiano &
-Comportamiento sospechoso / anómalo &
+Comportamiento anómalo &
 Seguimiento de personas, objetos y multiobjeto &
-MEVA, Subway, ILIDS, UCSD, UMN, ShanghaiTech y LV; tiempo real no reportado \\
-
+Evaluación en múltiples datasets \\
 
 \end{longtable}
 
 \normalsize
 \setlength{\tabcolsep}{6pt}
+\endgroup
 
-En conjunto, la síntesis del \textit{Reporting Core} confirma que las tareas de
-detección concentran la mayor parte de las propuestas analizadas. Los modelos basados
-en CNN, YOLO y arquitecturas espacio-temporales aparecen de forma recurrente en
-detección de violencia y armas, mientras que las capacidades de identificación,
-seguimiento multicámara y seguimiento multiobjeto son menos frecuentes.
+De manera global, la síntesis muestra un predominio de modelos de aprendizaje
+profundo orientados a la detección de violencia, armas y comportamiento anómalo.
+Las arquitecturas CNN, los detectores basados en YOLO y los modelos
+espacio-temporales aparecen de forma recurrente, mientras que las funciones de
+identificación y seguimiento presentan una presencia comparativamente menor.
 
-Asimismo, se observa que los resultados experimentales suelen apoyarse en datasets
-de referencia y métricas de clasificación o detección. Aunque varios estudios
-declaran o demuestran procesamiento en tiempo real, la descripción de arquitecturas
-completas de despliegue sigue siendo menos frecuente. Estos resultados generales
-son desarrollados con mayor detalle en las preguntas RQ1--RQ5.
+También se observa que una parte importante de las evaluaciones se realiza sobre
+datasets públicos y benchmarks. Aunque varios trabajos reportan o declaran
+procesamiento en tiempo real, la documentación de arquitecturas completas de
+despliegue es menos frecuente. Estos patrones generales se analizan de manera
+específica en las preguntas RQ1--RQ5.
 
-% ============================================================
-% 3.2 RQ1
-% ============================================================
+\subsection{Desarrollo de las preguntas de investigación}
+\label{subsec:rq_development}
 
-\subsection{RQ1: Modelos, algoritmos y arquitecturas de Inteligencia Artificial}
+A partir de los patrones identificados en la síntesis general, las cinco preguntas
+específicas permitieron examinar con mayor detalle las dimensiones tecnológicas,
+experimentales y operativas de los sistemas de videovigilancia inteligente. Cada
+pregunta se analizó utilizando los 99 estudios del corpus final para los conteos
+globales y los trabajos del \textit{Reporting Core} para ejemplificar los hallazgos
+más representativos.
+
+\subsubsection{RQ1: Modelos, algoritmos y arquitecturas de Inteligencia Artificial}
 \label{subsec:rq1_results}
 
 La evidencia muestra una concentración en arquitecturas de aprendizaje profundo,
@@ -794,46 +752,36 @@ Transformers y modelos basados en grafos. También se identificaron aproximacion
 menos frecuentes basadas en aprendizaje federado, autoencoders, métodos bayesianos,
 modelos causales y técnicas inspiradas en computación cuántica.
 
-\begin{table*}[htbp]
-\caption{Resultados para RQ1: principales familias de modelos y estudios representados en el Reporting Core}
-\label{tab:rq1_results}
-\centering
+\begingroup
 \small
+\setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.15}
-\begin{tabular}{@{}L{5.0cm}L{11.0cm}@{}}
+\begin{longtable}{@{}L{3.2cm}L{5.0cm}L{4.1cm}@{}}
+\caption{Resultados para RQ1: principales familias de modelos y estudios representados en el Reporting Core}
+\label{tab:rq1_results}\\
 \toprule
-\textbf{Resultado principal} & \textbf{Referencias} \\
+\textbf{Modelo / arquitectura} & \textbf{Referencias representativas} & \textbf{Aplicación predominante} \\
 \midrule
-
-CNN 2D (25/99) &
-\citet{ciampi2024}; \citet{ingle2022}; \citet{saleem2022};
-\citet{pereatrigo2023}; \citet{matei2025}; \citet{lin2025} \\
-
-YOLO / detectores de objetos (20/99) &
-\citet{munoz2025}; \citet{fierrosilva2026}; \citet{fathy2022};
-\citet{dalal2024}; \citet{silva2026} \\
-
-LSTM / arquitecturas recurrentes (16/99) &
-\citet{singhal2026}; \citet{ciampi2022}; \citet{pangavhane2025};
-\citet{azzakhnini2025}; \citet{azam2026} \\
-
-3D-CNN (13/99) &
-\citet{singhal2026}; \citet{ciampi2022}; \citet{huszar2023};
-\citet{shin2025}; \citet{sernani2021}; \citet{park2024} \\
-
-Transformer / mecanismos de atención (9/99) &
-\citet{ciampi2022}; \citet{shin2025} \\
-
-Esqueleto / pose (7/99) &
-\citet{bhavani2025}; \citet{janbi2024}; \citet{muriithi2024};
-\citet{garciacobo2023} \\
-
-GCN / modelos basados en grafos (6/99) &
-\citet{janbi2024}; \citet{g2025}; \citet{leyva2024} \\
-
+\endfirsthead
+\multicolumn{3}{c}{\tablename\ \thetable{} -- continuación}\\
+\toprule
+\textbf{Modelo / arquitectura} & \textbf{Referencias representativas} & \textbf{Aplicación predominante} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{Continúa en la página siguiente}\\
+\endfoot
 \bottomrule
-\end{tabular}
-\end{table*}
+\endlastfoot
+CNN 2D (25/99) & \citet{ciampi2024}; \citet{ingle2022}; \citet{saleem2022}; \citet{pereatrigo2023} & Violencia, anomalías y armas \\
+YOLO / detectores de objetos (20/99) & \citet{munoz2025}; \citet{fierrosilva2026}; \citet{fathy2022}; \citet{dalal2024} & Detección y localización de armas u objetos \\
+LSTM / arquitecturas recurrentes (16/99) & \citet{singhal2026}; \citet{ciampi2022}; \citet{pangavhane2025}; \citet{azzakhnini2025} & Análisis temporal de secuencias \\
+3D-CNN (13/99) & \citet{singhal2026}; \citet{ciampi2022}; \citet{huszar2023}; \citet{shin2025} & Reconocimiento espacio-temporal de acciones \\
+Transformer / mecanismos de atención (9/99) & \citet{ciampi2022}; \citet{shin2025} & Representación de dependencias espacio-temporales \\
+Esqueleto / pose (7/99) & \citet{bhavani2025}; \citet{janbi2024}; \citet{muriithi2024}; \citet{garciacobo2023} & Análisis del movimiento corporal \\
+GCN / modelos basados en grafos (6/99) & \citet{janbi2024}; \citet{g2025}; \citet{leyva2024} & Relaciones estructurales y comportamiento \\
+\end{longtable}
+\endgroup
 
 La distribución indica que no existe una única arquitectura empleada de forma
 transversal para todas las funciones de videovigilancia. La elección del modelo se
@@ -844,10 +792,10 @@ espacio-temporales.
 
 
 % ============================================================
-% 3.3 RQ2
+% 3.2.2 RQ2
 % ============================================================
 
-\subsection{RQ2: Actividades delictivas, eventos de seguridad y capacidades de seguimiento}
+\subsubsection{RQ2: Actividades delictivas, eventos de seguridad y capacidades de seguimiento}
 \label{subsec:rq2_results}
 
 La violencia o agresión física fue el evento con mayor presencia en el corpus,
@@ -857,70 +805,40 @@ eventos delictivos o anómalos múltiples en 15 trabajos (15,2\,\%),
 comportamiento sospechoso o anomalía general en 13 (13,1\,\%), armas blancas
 en 11 (11,1\,\%) y robo o hurto en 10 (10,1\,\%).
 
-\begin{table*}[htbp]
-\caption{Resultados para RQ2: eventos de seguridad y capacidades de seguimiento}
-\label{tab:rq2_results}
-\centering
+\begingroup
 \small
+\setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.15}
-\begin{tabular}{@{}L{5.0cm}L{11.0cm}@{}}
+\begin{longtable}{@{}L{3.2cm}L{5.0cm}L{4.1cm}@{}}
+\caption{Resultados para RQ2: eventos de seguridad y capacidades de seguimiento}
+\label{tab:rq2_results}\\
 \toprule
-\textbf{Resultado principal} & \textbf{Referencias} \\
+\textbf{Evento / capacidad} & \textbf{Referencias representativas} & \textbf{Función} \\
 \midrule
-
-Violencia / agresión física (52/99) &
-\citet{ciampi2024}; \citet{bhavani2025}; \citet{janbi2024};
-\citet{ciampi2022}; \citet{huszar2023}; \citet{shin2025};
-\citet{pangavhane2025}; \citet{saleem2022}; \citet{azzakhnini2025};
-\citet{g2025}; \citet{sernani2021}; \citet{salman2026};
-\citet{park2024}; \citet{donia2023}; \citet{azam2026};
-\citet{jokhio2024}; \citet{matei2025}; \citet{garciacobo2023};
-\citet{tonmoy2025}; \citet{gao2026} \\
-
-Arma de fuego (29/99) &
-\citet{munoz2025}; \citet{singhal2026}; \citet{bhavani2025};
-\citet{shah2023}; \citet{fierrosilva2026}; \citet{fathy2022};
-\citet{muriithi2024}; \citet{ingle2022}; \citet{shah2025};
-\citet{singh2026} \\
-
-Eventos delictivos / anómalos múltiples (15/99) &
-\citet{singhal2026}; \citet{shin2025}; \citet{saleem2022};
-\citet{g2025}; \citet{matei2025}; \citet{gao2026} \\
-
-Comportamiento sospechoso / anomalía general (13/99) &
-\citet{shin2025}; \citet{pangavhane2025}; \citet{saleem2022};
-\citet{azam2026}; \citet{singh2026}; \citet{gao2026} \\
-
-Arma blanca (11/99) &
-\citet{shah2023}; \citet{fierrosilva2026}; \citet{fathy2022};
-\citet{ingle2022}; \citet{shah2025} \\
-
-Robo / hurto (10/99) &
-\citet{ciampi2022}; \citet{saleem2022}; \citet{jokhio2024} \\
-
+\endfirsthead
+\multicolumn{3}{c}{\tablename\ \thetable{} -- continuación}\\
+\toprule
+\textbf{Evento / capacidad} & \textbf{Referencias representativas} & \textbf{Función} \\
 \midrule
-
-Seguimiento general (13/99) &
-\citet{bhavani2025}; \citet{janbi2024}; \citet{fierrosilva2026};
-\citet{muriithi2024}; \citet{matei2025}; \citet{garciacobo2023};
-\citet{leyva2024} \\
-
-Seguimiento de personas (8/99) &
-\citet{janbi2024}; \citet{muriithi2024}; \citet{matei2025};
-\citet{garciacobo2023}; \citet{leyva2024} \\
-
-Seguimiento multicámara (1/99) &
-\citet{fierrosilva2026} \\
-
-Identificación / reconocimiento de personas &
-\citet{sandhya2022} \\
-
-Re-identificación explícitamente evaluada (0/99) &
-No se identificaron estudios en el corpus final \\
-
+\endhead
+\midrule
+\multicolumn{3}{r}{Continúa en la página siguiente}\\
+\endfoot
 \bottomrule
-\end{tabular}
-\end{table*}
+\endlastfoot
+Violencia / agresión física (52/99) & \citet{ciampi2024}; \citet{bhavani2025}; \citet{janbi2024}; \citet{ciampi2022} & Reconocer episodios de violencia o agresión \\
+Arma de fuego (29/99) & \citet{munoz2025}; \citet{singhal2026}; \citet{bhavani2025}; \citet{shah2023} & Detectar y localizar armas de fuego \\
+Eventos delictivos / anómalos múltiples (15/99) & \citet{singhal2026}; \citet{shin2025}; \citet{saleem2022}; \citet{g2025} & Reconocer varias categorías de eventos \\
+Comportamiento sospechoso / anomalía general (13/99) & \citet{shin2025}; \citet{pangavhane2025}; \citet{saleem2022}; \citet{azam2026} & Detectar comportamientos sospechosos o anómalos \\
+Arma blanca (11/99) & \citet{shah2023}; \citet{fierrosilva2026}; \citet{fathy2022}; \citet{ingle2022} & Detectar armas blancas \\
+Robo / hurto (10/99) & \citet{ciampi2022}; \citet{saleem2022}; \citet{jokhio2024} & Reconocer eventos de robo o hurto \\
+Seguimiento general (13/99) & \citet{bhavani2025}; \citet{janbi2024}; \citet{fierrosilva2026}; \citet{muriithi2024} & Mantener la trayectoria de entidades entre fotogramas \\
+Seguimiento de personas (8/99) & \citet{janbi2024}; \citet{muriithi2024}; \citet{matei2025}; \citet{garciacobo2023} & Seguir personas dentro de una secuencia \\
+Seguimiento multicámara (1/99) & \citet{fierrosilva2026} & Relacionar el seguimiento entre cámaras \\
+Identificación / reconocimiento de personas & \citet{sandhya2022} & Reconocer la identidad de una persona \\
+Re-identificación explícitamente evaluada (0/99) & No se identificaron estudios en el corpus final & Asociar identidades entre observaciones; sin evaluación explícita en este corpus \\
+\end{longtable}
+\endgroup
 
 En conjunto, 18 de los 99 estudios incorporaron alguna capacidad de seguimiento o
 identificación. El seguimiento apareció mayoritariamente como componente complementario
@@ -932,10 +850,10 @@ por la estrategia de búsqueda y no implica ausencia de trabajos sobre
 
 
 % ============================================================
-% 3.4 RQ3
+% 3.2.3 RQ3
 % ============================================================
 
-\subsection{RQ3: Conjuntos de datos y escenarios de videovigilancia}
+\subsubsection{RQ3: Conjuntos de datos y escenarios de videovigilancia}
 \label{subsec:rq3_results}
 
 Los experimentos se concentraron en un número limitado de conjuntos de datos.
@@ -945,51 +863,74 @@ y RLVS en 10 (10,1\,\%). En cuanto al origen, 56 estudios utilizaron
 principalmente datos públicos o benchmarks, 24 combinaron datos públicos y propios,
 y 19 emplearon principalmente conjuntos propios o privados.
 
-\begin{table*}[htbp]
-\caption{Resultados para RQ3: principales conjuntos de datos identificados}
-\label{tab:rq3_results}
-\centering
+\begingroup
 \small
+\setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.15}
-\begin{tabular}{@{}L{5.0cm}L{11.0cm}@{}}
+\begin{longtable}{@{}L{3.2cm}L{5.0cm}L{4.1cm}@{}}
+\caption{Resultados para RQ3: principales conjuntos de datos identificados}
+\label{tab:rq3_results}\\
 \toprule
-\textbf{Resultado principal} & \textbf{Referencias} \\
+\textbf{Dataset / protocolo} & \textbf{Referencias representativas} & \textbf{Aplicación} \\
 \midrule
-
-Hockey Fight (19/99) &
-\citet{huszar2023}; \citet{azzakhnini2025}; \citet{salman2026};
-\citet{donia2023}; \citet{tonmoy2025} \\
-
-UCF-Crime (15/99) &
-\citet{singhal2026}; \citet{shin2025}; \citet{saleem2022};
-\citet{gao2026} \\
-
-RWF-2000 (14/99) &
-\citet{ciampi2024}; \citet{ciampi2022}; \citet{huszar2023};
-\citet{azzakhnini2025}; \citet{garciacobo2023} \\
-
-Movie Fights (11/99) &
-\citet{huszar2023}; \citet{azam2026} \\
-
-RLVS (10/99) &
-\citet{ciampi2024}; \citet{janbi2024}; \citet{ciampi2022};
-\citet{huszar2023}; \citet{azzakhnini2025}; \citet{salman2026} \\
-
-Sohas Weapon Detection &
-\citet{fierrosilva2026}; \citet{fathy2022}; \citet{silva2026} \\
-
-Evaluación \textit{cross-dataset} explícita (3/99) &
-\citet{ciampi2024}; \citet{ciampi2022}; \citet{huszar2023} \\
-
+\endfirsthead
+\multicolumn{3}{c}{\tablename\ \thetable{} -- continuación}\\
+\toprule
+\textbf{Dataset / protocolo} & \textbf{Referencias representativas} & \textbf{Aplicación} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{Continúa en la página siguiente}\\
+\endfoot
 \bottomrule
-\end{tabular}
-\end{table*}
+\endlastfoot
+Hockey Fight (19/99) & \citet{huszar2023}; \citet{azzakhnini2025}; \citet{salman2026}; \citet{donia2023} & Detección de violencia \\
+UCF-Crime (15/99) & \citet{singhal2026}; \citet{shin2025}; \citet{saleem2022}; \citet{gao2026} & Detección de actividades delictivas y anomalías \\
+RWF-2000 (14/99) & \citet{ciampi2024}; \citet{ciampi2022}; \citet{huszar2023}; \citet{azzakhnini2025} & Detección de violencia en video \\
+Movie Fights (11/99) & \citet{huszar2023}; \citet{azam2026} & Reconocimiento de peleas y violencia \\
+RLVS (10/99) & \citet{ciampi2024}; \citet{janbi2024}; \citet{ciampi2022}; \citet{huszar2023} & Detección de violencia \\
+Sohas Weapon Detection & \citet{fierrosilva2026}; \citet{fathy2022}; \citet{silva2026} & Detección de armas \\
+Evaluación \textit{cross-dataset} explícita (3/99) & \citet{ciampi2024}; \citet{ciampi2022}; \citet{huszar2023} & Evaluación de generalización entre conjuntos de datos \\
+\end{longtable}
+\endgroup
 
 Cuarenta y dos estudios evaluaron sus modelos empleando dos o más conjuntos de
 datos; sin embargo, únicamente tres realizaron una evaluación
 \textit{cross-dataset} explícita. Adicionalmente, el escenario de videovigilancia
 no fue especificado en 38 estudios y otros 18 lo describieron únicamente como
 CCTV genérico.
+
+\begingroup
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{@{}L{9.0cm}L{3.6cm}@{}}
+\caption{Escenarios de videovigilancia reportados con mayor frecuencia}
+\label{tab:rq3_scenarios}\\
+\toprule
+\textbf{Tipo de escenario} & \textbf{Número de estudios} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{c}{\tablename\ \thetable{} -- continuación}\\
+\toprule
+\textbf{Tipo de escenario} & \textbf{Número de estudios} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r}{Continúa en la página siguiente}\\
+\endfoot
+\bottomrule
+\endlastfoot
+No reportado & 38 \\
+CCTV genérico & 18 \\
+Interiores / hogar & 6 \\
+Transporte público / estaciones & 5 \\
+Espacios públicos & 5 \\
+\end{longtable}
+\endgroup
+
+La Tabla~\ref{tab:rq3_scenarios} presenta las categorías más frecuentes;
+no constituye una distribución exhaustiva de los 99 estudios.
 
 Entre los escenarios explícitos se identificaron entornos interiores, transporte
 público o estaciones y espacios públicos. Solo dos estudios documentaron de forma
@@ -999,10 +940,10 @@ la interpretación de la capacidad de generalización geográfica de los modelos
 
 
 % ============================================================
-% 3.5 RQ4
+% 3.2.4 RQ4
 % ============================================================
 
-\subsection{RQ4: Métricas y niveles de desempeño}
+\subsubsection{RQ4: Métricas y niveles de desempeño}
 \label{subsec:rq4_results}
 
 La evaluación del desempeño presentó una marcada heterogeneidad entre los estudios.
@@ -1011,58 +952,42 @@ Precision y Recall en 28 estudios cada una (28,3\,\%), AUC en 16 (16,2\,\%)
 y mAP en 14 (14,1\,\%). Respecto de la eficiencia computacional, 30 estudios
 reportaron latencia y 15 informaron FPS.
 
-\begin{table*}[htbp]
-\caption{Resultados para RQ4: métricas utilizadas para evaluar los modelos}
-\label{tab:rq4_results}
-\centering
+\begingroup
 \small
+\setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.15}
-\begin{tabular}{@{}L{4.0cm}L{12.0cm}@{}}
+\begin{longtable}{@{}L{3.2cm}L{5.0cm}L{4.1cm}@{}}
+\caption{Resultados para RQ4: métricas utilizadas para evaluar los modelos}
+\label{tab:rq4_results}\\
 \toprule
-\textbf{Resultado principal} & \textbf{Referencias} \\
+\textbf{Métrica} & \textbf{Referencias representativas} & \textbf{Función} \\
 \midrule
-
-Accuracy (60/99) &
-\citet{singhal2026}; \citet{bhavani2025}; \citet{janbi2024};
-\citet{muriithi2024}; \citet{pangavhane2025}; \citet{dalal2024};
-\citet{ingle2022}; \citet{saleem2022}; \citet{g2025};
-\citet{sernani2021}; \citet{salman2026}; \citet{shah2025};
-\citet{donia2023}; \citet{azam2026}; \citet{singh2026};
-\citet{jokhio2024}; \citet{matei2025}; \citet{garciacobo2023};
-\citet{tonmoy2025} \\
-
-F1-Score (30/99) &
-\citet{singhal2026}; \citet{bhavani2025}; \citet{ingle2022};
-\citet{g2025}; \citet{sernani2021}; \citet{salman2026};
-\citet{shah2025}; \citet{silva2026}; \citet{donia2023};
-\citet{azam2026}; \citet{jokhio2024}; \citet{matei2025} \\
-
-Precision (28/99) &
-\citet{singhal2026}; \citet{bhavani2025}; \citet{fathy2022};
-\citet{muriithi2024}; \citet{dalal2024}; \citet{ingle2022};
-\citet{saleem2022}; \citet{g2025}; \citet{shah2025};
-\citet{silva2026}; \citet{donia2023}; \citet{jokhio2024};
-\citet{matei2025} \\
-
-Recall (28/99) &
-\citet{singhal2026}; \citet{bhavani2025}; \citet{fathy2022};
-\citet{muriithi2024}; \citet{dalal2024}; \citet{ingle2022};
-\citet{saleem2022}; \citet{g2025}; \citet{shah2025};
-\citet{silva2026}; \citet{donia2023}; \citet{jokhio2024};
-\citet{matei2025}; \citet{garciacobo2023} \\
-
-AUC (16/99) &
-\citet{singhal2026}; \citet{shin2025}; \citet{sernani2021};
-\citet{salman2026}; \citet{shah2025}; \citet{park2024};
-\citet{azam2026}; \citet{tonmoy2025}; \citet{gao2026} \\
-
-mAP (14/99) &
-\citet{munoz2025}; \citet{fathy2022}; \citet{dalal2024};
-\citet{ingle2022}; \citet{silva2026}; \citet{singh2026} \\
-
+\endfirsthead
+\multicolumn{3}{c}{\tablename\ \thetable{} -- continuación}\\
+\toprule
+\textbf{Métrica} & \textbf{Referencias representativas} & \textbf{Función} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{Continúa en la página siguiente}\\
+\endfoot
 \bottomrule
-\end{tabular}
-\end{table*}
+\endlastfoot
+Accuracy (60/99) & \citet{singhal2026}; \citet{bhavani2025}; \citet{janbi2024}; \citet{muriithi2024} & Proporción de clasificaciones correctas \\
+F1-Score (30/99) & \citet{singhal2026}; \citet{bhavani2025}; \citet{ingle2022}; \citet{g2025} & Equilibrio entre Precision y Recall \\
+Precision (28/99) & \citet{singhal2026}; \citet{bhavani2025}; \citet{fathy2022}; \citet{muriithi2024} & Proporción de positivos predichos que son correctos \\
+Recall (28/99) & \citet{singhal2026}; \citet{bhavani2025}; \citet{fathy2022}; \citet{muriithi2024} & Proporción de positivos reales recuperados \\
+AUC (16/99) & \citet{singhal2026}; \citet{shin2025}; \citet{sernani2021}; \citet{salman2026} & Capacidad discriminativa mediante el área bajo la curva \\
+mAP (14/99) & \citet{munoz2025}; \citet{fathy2022}; \citet{dalal2024}; \citet{ingle2022} & Precisión media de detección de objetos \\
+FPS (15/99) & Conteo agregado del corpus & Velocidad: fotogramas procesados por segundo \\
+Latencia (30/99) & Conteo agregado del corpus & Tiempo de respuesta del procesamiento \\
+\end{longtable}
+\endgroup
+
+Los conteos de FPS y latencia proceden de la síntesis agregada; el reporte
+no individualiza sus referencias en esa tabla. Su interpretación requiere
+considerar el hardware y las condiciones de medición.
+
 
 Debido a las diferencias entre tareas, datasets, particiones experimentales,
 protocolos de evaluación y escalas de las métricas, no se calculó un promedio global
@@ -1084,10 +1009,10 @@ mediante métricas generales de detección o clasificación.
 
 
 % ============================================================
-% 3.6 RQ5
+% 3.2.5 RQ5
 % ============================================================
 
-\subsection{RQ5: Procesamiento en tiempo real, despliegue y limitaciones}
+\subsubsection{RQ5: Procesamiento en tiempo real, despliegue y limitaciones}
 \label{subsec:rq5_results}
 
 Treinta y uno de los 99 estudios (31,3\,\%) presentaron evidencia experimental de
@@ -1098,37 +1023,32 @@ equivalente. Un estudio señaló explícitamente que no operaba en tiempo real y
 Solo 21 estudios (21,2\,\%) describieron explícitamente una arquitectura de
 despliegue, mientras que 78 (78,8\,\%) no proporcionaron esta información.
 
-\begin{table*}[htbp]
-\caption{Resultados para RQ5: evidencia de tiempo real y despliegue}
-\label{tab:rq5_results}
-\centering
+\begingroup
 \small
+\setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.15}
-\begin{tabular}{@{}L{5.0cm}L{11.0cm}@{}}
+\begin{longtable}{@{}L{3.2cm}L{5.0cm}L{4.1cm}@{}}
+\caption{Resultados para RQ5: evidencia de tiempo real y despliegue}
+\label{tab:rq5_results}\\
 \toprule
-\textbf{Resultado principal} & \textbf{Referencias} \\
+\textbf{Aspecto de implementación} & \textbf{Referencias representativas} & \textbf{Evidencia reportada} \\
 \midrule
-
-Tiempo real demostrado (31/99) &
-\citet{fierrosilva2026}; \citet{fathy2022}; \citet{ingle2022};
-\citet{saleem2022}; \citet{azzakhnini2025}; \citet{salman2026};
-\citet{silva2026}; \citet{park2024}; \citet{pereatrigo2023};
-\citet{azam2026}; \citet{singh2026}; \citet{garciacobo2023};
-\citet{gao2026} \\
-
-Tiempo real declarado (27/99) &
-\citet{munoz2025}; \citet{shah2023}; \citet{g2025};
-\citet{shah2025}; \citet{jokhio2024}; \citet{tonmoy2025} \\
-
-Arquitectura de despliegue descrita (21/99) &
-\citet{munoz2025}; \citet{fierrosilva2026}; \citet{fathy2022};
-\citet{ingle2022}; \citet{saleem2022}; \citet{azzakhnini2025};
-\citet{salman2026}; \citet{silva2026}; \citet{pereatrigo2023};
-\citet{azam2026}; \citet{lin2025} \\
-
+\endfirsthead
+\multicolumn{3}{c}{\tablename\ \thetable{} -- continuación}\\
+\toprule
+\textbf{Aspecto de implementación} & \textbf{Referencias representativas} & \textbf{Evidencia reportada} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{Continúa en la página siguiente}\\
+\endfoot
 \bottomrule
-\end{tabular}
-\end{table*}
+\endlastfoot
+Tiempo real demostrado (31/99) & \citet{fierrosilva2026}; \citet{fathy2022}; \citet{ingle2022}; \citet{saleem2022} & Evidencia experimental de velocidad de procesamiento \\
+Tiempo real declarado (27/99) & \citet{munoz2025}; \citet{shah2023}; \citet{g2025}; \citet{shah2025} & Afirmación de tiempo real sin demostración equivalente \\
+Arquitectura de despliegue descrita (21/99) & \citet{munoz2025}; \citet{fierrosilva2026}; \citet{fathy2022}; \citet{ingle2022} & Descripción de componentes y organización del despliegue \\
+\end{longtable}
+\endgroup
 
 Según el nivel de evidencia documentado en el corpus completo, siete estudios
 presentaron un prototipo demostrado, 14 describieron una arquitectura propuesta,
@@ -1143,6 +1063,38 @@ oclusión (16/99), falsos positivos o negativos (16/99), variaciones de iluminac
 (13/99), baja diversidad de los conjuntos de datos (10/99), escenas complejas o
 concurridas (9/99) y generalización limitada entre datasets (7/99).
 
+\begingroup
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{@{}L{9.0cm}L{3.6cm}@{}}
+\caption{Limitaciones declaradas con mayor frecuencia en el corpus}
+\label{tab:rq5_limitations}\\
+\toprule
+\textbf{Limitación} & \textbf{Frecuencia (N=99)} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{c}{\tablename\ \thetable{} -- continuación}\\
+\toprule
+\textbf{Limitación} & \textbf{Frecuencia (N=99)} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r}{Continúa en la página siguiente}\\
+\endfoot
+\bottomrule
+\endlastfoot
+Oclusión & 16 \\
+Falsos positivos o negativos & 16 \\
+Variaciones de iluminación & 13 \\
+Baja diversidad de los conjuntos de datos & 10 \\
+Escenas complejas o concurridas & 9 \\
+Generalización limitada entre datasets & 7 \\
+\end{longtable}
+\endgroup
+
+Las limitaciones son multietiqueta: un estudio puede declarar más de una.
+
 Un hallazgo adicional es que 25 de los 78 estudios que no describieron una arquitectura
 de despliegue afirmaron procesamiento en tiempo real. En estos casos, la evidencia
 correspondió principalmente a mediciones experimentales de velocidad o latencia y no
@@ -1151,7 +1103,7 @@ videovigilancia.
 
 
 % ============================================================
-% 3.7 ANÁLISIS BIBLIOMÉTRICO
+% 3.3 ANÁLISIS BIBLIOMÉTRICO
 % ============================================================
 
 \subsection{Resultados del análisis bibliométrico}
@@ -1427,7 +1379,7 @@ multiobjeto. Durante 2025--2026 se incrementó la frecuencia relativa de
 \centering
 \small
 \renewcommand{\arraystretch}{1.12}
-\begin{tabular}{@{}L{3.0cm}L{12.5cm}@{}}
+\begin{tabular}{@{}L{2.6cm}L{9.8cm}@{}}
 \toprule
 \textbf{Periodo} & \textbf{Términos con mayor presencia} \\
 \midrule
@@ -1488,10 +1440,10 @@ los términos con mayor presencia dentro del corpus.
 
 
 % ============================================================
-% 3.8 SÍNTESIS DE RESULTADOS
+% SÍNTESIS DE RESULTADOS
 % ============================================================
 
-\subsection{Síntesis de los principales resultados}
+\subsubsection*{Síntesis de los principales resultados}
 \label{subsec:results_synthesis}
 
 La integración de los resultados de la revisión sistemática y del análisis
