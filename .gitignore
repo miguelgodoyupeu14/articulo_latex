@@ -1,0 +1,25 @@
+# Archivos locales, respaldos y resultados de compilación
+/build/
+/backups/
+/.vscode/settings.json
+/sn-article-local.*
+/sn-article.pdf
+/INFORME_LOCAL.md
+/REFERENCIAS_RECUPERADAS.md
+/original-sha256.json
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.blg
+*.bbl
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.synctex.gz(busy)
+*.bak
+.DS_Store
+Thumbs.db

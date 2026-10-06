@@ -1,0 +1,1624 @@
+    %Version 3.1 December 2024
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%\documentclass[lineno,pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%=========================================================================================%%
+%% the documentclass is set to pdflatex as default. You can delete it if not appropriate.  %%
+%%=========================================================================================%%
+
+%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove Numbered in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-chicago.bst%  
+ 
+%%\documentclass[pdflatex,sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
+%%\documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
+%%\documentclass[pdflatex,sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}% Vancouver Numbered Reference Style
+%%\documentclass[pdflatex,sn-vancouver-ay]{sn-jnl}% Vancouver Author Year Reference Style
+%%\documentclass[pdflatex,sn-apa]{sn-jnl}% APA Reference Style
+%%\documentclass[pdflatex,sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\graphicspath{{figures/}}
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+\usepackage{longtable}%
+\usepackage{array}%
+\usepackage{ragged2e}%
+
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+%%%%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+    \begin{document}
+
+\title[Article Title]{Sistemas inteligentes de videovigilancia y técnicas de Inteligencia
+Artificial para la detección y seguimiento de actividades delictivas una Revisión Sistemática de la Literatura.}
+
+%%=============================================================%%
+%% GivenName -> \fnm{Nombre}
+%% FamilyName -> \sur{Apellido}
+%%=============================================================%%
+
+\author*[1]{\fnm{Mixel} \sur{Meza}}\email{prantxes.meza@upeu.edu.pe}
+
+\author[1]{\fnm{Juan} \sur{Espiritu}}\email{juan.espiritu@upeu.edu.pe}
+
+\author[1]{\fnm{Miguel} \sur{Godoy}}\email{miguel.godoy@upeu.edu.pe}
+
+\author[1]{\fnm{Juan Jesús} \sur{Soria Quijaite}}\email{jesussoria@upeu.edu.pe}
+
+\affil*[1]{
+\orgdiv{Facultad de Ingeniería y Arquitectura},
+\orgname{Universidad Peruana Unión},
+\orgaddress{
+\city{Lima},
+\state{Lima},
+\country{Perú}
+}}
+    
+%%==================================%%
+%% Sample for unstructured abstract %%
+%%==================================%%
+
+\abstract{The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. Authors are advised to check the author instructions for the journal they are submitting to for word limits and if structural elements like subheadings, citations, or equations are permitted.}
+
+%%================================%%
+%% Sample for structured abstract %%
+%%================================%%
+
+% \abstract{\textbf{Purpose:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Methods:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Results:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Conclusion:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.}
+
+\keywords{keyword1, Keyword2, Keyword3, Keyword4}
+
+%%\pacs[JEL Classification]{D8, H51}
+
+%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+
+\maketitle
+
+\section{Introducción}\label{sec1}
+
+América Latina sostiene niveles de violencia urbana que ninguna otra región iguala. El \emph{Global Study on Homicide} de la Oficina de las Naciones Unidas contra la Droga y el Delito sitúa en las Américas el 34\,\% de los homicidios registrados en el mundo durante 2021, y ocho de los diez países con las tasas más altas del planeta se ubican en América Latina y el Caribe \cite{unodc2023}. Frente a ese panorama, la respuesta institucional dominante ha sido multiplicar los circuitos cerrados de televisión en el espacio público. La política descansa en un supuesto sencillo: observar de forma permanente disuade la comisión de delitos y facilita su esclarecimiento. El supuesto se cumple a medias. Quien vigila decenas de monitores durante turnos prolongados pierde capacidad de atención en cuestión de minutos, de manera que una proporción considerable de los incidentes se advierte recién cuando alguien revisa la grabación, con el hecho ya consumado \cite{bhatti2021}. La cámara termina operando como archivo forense antes que como mecanismo de prevención.
+
+El aprendizaje profundo aplicado a la visión por computador alteró ese escenario, pues permite que el análisis del flujo de video se ejecute de forma automática y continua. Los detectores convolucionales de una sola etapa, y en particular los de la familia YOLO, localizan armas de fuego y armas blancas sobre imágenes de cámaras de vigilancia con precisiones competitivas \cite{ahmed2022}. Detectar el objeto, sin embargo, no basta cuando lo que interesa es la acción, porque reconocer una agresión exige modelar cómo cambia la escena en el tiempo. Las redes recurrentes dotadas de mecanismos de atención abordaron ese problema al ponderar los fotogramas relevantes de cada secuencia \cite{ullah2021}. Las convoluciones tridimensionales lo hicieron por otra vía, extendiendo el filtro al eje temporal \cite{magdy2023}. Ambas familias superan a los descriptores manuales que las precedieron, aunque su desempeño varía de forma notoria según el conjunto de prueba con el que se evalúen \cite{sernani2021}. Trabajos más recientes incorporaron transformadores de visión junto con aprendizaje estructurado para aliviar la dependencia de anotaciones cuadro a cuadro, impracticables a escala urbana \cite{rendon2023}, y combinaciones de autoatención con memorias convolucionales bidireccionales persiguieron el mismo fin \cite{rendon2021}. Una línea menos poblada trasladó el cómputo hacia el borde de la red. Primero, para detectar armas en cámaras de interior sin enviar el video a un servidor central \cite{berardini2024}. Después, incorporando superresolución para compensar la baja calidad de las capturas \cite{berardini2025}. También con arquitecturas que anteponen el cumplimiento de la normativa de privacidad al rendimiento bruto \cite{barthelemy2024}.
+Además de la detección automática de conductas delictivas, los sistemas inteligentes de videovigilancia pueden incorporar técnicas orientadas a la identificación y al seguimiento de las personas involucradas. El seguimiento dentro de una misma cámara permite mantener la trayectoria de un individuo u objeto a lo largo del tiempo, mientras que la re-identificación de personas y el seguimiento multi-cámara permiten asociar apariciones del mismo sujeto entre diferentes cámaras. Estas capacidades resultan especialmente relevantes en entornos urbanos, donde una persona puede abandonar el campo visual de una cámara y aparecer posteriormente en otra.
+
+La abundancia de propuestas no se traduce, sin embargo, en evidencia lista para llevarse a una implementación real. Tres limitaciones lo impiden. La primera es la concentración del esfuerzo experimental en un número reducido de conjuntos de datos de referencia: en el corpus examinado en este trabajo, UCF-Crime sostiene trece de los treinta y cinco estudios incluidos, lo que introduce el riesgo de que las mejoras informadas reflejen un ajuste al banco de pruebas antes que capacidad de generalización. Quienes construyeron conjuntos alternativos advirtieron ese riesgo de forma explícita, sea al grabar agresiones en el transporte público real \cite{ciampi2022}, sea al reunir material de cámaras de vigilancia con presencia de armas \cite{hnoohom2022}. A ello se suma la heterogeneidad de las métricas: exactitud, mAP, AUC y F1 se reportan de manera intercambiable y sobre particiones distintas, de modo que la comparación directa entre publicaciones rara vez resulta legítima. La tercera limitación pesa más que las anteriores para la seguridad ciudadana. Casi ningún estudio describe la arquitectura de despliegue, entendida como la cadena de captura, transmisión, procesamiento y notificación: solo siete de los treinta y cinco estudios que superaron la valoración de calidad aportan evidencia sobre la plataforma en la que el modelo llegaría a operar. Las revisiones publicadas hasta la fecha privilegiaron la taxonomía de técnicas y dedicaron atención marginal a estas condiciones de operación.
+
+El presente artículo aborda esa brecha mediante una revisión sistemática de la literatura, conducida según el protocolo de Kitchenham y Charters para ingeniería de software \cite{kitchenham2007} y reportada conforme a la declaración PRISMA 2020 \cite{page2021}. La pregunta que orienta el estudio es doble: qué modelos y algoritmos de inteligencia artificial y visión por computador se emplean para la detección, identificación y seguimiento de actividades delictivas en sistemas de videovigilancia urbana, y qué beneficios, limitaciones y evidencias de desempeño reportan frente a enfoques tradicionales y modelos de referencia previos. La búsqueda se ejecutó en Web of Science, Scopus y ScienceDirect sobre publicaciones del periodo comprendido entre 2021 y 2026, y recuperó 477 registros; 373 superaron el cribado por título y resumen. Esos estudios fueron valorados con una rúbrica de cinco preguntas de calidad en la que la ausencia de evidencia se puntúa como incumplimiento y no como cumplimiento parcial, criterio deliberadamente exigente que dejó 45 trabajos, de los cuales 35 corresponden al contexto de videovigilancia urbana y constituyen el corpus final. El aporte del trabajo es doble. Por un lado, sistematiza las tareas abordadas, los conjuntos de datos empleados, las arquitecturas implementadas y los resultados informados en esos treinta y cinco estudios. Por otro, documenta de forma explícita qué proporción del corpus sostiene cada afirmación, lo que permite separar los hallazgos consolidados de aquellos que descansan en evidencia aislada. Esa distinción suele quedar fuera de las revisiones previas.
+
+% NOTA: cuando crees las secciones 2 a 5 con sus \label, reemplaza los números
+% literales de abajo por \ref{...} para que se numeren solas.
+El resto del documento se organiza como sigue. La sección 2 describe el protocolo de revisión, las ecuaciones de búsqueda aplicadas en cada base de datos y los criterios de valoración de la calidad. La sección 3 presenta los resultados agrupados según las cinco preguntas de calidad. La sección 4 discute las implicaciones para el diseño de sistemas de videovigilancia asistida por inteligencia artificial, junto con las limitaciones del propio estudio. La sección 5 recoge las conclusiones.
+
+\section{Metodología}\label{sec2}
+
+Este estudio corresponde a una revisión sistemática de la literatura (RSL). El diseño metodológico sigue el protocolo propuesto por Kitchenham y Charters para estudios secundarios en ingeniería de software, cuya aplicación y limitaciones han sido analizadas posteriormente dentro del mismo campo \cite{kitchenham2009}. El reporte se estructura de acuerdo con los principios de PRISMA 2020. La gestión del protocolo, la importación de registros, el proceso de selección, la evaluación de calidad y la extracción de datos se realizaron mediante Parsifal, plataforma orientada a la conducción de revisiones sistemáticas. Tres revisores participaron en las diferentes etapas del proceso.
+
+\subsection{Pregunta de investigación y delimitación conceptual}\label{subsec2_1}
+
+La pregunta principal que orienta el estudio es la siguiente: ¿Qué modelos y técnicas de Inteligencia Artificial se han aplicado, entre 2021 y 2026, para la detección y seguimiento de actividades delictivas en sistemas de videovigilancia urbana, incluyendo técnicas de identificación, re-identificación y seguimiento de personas involucradas, y qué resultados de desempeño y evidencias de implementación y despliegue reportan?
+
+Para delimitar la pregunta se empleó el marco PICOCT, que organiza el problema de investigación en población, intervención, comparación, resultado, contexto y tiempo antes de traducirlo a conceptos de búsqueda \cite{petticrew2006}. La Tabla~\ref{tab:picoc} recoge esta delimitación.
+
+\begin{table}[h]
+\caption{Delimitación de la pregunta mediante el marco PICOCT}\label{tab:picoc}
+\begin{tabular}{@{}p{2.2cm}p{9.2cm}@{}}
+\toprule
+Componente & Delimitación \\
+\midrule
+
+Población & Identificación de personas y detección de actividades delictivas o conductas anómalas en video de vigilancia urbana \\
+
+Intervención & Modelos y algoritmos de aprendizaje profundo y visión por computador aplicados a videovigilancia, incluyendo reconocimiento, re-identificación de personas, seguimiento multi-cámara y detección de anomalías o violencia \\
+
+Comparación & Modelos orientados a la identificación biométrica de personas frente a modelos orientados a la detección de conductas \\
+
+Resultado & Exactitud, precisión, recall, F1-Score, mAP, Rank-1 y velocidad de procesamiento mediante FPS o latencia \\
+
+Contexto & Sistemas de videovigilancia urbana orientados a seguridad ciudadana \\
+
+Tiempo & Publicaciones científicas comprendidas entre 2021 y 2026 \\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Preguntas específicas de investigación}\label{subsec2_2}
+
+A partir de la pregunta principal se definieron cinco preguntas específicas destinadas a orientar el análisis de las dimensiones técnicas y experimentales de los estudios incluidos. Estas preguntas abarcan los modelos y arquitecturas de Inteligencia Artificial utilizados, las actividades delictivas y capacidades de seguimiento abordadas, los conjuntos de datos y escenarios de evaluación, las métricas de desempeño y la evidencia de implementación y despliegue.
+
+\begin{table}[h]
+\caption{Preguntas específicas de investigación}\label{tab:preguntas}
+\begin{tabular}{@{}p{0.9cm}p{10.5cm}@{}}
+\toprule
+Código & Pregunta \\
+\midrule
+
+RQ1 & ¿Qué modelos, algoritmos y arquitecturas de Inteligencia Artificial se utilizan para la detección de actividades delictivas y para la identificación, re-identificación y seguimiento de personas en sistemas de videovigilancia? \\
+
+RQ2 & ¿Qué tipos de actividades delictivas y eventos de seguridad son detectados por los sistemas inteligentes de videovigilancia, y qué capacidades de identificación, re-identificación y seguimiento de las personas involucradas son abordadas? \\
+
+RQ3 & ¿Qué conjuntos de datos y escenarios de videovigilancia se utilizan para entrenar y evaluar los modelos de detección de actividades delictivas, identificación y seguimiento de personas? \\
+
+RQ4 & ¿Qué métricas y niveles de desempeño reportan los modelos de Inteligencia Artificial utilizados para la detección de actividades delictivas, identificación, re-identificación y seguimiento de personas? \\
+
+RQ5 & ¿Qué evidencia de implementación, procesamiento en tiempo real, arquitectura de despliegue y limitaciones reportan los sistemas inteligentes de videovigilancia orientados a la detección y seguimiento de actividades delictivas? \\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Estrategia de búsqueda}\label{subsec2_3}
+
+A partir del marco PICOCT se identificaron conceptos relacionados con videovigilancia, actividades delictivas, Inteligencia Artificial, identificación y seguimiento, desempeño y seguridad ciudadana. Para las ecuaciones de búsqueda ejecutadas se utilizaron como bloques principales los conceptos de videovigilancia, actividad delictiva o evento de seguridad e Inteligencia Artificial. Los términos equivalentes dentro de cada bloque se combinaron mediante el operador booleano OR, mientras que los bloques se relacionaron mediante AND, siguiendo las recomendaciones para la construcción de estrategias de búsqueda en estudios secundarios \cite{petersen2015}.
+
+La búsqueda se ejecutó el 6 de septiembre de 2026 en tres bases de datos: ISI Web of Science, Scopus y ScienceDirect. La selección de estas fuentes responde a la cobertura complementaria que ofrecen para las áreas de ingeniería y computación, documentada en estudios comparativos de solapamiento entre bases bibliográficas \cite{martin2021}. Ninguna fuente indexa por sí sola la totalidad de la literatura relevante, por lo que utilizar múltiples bases permite reducir el sesgo de cobertura. Asimismo, se consideró que una búsqueda automatizada requiere equilibrar sensibilidad y precisión, aspecto condicionado directamente por la formulación de la cadena de búsqueda \cite{zhang2011}. La Tabla~\ref{tab:busqueda} presenta las ecuaciones ejecutadas y los registros recuperados.
+
+\begin{table}[h]
+\caption{Cadenas de búsqueda y registros recuperados por base de datos}\label{tab:busqueda}
+\begin{tabular}{@{}p{2.6cm}p{7.2cm}r@{}}
+\toprule
+Base de datos & Cadena de búsqueda & Registros \\
+\midrule
+
+ISI Web of Science &
+TS=(("video surveillance" OR "CCTV" OR "smart surveillance" OR "intelligent surveillance") AND ("weapon detection" OR "violence detection" OR "crime detection" OR "anomaly detection" OR "suspicious activity") AND ("artificial intelligence" OR "machine learning" OR "deep learning" OR "CNN" OR "YOLO" OR "Faster R-CNN")) &
+299 \\
+
+Scopus &
+TITLE-ABS-KEY(("video surveillance" OR "CCTV" OR "smart surveillance" OR "intelligent surveillance") AND ("crime" OR "criminal activity" OR "weapon detection" OR "violence detection") AND ("artificial intelligence" OR "machine learning" OR "deep learning" OR "CNN" OR "YOLO" OR "Faster R-CNN")) AND PUBYEAR $>$ 2020 AND PUBYEAR $<$ 2027 &
+148 \\
+
+ScienceDirect &
+("video surveillance" OR "CCTV" OR "intelligent surveillance") AND ("weapon detection" OR "violence detection" OR "anomaly detection") AND ("deep learning" OR "machine learning" OR "computer vision") &
+30 \\
+
+\midrule
+\multicolumn{2}{@{}l}{Total de registros importados} & 477 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Las cadenas anteriores corresponden a la búsqueda que originó el corpus actualmente analizado. Aunque el marco PICOCT y las preguntas de investigación contemplan también identificación, re-identificación y seguimiento, no se reporta en esta etapa ninguna búsqueda complementaria específica para dichas técnicas, debido a que esta todavía se encuentra en proceso de diseño y auditoría metodológica.
+
+
+\subsection{Criterios de inclusión y exclusión}\label{subsec2_4}
+
+Los estudios recuperados fueron evaluados mediante criterios de inclusión y exclusión configurados en Parsifal. Estos criterios delimitan el corpus a investigaciones primarias que presenten evidencia experimental sobre el uso de Inteligencia Artificial, aprendizaje automático, aprendizaje profundo o visión por computador en sistemas de videovigilancia vinculados con actividades delictivas, eventos de seguridad o con la identificación y seguimiento de las personas involucradas. La Tabla~\ref{tab:criterios} presenta los criterios utilizados.
+
+\begin{table}[h]
+\caption{Criterios de inclusión y exclusión}\label{tab:criterios}
+\begin{tabular}{@{}p{0.9cm}p{10.5cm}@{}}
+\toprule
+Código & Criterio \\
+\midrule
+
+CI1 & Estudios con acceso a texto completo. \\
+
+CI2 & Estudios orientados a la detección de actividades delictivas o eventos de seguridad mediante videovigilancia, como armas, violencia o sospechosos, o a la identificación, re-identificación o seguimiento vinculados con dichos eventos. \\
+
+CI3 & Estudios publicados en inglés. \\
+
+CI4 & Estudios que presenten evaluación experimental y resultados cuantitativos. \\
+
+CI5 & Estudios que utilicen Inteligencia Artificial, aprendizaje automático, aprendizaje profundo o visión por computador en videovigilancia. \\
+
+CI6 & Publicaciones científicas comprendidas entre 2021 y 2026. \\
+
+\midrule
+
+CE1 & Registros duplicados. \\
+
+CE2 & Estudios de reconocimiento biométrico, identificación, re-identificación o seguimiento sin relación explícita con delitos, eventos de seguridad o videovigilancia orientada a seguridad ciudadana. \\
+
+CE3 & Estudios exclusivamente industriales, médicos u otros contextos fuera de videovigilancia o seguridad ciudadana. \\
+
+CE4 & Estudios puramente conceptuales sin evaluación experimental. \\
+
+CE5 & Estudios sin aplicación de Inteligencia Artificial sobre imágenes o video de vigilancia. \\
+
+CE6 & Revisiones secundarias, editoriales, capítulos u otros tipos documentales diferentes de los estudios primarios considerados por el protocolo. \\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Proceso de selección de estudios}\label{subsec2_5}
+
+La búsqueda bibliográfica recuperó 477 registros: 299 procedentes de ISI Web of Science, 148 de Scopus y 30 de ScienceDirect. Todos los registros fueron importados a Parsifal para realizar el proceso de selección.
+
+Durante la fase de \textit{Study Selection} se identificaron 79 registros duplicados y se rechazaron 91 estudios tras la aplicación de los criterios de elegibilidad. Como resultado, 307 estudios fueron aceptados para la fase de evaluación de calidad. De estos estudios aceptados, 201 procedían de Web of Science, 92 de Scopus y 14 de ScienceDirect.
+
+\begin{table}[h]
+\caption{Flujo inicial de selección de estudios}\label{tab:flujo}
+\begin{tabular}{@{}lr@{}}
+\toprule
+Etapa & Estudios \\
+\midrule
+Registros identificados & 477 \\
+Registros duplicados & 79 \\
+Estudios rechazados & 91 \\
+Estudios aceptados para evaluación de calidad & 307 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+La distribución cuantitativa de los 91 estudios rechazados según cada motivo específico de exclusión no ha sido consolidada. Por esta razón, se reporta únicamente el total de exclusiones y los criterios utilizados, evitando atribuir cantidades a categorías de exclusión que todavía no han sido verificadas individualmente.
+
+
+\subsection{Evaluación de la calidad}\label{subsec2_6}
+
+Los 307 estudios aceptados durante la selección fueron sometidos a una evaluación de calidad mediante diez preguntas (QA1--QA10). La evaluación siguió la lógica de las listas de verificación utilizadas en revisiones sistemáticas de ingeniería de software, donde cada criterio examina un aspecto verificable del reporte del estudio \cite{dyba2008}.
+
+Cada pregunta se calificó mediante una escala tripartita: \textit{Yes} = 1,0; \textit{Partially} = 0,5; y \textit{No} = 0,0. Por tanto, cada estudio podía obtener un puntaje máximo de 10 puntos. El protocolo estableció como criterio de elegibilidad un puntaje de calidad mayor o igual a 7,0 (QA $\geq$ 7,0).
+
+\begin{table}[h]
+\caption{Preguntas utilizadas para la evaluación de calidad}\label{tab:qa}
+\begin{tabular}{@{}p{0.9cm}p{10.5cm}@{}}
+\toprule
+Código & Pregunta de calidad \\
+\midrule
+
+QA1 & ¿El estudio describe claramente el contexto o escenario de aplicación del sistema de videovigilancia? \\
+
+QA2 & ¿Se describe con suficiente detalle el modelo, algoritmo o arquitectura de Inteligencia Artificial utilizada? \\
+
+QA3 & ¿El conjunto de datos está adecuadamente descrito en cuanto a origen, tamaño, clases y características relevantes? \\
+
+QA4 & ¿La metodología de evaluación o validación está claramente descrita y es apropiada para el objetivo del estudio? \\
+
+QA5 & ¿El estudio define con claridad el objetivo o problema de investigación relacionado con la detección de actividades delictivas, violencia, armas o conductas anómalas mediante videovigilancia? \\
+
+QA6 & ¿El estudio reporta métricas cuantitativas de desempeño como Accuracy, Precision, Recall, F1-score, mAP, AUC, FPS o latencia? \\
+
+QA7 & ¿El estudio declara limitaciones, amenazas a la validez o problemas de generalización de los resultados? \\
+
+QA8 & ¿El modelo propuesto se compara con al menos un método, modelo o línea base relevante? \\
+
+QA9 & ¿Los resultados son analizados o discutidos en relación con trabajos previos o con otros métodos de la literatura? \\
+
+QA10 & ¿El estudio fue publicado en una revista o conferencia arbitrada/indexada y cuenta con información bibliográfica verificable, como DOI? \\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+Parsifal clasifica de manera nativa como superiores al \textit{cutoff} únicamente los estudios cuyo puntaje es estrictamente mayor que 7,0. Sin embargo, el criterio metodológico adoptado para esta revisión fue inclusivo, considerando elegibles también los estudios con puntaje exactamente igual a 7,0.
+
+De los 307 estudios evaluados, 211 obtuvieron un puntaje superior a 7,0, 45 alcanzaron exactamente 7,0 y 51 obtuvieron un puntaje inferior a 7,0. En consecuencia, mediante el criterio QA $\geq$ 7,0 se obtuvieron 256 estudios elegibles.
+
+\begin{table}[h]
+\caption{Distribución de estudios según la evaluación de calidad}\label{tab:qa_resultados}
+\begin{tabular}{@{}lr@{}}
+\toprule
+Resultado & Estudios \\
+\midrule
+QA $>$ 7,0 & 211 \\
+QA $=$ 7,0 & 45 \\
+QA $<$ 7,0 & 51 \\
+\midrule
+Total evaluado & 307 \\
+Elegibles con QA $\geq$ 7,0 & 256 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Tras la evaluación de calidad se realizó una verificación adicional de los 256 registros elegibles. Mediante la comparación de DOI se identificaron tres duplicados residuales, correspondientes a los pares N146/N183, N163/N203 y N199/N233. Se conservó la primera aparición de cada estudio, obteniéndose 253 registros únicos.
+
+Posteriormente se efectuó una auditoría científica complementaria, externa al flujo automático de Parsifal, con el propósito de revisar la pertinencia de los registros respecto del alcance del estudio. Como resultado, 114 estudios fueron clasificados como ``APROBADO'', 90 como ``APROBADO CON OBSERVACIONES'' y 49 como ``REVISAR''. Los dos primeros grupos suman 204 estudios considerados actualmente de alta confianza, mientras que los 49 restantes permanecen sujetos a revisión adicional.
+
+% IMPORTANTE:
+% Los 49 estudios clasificados como "REVISAR" todavía no constituyen exclusiones definitivas.
+% Actualizar esta parte cuando finalice la auditoría científica.
+
+
+\subsection{Extracción de datos}\label{subsec2_7}
+
+El formulario de extracción de datos configurado en Parsifal estuvo compuesto por 20 campos: autores, año de publicación, DOI, base de datos de origen, país del estudio, conjunto de datos utilizado, tamaño del conjunto de datos, tipo de tarea, arquitectura o modelo de Inteligencia Artificial, exactitud, F1-Score, mAP, precisión, recall, AUC, latencia, velocidad de procesamiento en FPS, descripción de la arquitectura de despliegue, limitaciones declaradas por los autores y puntaje total de calidad.
+
+En el campo correspondiente al tipo de tarea se configuraron las categorías detección de armas, detección de conducta anómala, detección de violencia y otro. El campo ``¿Describe arquitectura de despliegue?'' fue registrado como una variable booleana.
+
+Debido al funcionamiento nativo del \textit{cutoff} de Parsifal, el módulo de extracción de datos habilitó automáticamente únicamente los 211 estudios con QA $>$ 7,0. La extracción correspondiente a estos 211 estudios fue completada en su totalidad. Los 45 estudios con QA exactamente igual a 7,0, considerados elegibles conforme al criterio QA $\geq$ 7,0 definido para esta revisión, no fueron habilitados automáticamente por la plataforma y su información se conserva mediante el registro maestro externo del proyecto para su tratamiento posterior.
+
+La configuración actual del formulario corresponde al corpus derivado de la búsqueda ejecutada. En caso de incorporarse posteriormente una búsqueda complementaria específica sobre identificación, re-identificación o seguimiento, cualquier ampliación del formulario de extracción deberá documentarse antes de integrar dichos estudios al análisis.
+
+
+\subsection{Amenazas a la validez}\label{subsec2_8}
+
+Las amenazas a la validez de esta revisión se analizaron considerando las dimensiones de validez interna, externa, de constructo y de conclusión propuestas para estudios secundarios en ingeniería de software \cite{ampatzoglou2019}.
+
+La primera amenaza está asociada al proceso de selección y evaluación de los estudios. Aunque tres revisores participaron en la conducción de la revisión, la concordancia entre ellos no fue cuantificada mediante un coeficiente estadístico formal como el propuesto por Cohen para variables nominales \cite{cohen1960}. En consecuencia, no es posible expresar numéricamente el nivel de acuerdo alcanzado entre los revisores.
+
+La segunda amenaza corresponde a la exhaustividad de la búsqueda. El corpus actual se obtuvo mediante búsquedas automatizadas en ISI Web of Science, Scopus y ScienceDirect y no se complementó con técnicas de \textit{backward} o \textit{forward snowballing}. Estas técnicas pueden recuperar estudios relevantes que no aparecen mediante las cadenas booleanas debido a diferencias terminológicas \cite{wohlin2014}. Por lo tanto, algunos trabajos pertinentes podrían no estar representados en el corpus.
+
+Una amenaza adicional de cobertura se deriva de que las ecuaciones de búsqueda ejecutadas priorizaron términos asociados con videovigilancia, actividades delictivas e Inteligencia Artificial, mientras que la identificación, re-identificación y seguimiento no fueron incorporados como un bloque booleano específico en la búsqueda histórica. En consecuencia, pueden existir estudios centrados principalmente en \textit{person re-identification}, \textit{person tracking} o seguimiento multi-cámara que no hayan sido recuperados si no utilizaron terminología explícita relacionada con actividades delictivas o eventos de seguridad. Esta limitación constituye uno de los aspectos considerados para el diseño de una búsqueda complementaria, la cual todavía no forma parte de los resultados reportados en esta revisión.
+
+Finalmente, las restricciones de idioma, acceso al texto completo, tipo documental y periodo de publicación entre 2021 y 2026 introducen un sesgo de disponibilidad. En particular, la restricción al idioma inglés puede excluir literatura relevante desarrollada en contextos latinoamericanos. Estas condiciones fueron adoptadas para mantener un corpus reciente, verificable y técnicamente comparable, pero limitan el alcance de generalización de las conclusiones.
+
+% ============================================================
+% 3. RESULTADOS
+% ============================================================
+
+\section{Resultados}\label{sec3}
+
+Los resultados se organizaron de acuerdo con la pregunta general de investigación,
+las cinco preguntas específicas (RQ1--RQ5) y el análisis bibliométrico complementario.
+Para la síntesis de la revisión sistemática se distinguieron dos niveles de evidencia.
+El corpus final elegible estuvo conformado por 99 estudios que superaron la evaluación
+de calidad y constituye la base de los conteos y frecuencias globales. Dentro de este
+conjunto, 35 estudios conformaron el \textit{Reporting Core}, utilizado para realizar
+una síntesis detallada y mantener la trazabilidad de los principales hallazgos hacia
+estudios concretos.
+
+Los 64 estudios restantes no fueron excluidos de la revisión, sino que permanecieron
+dentro del corpus elegible y fueron considerados en los análisis cuantitativos globales.
+Debido a que un mismo estudio puede emplear más de una arquitectura, abordar varios
+eventos de seguridad, utilizar múltiples conjuntos de datos o reportar distintas
+métricas, varias clasificaciones fueron tratadas como multietiqueta; por esta razón,
+sus porcentajes no necesariamente suman 100\,\%.
+
+
+% ============================================================
+% 3.1 PREGUNTA GENERAL DE INVESTIGACIÓN
+% ============================================================
+
+\subsection{Resultados de la pregunta general de investigación}
+\label{subsec:rq_general}
+
+La pregunta general examinó qué modelos y técnicas de Inteligencia Artificial se han
+aplicado entre 2021 y 2026 para la detección y seguimiento de actividades delictivas
+en sistemas de videovigilancia, incluyendo las capacidades de identificación,
+seguimiento de personas y las evidencias de evaluación e implementación reportadas
+por los estudios.
+
+En el corpus final ($N=99$), las familias tecnológicas con mayor presencia fueron
+las CNN bidimensionales (25/99), los detectores de objetos basados principalmente
+en YOLO (20/99), las arquitecturas recurrentes LSTM (16/99) y las 3D-CNN
+(13/99). La violencia o agresión física fue el evento de seguridad más estudiado
+(52/99), seguida por la detección de armas de fuego (29/99). En contraste, las
+capacidades relacionadas con seguimiento e identificación tuvieron una menor
+representación: la unión deduplicada de los estudios que incorporaron alguna de
+estas funciones alcanzó 18/99.
+
+En cuanto a la evaluación experimental, 56 de los 99 estudios utilizaron
+principalmente conjuntos de datos públicos o benchmarks. Accuracy fue la métrica
+reportada con mayor frecuencia (60/99), seguida por F1-Score (30/99), Precision
+y Recall (28/99 cada una). Respecto de la implementación, 31 estudios demostraron
+experimentalmente procesamiento en tiempo real y otros 27 lo declararon; sin embargo,
+únicamente 21 estudios describieron una arquitectura de despliegue.
+
+Para complementar estos resultados globales, la
+Tabla~\ref{tab:general_results} presenta una síntesis de los 35 estudios que
+conforman el \textit{Reporting Core}. Siguiendo la lógica de la pregunta general,
+cada estudio se organizó según cuatro dimensiones: los modelos o técnicas de
+Inteligencia Artificial utilizados, las actividades o eventos de seguridad abordados,
+las capacidades de identificación y seguimiento, y las condiciones de evaluación
+e implementación reportadas.
+
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\renewcommand{\arraystretch}{1.12}
+
+\begin{longtable}{@{}L{2.0cm}L{2.5cm}L{2.55cm}L{2.4cm}L{2.9cm}@{}}
+
+\caption{Síntesis de los estudios del Reporting Core para responder la pregunta general de investigación}
+\label{tab:general_results}\\
+
+\toprule
+\textbf{Referencia} &
+\textbf{Modelos y técnicas de IA} &
+\textbf{Actividades o eventos detectados} &
+\textbf{Identificación y seguimiento} &
+\textbf{Evaluación e implementación} \\
+\midrule
+\endfirsthead
+
+\multicolumn{5}{c}
+{{\tablename\ \thetable{} -- continuación}}\\
+
+\toprule
+\textbf{Referencia} &
+\textbf{Modelos y técnicas de IA} &
+\textbf{Actividades o eventos detectados} &
+\textbf{Identificación y seguimiento} &
+\textbf{Evaluación e implementación} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{5}{r}{Continúa en la página siguiente}\\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+
+\citet{munoz2025} &
+YOLO / detector de objetos &
+Arma de fuego &
+No reportado &
+Dataset propio; tiempo real declarado; despliegue descrito \\
+
+
+\citet{ciampi2024} &
+CNN 2D &
+Violencia / agresión física &
+No reportado &
+SCF, RLVS y RWF-2000; tiempo real no reportado \\
+
+
+\citet{singhal2026} &
+LSTM y 3D-CNN &
+Arma de fuego y múltiples actividades delictivas &
+No reportado &
+UCF-Crime y DCSASS; evaluación mediante Accuracy, Precision, Recall, F1 y AUC \\
+
+
+\citet{bhavani2025} &
+Modelo basado en esqueleto / pose &
+Violencia y actividades delictivas &
+Seguimiento de movimiento &
+UCF-101; evaluación mediante Accuracy, Precision, Recall y F1 \\
+
+
+\citet{janbi2024} &
+GCN, ensemble y esqueleto / pose &
+Violencia / agresión física &
+Seguimiento de personas y esqueleto &
+RLVS y NTU-Violence; tiempo real no reportado \\
+
+
+\citet{shah2023} &
+Enfoque inspirado en computación cuántica &
+Detección de armas &
+No reportado &
+SCAD; procesamiento en tiempo real declarado \\
+
+
+\citet{ciampi2022} &
+Transformer, LSTM y 3D-CNN &
+Violencia / agresión física &
+No reportado &
+Bus Violence, SCF, RLVS y RWF-2000; tiempo real no reportado \\
+
+
+\citet{fierrosilva2026} &
+YOLO / detector de objetos &
+Detección de armas &
+Seguimiento multicámara &
+Sohas Weapon Detection; tiempo real demostrado; despliegue descrito \\
+
+
+\citet{huszar2023} &
+3D-CNN &
+Violencia / agresión física &
+No reportado &
+Evaluación en múltiples datasets, incluyendo Hockey Fight, RLVS y RWF-2000 \\
+
+
+\citet{fathy2022} &
+YOLO / detector de objetos &
+Detección de armas &
+No reportado &
+Sohas Weapon Detection; tiempo real demostrado; despliegue descrito \\
+
+
+\citet{muriithi2024} &
+Modelo basado en esqueleto / pose &
+Detección de armas &
+Seguimiento de personas y movimiento &
+Dataset propio; tiempo real no reportado \\
+
+
+\citet{shin2025} &
+Transformer y 3D-CNN &
+Comportamiento sospechoso / anómalo &
+No reportado &
+XD-Violence, ShanghaiTech y UCF-Crime \\
+
+
+\citet{pangavhane2025} &
+LSTM &
+Comportamiento sospechoso / anómalo &
+No reportado &
+KTH Human Motion; tiempo real no reportado \\
+
+
+\citet{dalal2024} &
+YOLO / detector de objetos &
+Personas u objetos de interés &
+No reportado &
+Dataset propio basado en Roboflow; tiempo real no reportado \\
+
+
+\citet{ingle2022} &
+CNN 2D &
+Detección de armas &
+No reportado &
+ImageNet e IMFDB; tiempo real demostrado; despliegue descrito \\
+
+
+\citet{saleem2022} &
+CNN 2D &
+Comportamiento sospechoso / anómalo &
+No reportado &
+UCF-Crime y UCF-Crime2Local; tiempo real demostrado; despliegue descrito \\
+
+
+\citet{azzakhnini2025} &
+LSTM &
+Violencia / agresión física &
+No reportado &
+Hockey Fight, Violent-Flows, RLVS y RWF-2000; tiempo real demostrado \\
+
+
+\citet{g2025} &
+GCN &
+Violencia / agresión física &
+No reportado &
+SCVD; procesamiento en tiempo real declarado \\
+
+
+\citet{sernani2021} &
+3D-CNN &
+Violencia / agresión física &
+No reportado &
+AIRTLab; evaluación experimental; tiempo real no reportado \\
+
+
+\citet{salman2026} &
+GRU &
+Violencia / agresión física &
+No reportado &
+Hockey Fight, RLVS, Violent-Flows y ShanghaiTech; tiempo real demostrado \\
+
+
+\citet{shah2025} &
+Enfoque inspirado en computación cuántica &
+Detección de armas &
+No reportado &
+SCAD; procesamiento en tiempo real declarado \\
+
+
+\citet{silva2026} &
+YOLO / detector de objetos &
+Detección de armas &
+No reportado &
+Sohas Weapon Detection; tiempo real demostrado; despliegue descrito \\
+
+
+\citet{park2024} &
+3D-CNN &
+Violencia / agresión física &
+No reportado &
+UBI-Fights; procesamiento en tiempo real demostrado \\
+
+
+\citet{pereatrigo2023} &
+CNN 2D &
+Detección de armas &
+No reportado &
+Dataset propio; tiempo real demostrado; despliegue descrito \\
+
+
+\citet{donia2023} &
+Aprendizaje automático clásico e ingeniería de características &
+Violencia / agresión física &
+No reportado &
+SBU-Kinect y Hockey Fight; tiempo real no reportado \\
+
+
+\citet{azam2026} &
+LSTM &
+Comportamiento sospechoso / anómalo &
+No reportado &
+Movie Fights; tiempo real demostrado; despliegue descrito \\
+
+
+\citet{singh2026} &
+Autoencoder / GAN &
+Detección de armas &
+No reportado &
+VISILAB; procesamiento en tiempo real demostrado \\
+
+
+\citet{jokhio2024} &
+Ensemble &
+Comportamiento sospechoso / anómalo &
+No reportado &
+Road Anomaly Dataset; procesamiento en tiempo real declarado \\
+
+
+\citet{sandhya2022} &
+Autoencoder / GAN &
+Identificación de personas &
+Reconocimiento facial &
+LFW; evaluación experimental; tiempo real no reportado \\
+
+
+\citet{matei2025} &
+CNN 2D &
+Actividades delictivas &
+Seguimiento de personas y esquelético &
+HR-Crime; tiempo real no reportado \\
+
+
+\citet{lin2025} &
+CNN 2D &
+Personas u objetos de interés &
+No reportado &
+Dataset propio; arquitectura de despliegue descrita \\
+
+
+\citet{garciacobo2023} &
+Modelo basado en esqueleto / pose &
+Violencia / agresión física &
+Seguimiento de personas y esqueleto &
+RWF-2000; procesamiento en tiempo real demostrado \\
+
+
+\citet{tonmoy2025} &
+Aprendizaje federado &
+Violencia y armas &
+No reportado &
+Hockey Fight, Weapon Violence Dataset 2.0 y Firearm Action; tiempo real declarado \\
+
+
+\citet{gao2026} &
+GRU y enfoque causal guiado por conocimiento &
+Comportamiento sospechoso / anómalo &
+No reportado &
+XD-Violence y UCF-Crime; procesamiento en tiempo real demostrado \\
+
+
+\citet{leyva2024} &
+GCN y modelo bayesiano &
+Comportamiento sospechoso / anómalo &
+Seguimiento de personas, objetos y multiobjeto &
+MEVA, Subway, ILIDS, UCSD, UMN, ShanghaiTech y LV; tiempo real no reportado \\
+
+
+\end{longtable}
+
+\normalsize
+\setlength{\tabcolsep}{6pt}
+
+En conjunto, la síntesis del \textit{Reporting Core} confirma que las tareas de
+detección concentran la mayor parte de las propuestas analizadas. Los modelos basados
+en CNN, YOLO y arquitecturas espacio-temporales aparecen de forma recurrente en
+detección de violencia y armas, mientras que las capacidades de identificación,
+seguimiento multicámara y seguimiento multiobjeto son menos frecuentes.
+
+Asimismo, se observa que los resultados experimentales suelen apoyarse en datasets
+de referencia y métricas de clasificación o detección. Aunque varios estudios
+declaran o demuestran procesamiento en tiempo real, la descripción de arquitecturas
+completas de despliegue sigue siendo menos frecuente. Estos resultados generales
+son desarrollados con mayor detalle en las preguntas RQ1--RQ5.
+
+% ============================================================
+% 3.2 RQ1
+% ============================================================
+
+\subsection{RQ1: Modelos, algoritmos y arquitecturas de Inteligencia Artificial}
+\label{subsec:rq1_results}
+
+La evidencia muestra una concentración en arquitecturas de aprendizaje profundo,
+aunque con diferencias según la tarea abordada. Las CNN 2D fueron identificadas
+en 25 de los 99 estudios (25,3\,\%), constituyendo la familia más frecuente.
+Los detectores de objetos basados principalmente en YOLO aparecieron en 20 estudios
+(20,2\,\%), seguidos por arquitecturas LSTM o recurrentes en 16 (16,2\,\%) y
+3D-CNN en 13 (13,1\,\%). Los mecanismos de atención y Transformer estuvieron
+presentes en nueve estudios (9,1\,\%), mientras que los enfoques basados en
+esqueleto o pose y GCN aparecieron en siete (7,1\,\%) y seis (6,1\,\%),
+respectivamente.
+
+Los detectores YOLO se utilizaron predominantemente en tareas de localización de
+armas y objetos de riesgo, mientras que la detección de violencia presentó una
+mayor diversidad arquitectónica, incluyendo CNN 2D, 3D-CNN, LSTM, GRU,
+Transformers y modelos basados en grafos. También se identificaron aproximaciones
+menos frecuentes basadas en aprendizaje federado, autoencoders, métodos bayesianos,
+modelos causales y técnicas inspiradas en computación cuántica.
+
+\begin{table*}[htbp]
+\caption{Resultados para RQ1: principales familias de modelos y estudios representados en el Reporting Core}
+\label{tab:rq1_results}
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}L{5.0cm}L{11.0cm}@{}}
+\toprule
+\textbf{Resultado principal} & \textbf{Referencias} \\
+\midrule
+
+CNN 2D (25/99) &
+\citet{ciampi2024}; \citet{ingle2022}; \citet{saleem2022};
+\citet{pereatrigo2023}; \citet{matei2025}; \citet{lin2025} \\
+
+YOLO / detectores de objetos (20/99) &
+\citet{munoz2025}; \citet{fierrosilva2026}; \citet{fathy2022};
+\citet{dalal2024}; \citet{silva2026} \\
+
+LSTM / arquitecturas recurrentes (16/99) &
+\citet{singhal2026}; \citet{ciampi2022}; \citet{pangavhane2025};
+\citet{azzakhnini2025}; \citet{azam2026} \\
+
+3D-CNN (13/99) &
+\citet{singhal2026}; \citet{ciampi2022}; \citet{huszar2023};
+\citet{shin2025}; \citet{sernani2021}; \citet{park2024} \\
+
+Transformer / mecanismos de atención (9/99) &
+\citet{ciampi2022}; \citet{shin2025} \\
+
+Esqueleto / pose (7/99) &
+\citet{bhavani2025}; \citet{janbi2024}; \citet{muriithi2024};
+\citet{garciacobo2023} \\
+
+GCN / modelos basados en grafos (6/99) &
+\citet{janbi2024}; \citet{g2025}; \citet{leyva2024} \\
+
+\bottomrule
+\end{tabular}
+\end{table*}
+
+La distribución indica que no existe una única arquitectura empleada de forma
+transversal para todas las funciones de videovigilancia. La elección del modelo se
+encuentra estrechamente asociada con la naturaleza de la tarea: la localización de
+objetos utiliza con mayor frecuencia detectores de una etapa, mientras que el
+reconocimiento de acciones incorpora modelos capaces de representar relaciones
+espacio-temporales.
+
+
+% ============================================================
+% 3.3 RQ2
+% ============================================================
+
+\subsection{RQ2: Actividades delictivas, eventos de seguridad y capacidades de seguimiento}
+\label{subsec:rq2_results}
+
+La violencia o agresión física fue el evento con mayor presencia en el corpus,
+identificado en 52 de los 99 estudios (52,5\,\%). La detección de armas de fuego
+ocupó el segundo lugar, con 29 estudios (29,3\,\%). También se identificaron
+eventos delictivos o anómalos múltiples en 15 trabajos (15,2\,\%),
+comportamiento sospechoso o anomalía general en 13 (13,1\,\%), armas blancas
+en 11 (11,1\,\%) y robo o hurto en 10 (10,1\,\%).
+
+\begin{table*}[htbp]
+\caption{Resultados para RQ2: eventos de seguridad y capacidades de seguimiento}
+\label{tab:rq2_results}
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}L{5.0cm}L{11.0cm}@{}}
+\toprule
+\textbf{Resultado principal} & \textbf{Referencias} \\
+\midrule
+
+Violencia / agresión física (52/99) &
+\citet{ciampi2024}; \citet{bhavani2025}; \citet{janbi2024};
+\citet{ciampi2022}; \citet{huszar2023}; \citet{shin2025};
+\citet{pangavhane2025}; \citet{saleem2022}; \citet{azzakhnini2025};
+\citet{g2025}; \citet{sernani2021}; \citet{salman2026};
+\citet{park2024}; \citet{donia2023}; \citet{azam2026};
+\citet{jokhio2024}; \citet{matei2025}; \citet{garciacobo2023};
+\citet{tonmoy2025}; \citet{gao2026} \\
+
+Arma de fuego (29/99) &
+\citet{munoz2025}; \citet{singhal2026}; \citet{bhavani2025};
+\citet{shah2023}; \citet{fierrosilva2026}; \citet{fathy2022};
+\citet{muriithi2024}; \citet{ingle2022}; \citet{shah2025};
+\citet{singh2026} \\
+
+Eventos delictivos / anómalos múltiples (15/99) &
+\citet{singhal2026}; \citet{shin2025}; \citet{saleem2022};
+\citet{g2025}; \citet{matei2025}; \citet{gao2026} \\
+
+Comportamiento sospechoso / anomalía general (13/99) &
+\citet{shin2025}; \citet{pangavhane2025}; \citet{saleem2022};
+\citet{azam2026}; \citet{singh2026}; \citet{gao2026} \\
+
+Arma blanca (11/99) &
+\citet{shah2023}; \citet{fierrosilva2026}; \citet{fathy2022};
+\citet{ingle2022}; \citet{shah2025} \\
+
+Robo / hurto (10/99) &
+\citet{ciampi2022}; \citet{saleem2022}; \citet{jokhio2024} \\
+
+\midrule
+
+Seguimiento general (13/99) &
+\citet{bhavani2025}; \citet{janbi2024}; \citet{fierrosilva2026};
+\citet{muriithi2024}; \citet{matei2025}; \citet{garciacobo2023};
+\citet{leyva2024} \\
+
+Seguimiento de personas (8/99) &
+\citet{janbi2024}; \citet{muriithi2024}; \citet{matei2025};
+\citet{garciacobo2023}; \citet{leyva2024} \\
+
+Seguimiento multicámara (1/99) &
+\citet{fierrosilva2026} \\
+
+Identificación / reconocimiento de personas &
+\citet{sandhya2022} \\
+
+Re-identificación explícitamente evaluada (0/99) &
+No se identificaron estudios en el corpus final \\
+
+\bottomrule
+\end{tabular}
+\end{table*}
+
+En conjunto, 18 de los 99 estudios incorporaron alguna capacidad de seguimiento o
+identificación. El seguimiento apareció mayoritariamente como componente complementario
+a la tarea principal y no como objetivo experimental independiente. Asimismo, no se
+identificaron estudios que evaluaran explícitamente re-identificación de personas con
+métricas especializadas. Este resultado describe exclusivamente el corpus recuperado
+por la estrategia de búsqueda y no implica ausencia de trabajos sobre
+\textit{person re-identification} en la literatura general.
+
+
+% ============================================================
+% 3.4 RQ3
+% ============================================================
+
+\subsection{RQ3: Conjuntos de datos y escenarios de videovigilancia}
+\label{subsec:rq3_results}
+
+Los experimentos se concentraron en un número limitado de conjuntos de datos.
+Hockey Fight fue utilizado en 19 estudios (19,2\,\%), UCF-Crime en 15
+(15,2\,\%), RWF-2000 en 14 (14,1\,\%), Movie Fights en 11 (11,1\,\%)
+y RLVS en 10 (10,1\,\%). En cuanto al origen, 56 estudios utilizaron
+principalmente datos públicos o benchmarks, 24 combinaron datos públicos y propios,
+y 19 emplearon principalmente conjuntos propios o privados.
+
+\begin{table*}[htbp]
+\caption{Resultados para RQ3: principales conjuntos de datos identificados}
+\label{tab:rq3_results}
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}L{5.0cm}L{11.0cm}@{}}
+\toprule
+\textbf{Resultado principal} & \textbf{Referencias} \\
+\midrule
+
+Hockey Fight (19/99) &
+\citet{huszar2023}; \citet{azzakhnini2025}; \citet{salman2026};
+\citet{donia2023}; \citet{tonmoy2025} \\
+
+UCF-Crime (15/99) &
+\citet{singhal2026}; \citet{shin2025}; \citet{saleem2022};
+\citet{gao2026} \\
+
+RWF-2000 (14/99) &
+\citet{ciampi2024}; \citet{ciampi2022}; \citet{huszar2023};
+\citet{azzakhnini2025}; \citet{garciacobo2023} \\
+
+Movie Fights (11/99) &
+\citet{huszar2023}; \citet{azam2026} \\
+
+RLVS (10/99) &
+\citet{ciampi2024}; \citet{janbi2024}; \citet{ciampi2022};
+\citet{huszar2023}; \citet{azzakhnini2025}; \citet{salman2026} \\
+
+Sohas Weapon Detection &
+\citet{fierrosilva2026}; \citet{fathy2022}; \citet{silva2026} \\
+
+Evaluación \textit{cross-dataset} explícita (3/99) &
+\citet{ciampi2024}; \citet{ciampi2022}; \citet{huszar2023} \\
+
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Cuarenta y dos estudios evaluaron sus modelos empleando dos o más conjuntos de
+datos; sin embargo, únicamente tres realizaron una evaluación
+\textit{cross-dataset} explícita. Adicionalmente, el escenario de videovigilancia
+no fue especificado en 38 estudios y otros 18 lo describieron únicamente como
+CCTV genérico.
+
+Entre los escenarios explícitos se identificaron entornos interiores, transporte
+público o estaciones y espacios públicos. Solo dos estudios documentaron de forma
+explícita captura u operación en un entorno real confirmado. El país o ubicación
+del escenario fue reportado únicamente en 28 de los 99 trabajos, lo que limita
+la interpretación de la capacidad de generalización geográfica de los modelos.
+
+
+% ============================================================
+% 3.5 RQ4
+% ============================================================
+
+\subsection{RQ4: Métricas y niveles de desempeño}
+\label{subsec:rq4_results}
+
+La evaluación del desempeño presentó una marcada heterogeneidad entre los estudios.
+Accuracy fue reportada en 60 estudios (60,6\,\%), F1-Score en 30 (30,3\,\%),
+Precision y Recall en 28 estudios cada una (28,3\,\%), AUC en 16 (16,2\,\%)
+y mAP en 14 (14,1\,\%). Respecto de la eficiencia computacional, 30 estudios
+reportaron latencia y 15 informaron FPS.
+
+\begin{table*}[htbp]
+\caption{Resultados para RQ4: métricas utilizadas para evaluar los modelos}
+\label{tab:rq4_results}
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}L{4.0cm}L{12.0cm}@{}}
+\toprule
+\textbf{Resultado principal} & \textbf{Referencias} \\
+\midrule
+
+Accuracy (60/99) &
+\citet{singhal2026}; \citet{bhavani2025}; \citet{janbi2024};
+\citet{muriithi2024}; \citet{pangavhane2025}; \citet{dalal2024};
+\citet{ingle2022}; \citet{saleem2022}; \citet{g2025};
+\citet{sernani2021}; \citet{salman2026}; \citet{shah2025};
+\citet{donia2023}; \citet{azam2026}; \citet{singh2026};
+\citet{jokhio2024}; \citet{matei2025}; \citet{garciacobo2023};
+\citet{tonmoy2025} \\
+
+F1-Score (30/99) &
+\citet{singhal2026}; \citet{bhavani2025}; \citet{ingle2022};
+\citet{g2025}; \citet{sernani2021}; \citet{salman2026};
+\citet{shah2025}; \citet{silva2026}; \citet{donia2023};
+\citet{azam2026}; \citet{jokhio2024}; \citet{matei2025} \\
+
+Precision (28/99) &
+\citet{singhal2026}; \citet{bhavani2025}; \citet{fathy2022};
+\citet{muriithi2024}; \citet{dalal2024}; \citet{ingle2022};
+\citet{saleem2022}; \citet{g2025}; \citet{shah2025};
+\citet{silva2026}; \citet{donia2023}; \citet{jokhio2024};
+\citet{matei2025} \\
+
+Recall (28/99) &
+\citet{singhal2026}; \citet{bhavani2025}; \citet{fathy2022};
+\citet{muriithi2024}; \citet{dalal2024}; \citet{ingle2022};
+\citet{saleem2022}; \citet{g2025}; \citet{shah2025};
+\citet{silva2026}; \citet{donia2023}; \citet{jokhio2024};
+\citet{matei2025}; \citet{garciacobo2023} \\
+
+AUC (16/99) &
+\citet{singhal2026}; \citet{shin2025}; \citet{sernani2021};
+\citet{salman2026}; \citet{shah2025}; \citet{park2024};
+\citet{azam2026}; \citet{tonmoy2025}; \citet{gao2026} \\
+
+mAP (14/99) &
+\citet{munoz2025}; \citet{fathy2022}; \citet{dalal2024};
+\citet{ingle2022}; \citet{silva2026}; \citet{singh2026} \\
+
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Debido a las diferencias entre tareas, datasets, particiones experimentales,
+protocolos de evaluación y escalas de las métricas, no se calculó un promedio global
+de desempeño ni se estableció una clasificación general de los modelos.
+
+No se identificaron grupos con comparabilidad metodológica alta. Se encontraron
+cuatro grupos con comparabilidad moderada: SCVD para detección de violencia mediante
+Accuracy, con resultados entre 93,5 y 96,15; Sohas Weapon Detection para detección
+de armas mediante mAP, con valores entre 0,88 y 0,954; y UCF-Crime para
+comportamiento anómalo mediante Accuracy, con valores entre 82,22 y 100, y mediante
+F1-Score, con valores entre 99,89 y 100. Estos intervalos describen los resultados
+reportados en condiciones relativamente semejantes, pero no permiten declarar un
+modelo ganador general.
+
+No se identificó el uso de métricas especializadas de seguimiento o
+re-identificación como MOTA, MOTP, IDF1, HOTA, Rank-1, Rank-5, CMC o TAR.
+Por tanto, los componentes de seguimiento encontrados fueron evaluados principalmente
+mediante métricas generales de detección o clasificación.
+
+
+% ============================================================
+% 3.6 RQ5
+% ============================================================
+
+\subsection{RQ5: Procesamiento en tiempo real, despliegue y limitaciones}
+\label{subsec:rq5_results}
+
+Treinta y uno de los 99 estudios (31,3\,\%) presentaron evidencia experimental de
+procesamiento en tiempo real y 27 (27,3\,\%) lo declararon sin una demostración
+equivalente. Un estudio señaló explícitamente que no operaba en tiempo real y en
+40 trabajos (40,4\,\%) esta característica no fue reportada.
+
+Solo 21 estudios (21,2\,\%) describieron explícitamente una arquitectura de
+despliegue, mientras que 78 (78,8\,\%) no proporcionaron esta información.
+
+\begin{table*}[htbp]
+\caption{Resultados para RQ5: evidencia de tiempo real y despliegue}
+\label{tab:rq5_results}
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}L{5.0cm}L{11.0cm}@{}}
+\toprule
+\textbf{Resultado principal} & \textbf{Referencias} \\
+\midrule
+
+Tiempo real demostrado (31/99) &
+\citet{fierrosilva2026}; \citet{fathy2022}; \citet{ingle2022};
+\citet{saleem2022}; \citet{azzakhnini2025}; \citet{salman2026};
+\citet{silva2026}; \citet{park2024}; \citet{pereatrigo2023};
+\citet{azam2026}; \citet{singh2026}; \citet{garciacobo2023};
+\citet{gao2026} \\
+
+Tiempo real declarado (27/99) &
+\citet{munoz2025}; \citet{shah2023}; \citet{g2025};
+\citet{shah2025}; \citet{jokhio2024}; \citet{tonmoy2025} \\
+
+Arquitectura de despliegue descrita (21/99) &
+\citet{munoz2025}; \citet{fierrosilva2026}; \citet{fathy2022};
+\citet{ingle2022}; \citet{saleem2022}; \citet{azzakhnini2025};
+\citet{salman2026}; \citet{silva2026}; \citet{pereatrigo2023};
+\citet{azam2026}; \citet{lin2025} \\
+
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Según el nivel de evidencia documentado en el corpus completo, siete estudios
+presentaron un prototipo demostrado, 14 describieron una arquitectura propuesta,
+26 reportaron únicamente el hardware utilizado durante la evaluación y 52 no
+proporcionaron evidencia suficiente sobre despliegue. Ningún estudio documentó
+una operación sostenida en producción.
+
+Las plataformas identificadas con mayor frecuencia fueron dispositivos
+\textit{edge} genéricos (13/99), NVIDIA Jetson (8/99) y Raspberry Pi (5/99).
+Asimismo, 75 estudios declararon al menos una limitación. Las más frecuentes fueron
+oclusión (16/99), falsos positivos o negativos (16/99), variaciones de iluminación
+(13/99), baja diversidad de los conjuntos de datos (10/99), escenas complejas o
+concurridas (9/99) y generalización limitada entre datasets (7/99).
+
+Un hallazgo adicional es que 25 de los 78 estudios que no describieron una arquitectura
+de despliegue afirmaron procesamiento en tiempo real. En estos casos, la evidencia
+correspondió principalmente a mediciones experimentales de velocidad o latencia y no
+a una descripción completa de operación dentro de una infraestructura real de
+videovigilancia.
+
+
+% ============================================================
+% 3.7 ANÁLISIS BIBLIOMÉTRICO
+% ============================================================
+
+\subsection{Resultados del análisis bibliométrico}
+\label{subsec:bibliometric_results}
+
+Como complemento de la revisión sistemática, se realizó un análisis bibliométrico
+sobre los 145 registros recuperados de Scopus mediante el paquete
+\textit{Bibliometrix}. Este conjunto se utilizó exclusivamente para caracterizar la
+evolución temporal de la producción científica, la productividad de autores, revistas,
+instituciones y países, las redes de colaboración y las estructuras intelectual y
+conceptual del campo.
+
+Los resultados bibliométricos se interpretan de manera independiente de los conteos
+de la revisión sistemática. Mientras que la síntesis de RQ1--RQ5 utiliza el corpus
+final elegible de 99 estudios, el análisis bibliométrico emplea los 145 documentos
+correspondientes a Scopus.
+
+
+% ------------------------------------------------------------
+% BQ
+% ------------------------------------------------------------
+
+\subsubsection{BQ: Evolución de la producción científica y de las citas}
+\label{subsubsec:bq}
+
+La producción científica presentó una tendencia creciente entre 2021 y 2025.
+El número de publicaciones pasó de 13 documentos en 2021 a 16 en 2022,
+21 en 2023, 26 en 2024 y alcanzó su valor máximo con 40 publicaciones en 2025.
+Para 2026 se recuperaron 29 documentos; sin embargo, debido a que la búsqueda se
+realizó antes de finalizar dicho año, este valor no representa una producción anual
+completa.
+
+La tendencia de citación presentó un comportamiento diferente. Los documentos
+publicados en 2021 y 2022 registraron los mayores promedios de citación, con
+52,38 y 53,63 citas por publicación, respectivamente. Posteriormente, el promedio
+disminuyó a 25,76 en 2023, 13,19 en 2024, 4,80 en 2025 y 0,38 en 2026.
+Esta reducción debe interpretarse considerando el menor tiempo disponible para que
+las publicaciones recientes acumulen citas.
+
+\begin{table}[htbp]
+\caption{Producción científica y citas medias por año en el corpus bibliométrico}
+\label{tab:bq_annual}
+\centering
+\small
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\textbf{Año} & \textbf{Documentos} & \textbf{Citas medias} \\
+\midrule
+2021 & 13 & 52,38 \\
+2022 & 16 & 53,63 \\
+2023 & 21 & 25,76 \\
+2024 & 26 & 13,19 \\
+2025 & 40 & 4,80 \\
+2026$^{a}$ & 29 & 0,38 \\
+\bottomrule
+\end{tabular}
+
+\begin{flushleft}
+\footnotesize $^{a}$ Año incompleto al momento de recuperar los registros.
+\end{flushleft}
+\end{table}
+
+
+% ------------------------------------------------------------
+% AB1
+% ------------------------------------------------------------
+
+\subsubsection{AB1: Productividad e influencia científica}
+\label{subsubsec:ab1}
+
+El análisis identificó 555 autores diferentes. La producción presentó una elevada
+dispersión, ya que 521 autores participaron en un solo documento, mientras que
+únicamente un grupo reducido apareció de manera recurrente en varias publicaciones.
+Juan A. Álvarez-García registró cinco documentos en el corpus, seguido por
+Oscar Deniz con cuatro. Fernando J. Rendón-Segador, Jesús Ruiz-Santaquiteria
+y José L. Salazar-González registraron tres documentos cada uno.
+
+Entre las fuentes de publicación, \textit{Sensors} presentó el mayor número de
+documentos (13), seguida por \textit{IEEE Access} (9) y
+\textit{Scientific Reports} (8). A nivel institucional, Princess Nourah Bint
+Abdulrahman University y Universidad de Sevilla estuvieron asociadas a cinco
+documentos cada una, seguidas por Islamia College Peshawar con cuatro.
+
+En la dimensión geográfica, India presentó la mayor frecuencia de participación
+(30 documentos), seguida por Pakistán (21), Arabia Saudita (20), Corea del Sur
+(16), China (16), España (12), Egipto (10) e Italia (8).
+
+\begin{table*}[htbp]
+\caption{Principales actores identificados mediante el análisis bibliométrico}
+\label{tab:ab1_productivity}
+\centering
+\small
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}L{2.5cm}L{7.2cm}r@{}}
+\toprule
+\textbf{Dimensión} & \textbf{Entidad} & \textbf{Documentos} \\
+\midrule
+Autor & Álvarez-García, J.A. & 5 \\
+Autor & Deniz, O. & 4 \\
+Autor & Rendón-Segador, F.J. & 3 \\
+Autor & Ruiz-Santaquiteria, J. & 3 \\
+Autor & Salazar-González, J.L. & 3 \\
+\midrule
+Fuente & \textit{Sensors} & 13 \\
+Fuente & \textit{IEEE Access} & 9 \\
+Fuente & \textit{Scientific Reports} & 8 \\
+Fuente & \textit{Computers, Materials and Continua} & 5 \\
+Fuente & \textit{PeerJ Computer Science} & 4 \\
+\midrule
+Institución & Princess Nourah Bint Abdulrahman University & 5 \\
+Institución & Universidad de Sevilla & 5 \\
+Institución & Islamia College Peshawar & 4 \\
+Institución & King Saud University & 3 \\
+Institución & University of Jeddah & 3 \\
+\midrule
+País & India & 30 \\
+País & Pakistán & 21 \\
+País & Arabia Saudita & 20 \\
+País & Corea del Sur & 16 \\
+País & China & 16 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+El diagrama de tres campos complementa esta caracterización al representar las
+relaciones entre diferentes componentes bibliográficos del corpus. Los flujos
+permiten observar cómo autores, fuentes y conceptos se vinculan alrededor de los
+principales temas de investigación.
+
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=0.98\textwidth]
+{ThreeFieldPlot-2026-09-28010254.817106.png}
+\caption{Diagrama de tres campos del corpus bibliométrico, que muestra las relaciones
+entre los principales componentes bibliográficos analizados.}
+\label{fig:threefield}
+\end{figure*}
+
+
+% ------------------------------------------------------------
+% AB2
+% ------------------------------------------------------------
+
+\subsubsection{AB2: Estructura de la colaboración científica}
+\label{subsubsec:ab2}
+
+La producción analizada comprendió afiliaciones procedentes de 50 países.
+De los 145 documentos, 45 (31,0\,\%) incluyeron autores afiliados a más de un país,
+mientras que 100 (69,0\,\%) correspondieron a publicaciones desarrolladas dentro
+de un único país.
+
+La distribución geográfica evidencia una participación importante de países
+asiáticos, junto con conexiones con Europa, América y otras regiones. El mapa de
+colaboración permite observar los principales vínculos internacionales establecidos
+entre los países presentes en el corpus.
+
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=0.96\textwidth]
+{CountryCollaborationMap-2026-09-28010452.678578.png}
+\caption{Mapa de producción y colaboración científica internacional en el corpus
+bibliométrico de Scopus.}
+\label{fig:country_collaboration}
+\end{figure*}
+
+La red de coautoría muestra, además, la existencia de distintos grupos de
+investigadores. Algunos conglomerados presentan conexiones internas densas,
+mientras que las relaciones entre grupos son menos frecuentes, lo que sugiere una
+estructura constituida por múltiples núcleos de colaboración.
+
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=0.96\textwidth]
+{Collaboration_Network-2026-09-28010442.151916.png}
+\caption{Red de colaboración científica entre autores del corpus bibliométrico.}
+\label{fig:collaboration_network}
+\end{figure*}
+
+
+% ------------------------------------------------------------
+% AB3
+% ------------------------------------------------------------
+
+\subsubsection{AB3: Estructura intelectual y frentes de investigación}
+\label{subsubsec:ab3}
+
+La estructura intelectual del campo fue examinada mediante co-citación,
+historiografía y acoplamiento bibliográfico. La red de co-citación permite
+identificar referencias que son citadas conjuntamente por los documentos del corpus
+y, por tanto, forman parte de una base intelectual compartida.
+
+Los agrupamientos identificados muestran diferentes núcleos vinculados con
+aprendizaje profundo, detección de violencia, detección de armas, anomalías y
+análisis automatizado de video.
+
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=0.97\textwidth]
+{Co_citationNetwork-2026-09-29134854.493069.png}
+\caption{Red de co-citación del corpus bibliométrico. Los agrupamientos representan
+conjuntos de referencias que tienden a ser citadas conjuntamente.}
+\label{fig:cocitation_network}
+\end{figure*}
+
+El historiograma complementa este análisis representando las relaciones de citación
+a través del tiempo. Esta visualización permite reconocer publicaciones que funcionan
+como antecedentes de investigaciones posteriores y observar la continuidad de
+determinadas líneas de trabajo dentro del periodo estudiado.
+
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=0.97\textwidth]
+{Historiograph-2026-09-29134936.207564.png}
+\caption{Historiograma de las relaciones de citación entre documentos relevantes
+del corpus bibliométrico.}
+\label{fig:historiograph}
+\end{figure*}
+
+El acoplamiento bibliográfico proporciona una perspectiva complementaria al agrupar
+documentos recientes que utilizan referencias similares. Los conglomerados obtenidos
+evidencian distintos frentes de investigación relacionados con detección de violencia,
+armas, anomalías y seguimiento de objetos.
+
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=0.97\textwidth]
+{Clustering_by_Coupling.png}
+\caption{Agrupamiento de documentos mediante acoplamiento bibliográfico. Los nodos
+representan publicaciones y los enlaces indican similitud en las referencias utilizadas.}
+\label{fig:coupling}
+\end{figure*}
+
+
+% ------------------------------------------------------------
+% AB4
+% ------------------------------------------------------------
+
+\subsubsection{AB4: Estructura conceptual y evolución temática}
+\label{subsubsec:ab4}
+
+Las palabras clave de autor muestran que \textit{deep learning} constituye el término
+con mayor presencia, identificado en 67 de los 145 documentos. Le siguen
+\textit{video surveillance} (29), \textit{violence detection} (26),
+\textit{computer vision} (25), \textit{weapon detection} (22),
+\textit{anomaly detection} (13) y \textit{multi-object tracking} (12).
+
+La red de co-ocurrencia muestra que estos conceptos mantienen relaciones frecuentes
+entre sí. \textit{Deep learning} ocupa una posición central y se conecta con
+videovigilancia, visión por computador, detección de violencia y detección de armas.
+En torno a este núcleo aparecen términos más específicos relacionados con anomalías,
+seguimiento multiobjeto, reconocimiento de actividades y detección de objetos.
+
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=0.97\textwidth]
+{Co_occurrenceNetwork-2026-10-04220412.241765.png}
+\caption{Red de co-ocurrencia de palabras clave del corpus bibliométrico.}
+\label{fig:cooccurrence}
+\end{figure*}
+
+La distribución temporal permite identificar cambios en el énfasis temático.
+Durante 2021--2022 predominaron \textit{deep learning}, videovigilancia,
+visión por computador, detección de violencia y detección de armas.
+En 2023--2024 se mantuvieron estos núcleos y aumentó la presencia de términos
+asociados con vigilancia inteligente, ciudades inteligentes y seguimiento
+multiobjeto. Durante 2025--2026 se incrementó la frecuencia relativa de
+\textit{weapon detection}, \textit{anomaly detection},
+\textit{multi-object tracking}, YOLO y mecanismos de atención.
+
+\begin{table*}[htbp]
+\caption{Evolución de las principales palabras clave de autor por periodo}
+\label{tab:ab4_keywords}
+\centering
+\small
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}L{3.0cm}L{12.5cm}@{}}
+\toprule
+\textbf{Periodo} & \textbf{Términos con mayor presencia} \\
+\midrule
+
+2021--2022 &
+Deep learning (12), video surveillance (8), computer vision (7),
+violence detection (7), weapon detection (5), object detection (4) \\
+
+2023--2024 &
+Deep learning (24), computer vision (11), video surveillance (10),
+violence detection (9), weapon detection (5), multi-object tracking (3),
+smart surveillance (3) \\
+
+2025--2026 &
+Deep learning (31), weapon detection (12), video surveillance (11),
+violence detection (10), anomaly detection (8), multi-object tracking (7),
+YOLO (5), attention mechanism (4) \\
+
+\bottomrule
+\end{tabular}
+\end{table*}
+
+El mapa temático permite representar los temas identificados según su desarrollo
+y su relación con el resto del campo, diferenciando núcleos centrales de líneas
+más específicas o emergentes.
+
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=0.92\textwidth]
+{CouplingMap-2026-09-28 (1).png}
+\caption{Mapa temático obtenido mediante análisis de acoplamiento bibliográfico.}
+\label{fig:thematic_map}
+\end{figure*}
+
+El análisis factorial proporciona una representación adicional de la estructura
+conceptual, permitiendo observar la proximidad entre términos que presentan patrones
+similares de aparición dentro del corpus.
+
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=0.90\textwidth]
+{FactorialMap_2026-09-28.png}
+\caption{Mapa factorial de la estructura conceptual del corpus bibliométrico.}
+\label{fig:factorial_map}
+\end{figure*}
+
+Finalmente, la nube de palabras presenta de manera visual la frecuencia relativa
+de los conceptos empleados en las publicaciones y permite reconocer rápidamente
+los términos con mayor presencia dentro del corpus.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.90\linewidth]
+{WordCloud-2026-10-04215400.72303.png}
+\caption{Nube de palabras de los principales términos del corpus bibliométrico.}
+\label{fig:wordcloud}
+\end{figure}
+
+
+% ============================================================
+% 3.8 SÍNTESIS DE RESULTADOS
+% ============================================================
+
+\subsection{Síntesis de los principales resultados}
+\label{subsec:results_synthesis}
+
+La integración de los resultados de la revisión sistemática y del análisis
+bibliométrico muestra que la investigación reciente sobre videovigilancia inteligente
+se concentra principalmente en la detección automática de violencia, armas y
+comportamientos anómalos mediante técnicas de aprendizaje profundo.
+
+Las CNN bidimensionales, los detectores YOLO, las arquitecturas recurrentes y las
+3D-CNN constituyen las familias tecnológicas más frecuentes. De manera coherente,
+el análisis conceptual identifica \textit{deep learning}, \textit{video surveillance},
+\textit{violence detection}, \textit{computer vision} y
+\textit{weapon detection} como parte del núcleo temático de la literatura analizada.
+
+No obstante, los resultados también evidencian una diferencia entre el desempeño
+experimental reportado y el grado de madurez de las soluciones. Aunque 58 de los
+99 estudios declararon o demostraron procesamiento en tiempo real, únicamente
+21 describieron una arquitectura de despliegue y ninguno documentó una operación
+sostenida en producción.
+
+Asimismo, el predominio de datasets públicos y la limitada cantidad de evaluaciones
+\textit{cross-dataset} indican que la generalización entre dominios continúa siendo
+un aspecto poco evaluado. Las capacidades de seguimiento, identificación y,
+especialmente, re-identificación presentan además una representación menor que las
+tareas de detección.
+
+En conjunto, los hallazgos muestran un campo con una producción científica creciente
+y un desarrollo consolidado de modelos orientados a detección y reconocimiento de
+eventos de seguridad, aunque persisten vacíos relacionados con validación en escenarios
+reales, generalización entre conjuntos de datos, métricas especializadas de seguimiento
+y documentación de arquitecturas completas de despliegue.
+
+\section{Discussion}\label{sec12}
+
+Discussions should be brief and focused. In some disciplines use of Discussion or `Conclusion' is interchangeable. It is not mandatory to use both. Some journals prefer a section `Results and Discussion' followed by a section `Conclusion'. Please refer to Journal-level guidance for any specific requirements. 
+
+\section{Conclusion}\label{sec13}
+
+Conclusions may be used to restate your hypothesis or research question, restate your major findings, explain the relevance and the added value of your work, highlight any limitations of your study, describe future directions for research and recommendations. 
+
+In some disciplines use of Discussion or 'Conclusion' is interchangeable. It is not mandatory to use both. Please refer to Journal-level guidance for any specific requirements. 
+
+\backmatter
+
+\bmhead{Supplementary information}
+
+If your article has accompanying supplementary file/s please state so here. 
+
+Authors reporting data from electrophoretic gels and blots should supply the full unprocessed scans for key as part of their Supplementary information. This may be requested by the editorial team/s if it is missing.
+
+Please refer to Journal-level guidance for any specific requirements.
+
+\bmhead{Acknowledgements}
+
+Acknowledgements are not compulsory. Where included they should be brief. Grant or contribution numbers may be acknowledged.
+
+Please refer to Journal-level guidance for any specific requirements.
+
+\section*{Declarations}
+
+Some journals require declarations to be submitted in a standardised format. Please check the Instructions for Authors of the journal to which you are submitting to see if you need to complete this section. If yes, your manuscript must contain the following sections under the heading `Declarations':
+
+\begin{itemize}
+\item Funding
+\item Conflict of interest/Competing interests (check journal-specific guidelines for which heading to use)
+\item Ethics approval and consent to participate
+\item Consent for publication
+\item Data availability 
+\item Materials availability
+\item Code availability 
+\item Author contribution
+\end{itemize}
+
+\noindent
+If any of the sections are not relevant to your manuscript, please include the heading and write `Not applicable' for that section. 
+
+%%===================================================%%
+%% For presentation purpose, we have included        %%
+%% \bigskip command. Please ignore this.             %%
+%%===================================================%%
+\bigskip
+\begin{flushleft}%
+Editorial Policies for:
+
+\bigskip\noindent
+Springer journals and proceedings: \url{https://www.springer.com/gp/editorial-policies}
+
+\bigskip\noindent
+Nature Portfolio journals: \url{https://www.nature.com/nature-research/editorial-policies}
+
+\bigskip\noindent
+\textit{Scientific Reports}: \url{https://www.nature.com/srep/journal-policies/editorial-policies}
+
+\bigskip\noindent
+BMC journals: \url{https://www.biomedcentral.com/getpublished/editorial-policies}
+\end{flushleft}
+
+\begin{appendices}
+
+\section{Section title of first appendix}\label{secA1}
+
+An appendix contains supplementary information that is not an essential part of the text itself but which may be helpful in providing a more comprehensive understanding of the research problem or it is information that is too cumbersome to be included in the body of the paper.
+
+%%=============================================%%
+%% For submissions to Nature Portfolio Journals %%
+%% please use the heading ``Extended Data''.   %%
+%%=============================================%%
+
+%%=============================================================%%
+%% Sample for another appendix section			       %%
+%%=============================================================%%
+
+%% \section{Example of another appendix section}\label{secA2}%
+%% Appendices may be used for helpful, supporting or essential material that would otherwise 
+%% clutter, break up or be distracting to the text. Appendices can consist of sections, figures, 
+%% tables and equations etc.
+
+\end{appendices}
+
+%%===========================================================================================%%
+%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
+%% system, please include the references within the manuscript file itself. You may do this  %%
+%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
+%% file, and delete the associated \verb+\bibliography+ commands.                            %%
+%%===========================================================================================%%
+
+\bibliography{snbibliography,core35_refs}% common bib file
+%% if required, the content of .bbl file can be included here once bbl is generated
+%%\input sn-article.bbl
+
+\end{document}

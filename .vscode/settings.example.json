@@ -1,0 +1,78 @@
+{
+  "latex-workshop.latex.autoBuild.run": "never",
+  "latex-workshop.latex.outDir": "%DIR%/build",
+  "latex-workshop.latex.recipe.default": "first",
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "MiKTeX: pdflatex + bibtex + pdflatex x2",
+      "tools": [
+        "pdflatex-local",
+        "bibtex-local",
+        "pdflatex-local",
+        "pdflatex-local"
+      ]
+    },
+    {
+      "name": "MiKTeX: latexmk",
+      "tools": [
+        "latexmk-local"
+      ]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "pdflatex-local",
+      "command": "pdflatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-halt-on-error",
+        "-output-directory=%OUTDIR%",
+        "%DOC%"
+      ],
+      "cwd": "%DIR%"
+    },
+    {
+      "name": "bibtex-local",
+      "command": "bibtex",
+      "args": [
+        "%OUTDIR%/%DOCFILE%"
+      ],
+      "cwd": "%DIR%"
+    },
+    {
+      "name": "latexmk-local",
+      "command": "latexmk",
+      "args": [
+        "-pdf",
+        "-bibtexfudge-",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-halt-on-error",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "cwd": "%DIR%"
+    }
+  ],
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.autoClean.run": "never",
+  "latex-workshop.latex.clean.method": "glob",
+  "latex-workshop.latex.clean.fileTypes": [
+    "%DOCFILE%.aux",
+    "%DOCFILE%.log",
+    "%DOCFILE%.out",
+    "%DOCFILE%.toc",
+    "%DOCFILE%.lof",
+    "%DOCFILE%.lot",
+    "%DOCFILE%.blg",
+    "%DOCFILE%.fls",
+    "%DOCFILE%.fdb_latexmk",
+    "%DOCFILE%.synctex.gz"
+  ],
+  "latex-workshop.latex.search.rootFiles.include": [
+    "sn-article.tex"
+  ]
+}
