@@ -4,7 +4,7 @@
 % el curso: caja principal a la izquierda, salida a la derecha en la
 % misma fila, y flujo principal vertical.
 %
-% Flujo: 510 -> (113) 397 -> (247) 150 -> (2) 148 -> (49) 99
+% Flujo: 510 -> (113) 397 -> (249) 148 -> (49) 99
 %        -> (64) 35.
 % Columna principal centrada en x = \xl; columna derecha centrada en
 % x = \xr. Coordenadas en cm, eje y hacia abajo.
@@ -52,43 +52,34 @@
     \textit{Cribado mediante la evidencia disponible y criterios de elegibilidad}};
   \node[side] (r2) at (\xr, 4.10) {%
     \textbf{Registros excluidos en el cribado}\\
-    (n = 247)\\[2pt]
+    (n = 249)\\[2pt]
     CE1 (n = 33)\\
-    CE2 (n = 43)\\
+    CE2 (n = 45)\\
     CE3 (n = 46)\\
     CE4 (n = 102)\\
     CE5 (n = 23)\\
     CE6 (n = 0)};
-  \node[main] (m3) at (\xl, 6.60) {%
-    \textbf{Registros aceptados en el cribado}\\
-    (n = 150)};
-  \node[side] (r3) at (\xr, 6.60) {%
-    \textbf{Registros excluidos en la verificación de criterios}\\
-    (n = 2)\\[2pt]
-    CE2 (n = 2)\\[1pt]
-    Detección genérica de anomalías; la actividad delictiva solo aparecía como motivación.};
-
   % ======================== ELEGIBILIDAD =====================
-  \node[main] (m4) at (\xl, 8.85) {%
+  \node[main] (m4) at (\xl, 6.80) {%
     \textbf{Estudios evaluados por calidad}\\
     (n = 148)\\[1pt]
     \textit{Instrumento de 10 preguntas}};
-  \node[side, minimum height=1.10cm] (r4) at (\xr, 8.85) {%
+  \node[side, minimum height=1.10cm] (r4) at (\xr, 6.80) {%
     \textbf{Estudios excluidos por calidad}\\
     (n = 49)\\[1pt]
     Puntaje de calidad $\leq$ 7,0 / 10};
-  \node[main] (m5) at (\xl, 11.00) {%
+  \node[main] (m5) at (\xl, 8.95) {%
     \textbf{Estudios que superaron la evaluación de calidad}\\
     (n = 99)\\[1pt]
     Puntaje de calidad $\geq$ 7,5};
-  \node[side, minimum height=1.10cm] (r6) at (\xr, 11.00) {%
-    \textbf{Elegibles no seleccionados para síntesis en profundidad}\\
+  \node[side, minimum height=1.10cm] (r6) at (\xr, 8.95) {%
+    \textbf{Elegibles no seleccionados para análisis detallado}\\
     (n = 64)\\[1pt]
-    Permanecieron en el corpus elegible.};
+    Superaron la evaluaci?n de calidad.};
 
   % ========================= INCLUIDOS =======================
-  \node[main, minimum height=1.35cm] (m6) at (\xl, 13.35) {%
-    \textbf{Estudios seleccionados para la síntesis en profundidad}\\
+  \node[main, minimum height=1.35cm] (m6) at (\xl, 11.10) {%
+    \textbf{Estudios seleccionados para el análisis detallado}\\
     (n = 35)};
 
   % ========================= CABECERA ========================
@@ -101,14 +92,12 @@
   % ========================== FLECHAS ========================
   % Flujo principal vertical (borde inferior -> borde superior)
   \draw[flow] (m1.south) -- (m2.north);
-  \draw[flow] (m2.south) -- (m3.north);
-  \draw[flow] (m3.south) -- (m4.north);
+  \draw[flow] (m2.south) -- (m4.north);
   \draw[flow] (m4.south) -- (m5.north);
   \draw[flow] (m5.south) -- (m6.north);
   % Salidas laterales: desde el borde derecho de la caja principal
   \draw[flow] (m1.east) -- (r1.west |- m1.east);
   \draw[flow] (m2.east) -- (r2.west |- m2.east);
-  \draw[flow] (m3.east) -- (r3.west |- m3.east);
   \draw[flow] (m4.east) -- (r4.west |- m4.east);
   \draw[flow] (m5.east) -- (r6.west |- m5.east);
 
@@ -118,7 +107,7 @@
     \node[band, fit={(\bxa, 0 |- #1) (\bxb, 0 |- #2)}] (#3) {};
     \node[rotate=90, font=\sffamily\footnotesize\bfseries] at (#3.center) {#4};}
   \phaseband{m1.north}{m1.south}{p1}{Identificación}
-  \phaseband{r2.north}{r3.south}{p2}{Selección}
+  \phaseband{r2.north}{r2.south}{p2}{Selección}
   \phaseband{r4.north}{r6.south}{p3}{Elegibilidad}
   \phaseband{m6.north}{m6.south}{p4}{Incluidos}
 \end{tikzpicture}
