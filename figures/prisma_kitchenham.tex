@@ -1,0 +1,124 @@
+% ============================================================
+% ARGUS -- Diagrama de flujo PRISMA 2020 adaptado a Kitchenham y
+% Charters, con la estructura del modelo PRISMA/Kitchenham usado en
+% el curso: caja principal a la izquierda, salida a la derecha en la
+% misma fila, y flujo principal vertical.
+%
+% Flujo: 510 -> (113) 397 -> (247) 150 -> (2) 148 -> (49) 99
+%        -> (64) 35.
+% Columna principal centrada en x = \xl; columna derecha centrada en
+% x = \xr. Coordenadas en cm, eje y hacia abajo.
+% Requiere: \usetikzlibrary{positioning,fit,calc,arrows.meta}
+% ============================================================
+\begin{tikzpicture}[
+    x=1cm, y=-1cm,
+    font=\sffamily\footnotesize,
+    execute at begin node={\hyphenpenalty=10000\exhyphenpenalty=10000},
+    box/.style={draw, line width=0.6pt, rectangle, align=left,
+                inner xsep=0.18cm, inner ysep=0.09cm},
+    main/.style={box, text width=4.755cm, minimum height=1.10cm},
+    side/.style={box, text width=6.105cm},
+    flow/.style={-{Triangle[length=1.6mm,width=1.4mm]}, line width=0.5pt},
+    band/.style={draw=bandline, fill=bandfill, line width=0.6pt,
+                 rounded corners=0.9mm, inner sep=0pt},
+  ]
+  \definecolor{bandfill}{HTML}{9CC2E5}
+  \definecolor{bandline}{HTML}{2F5496}
+  \definecolor{headfill}{HTML}{FFC000}
+  \definecolor{headline}{HTML}{7F5F00}
+
+  % Ejes de las columnas (cm)
+  \def\xl{3.30}
+  \def\xr{9.81}
+
+  % ====================== IDENTIFICACION =====================
+  \node[main] (m1) at (\xl, 1.58) {%
+    \textbf{Registros identificados en bases de datos}\\
+    (n = 510)\\[2pt]
+    \hspace*{1em}ScienceDirect (n = 260)\\
+    \hspace*{1em}Web of Science (n = 105)\\
+    \hspace*{1em}Scopus (n = 145)};
+  \node[side, minimum height=1.66cm] (r1) at (\xr, 1.58) {%
+    \textbf{Registros duplicados eliminados}\\
+    (n = 113)\\[2pt]
+    \hspace*{1em}ScienceDirect (n = 16)\\
+    \hspace*{1em}Web of Science (n = 97)\\
+    \hspace*{1em}Scopus (n = 0)};
+
+  % ========================= SELECCION =======================
+  \node[main] (m2) at (\xl, 4.10) {%
+    \textbf{Registros cribados}\\
+    (n = 397)\\[1pt]
+    \textit{Cribado mediante la evidencia disponible y criterios de elegibilidad}};
+  \node[side] (r2) at (\xr, 4.10) {%
+    \textbf{Registros excluidos en el cribado}\\
+    (n = 247)\\[2pt]
+    CE1 (n = 33)\\
+    CE2 (n = 43)\\
+    CE3 (n = 46)\\
+    CE4 (n = 102)\\
+    CE5 (n = 23)\\
+    CE6 (n = 0)};
+  \node[main] (m3) at (\xl, 6.60) {%
+    \textbf{Registros aceptados en el cribado}\\
+    (n = 150)};
+  \node[side] (r3) at (\xr, 6.60) {%
+    \textbf{Registros excluidos en la verificación de criterios}\\
+    (n = 2)\\[2pt]
+    CE2 (n = 2)\\[1pt]
+    Detección genérica de anomalías; la actividad delictiva solo aparecía como motivación.};
+
+  % ======================== ELEGIBILIDAD =====================
+  \node[main] (m4) at (\xl, 8.85) {%
+    \textbf{Estudios evaluados por calidad}\\
+    (n = 148)\\[1pt]
+    \textit{Instrumento de 10 preguntas}};
+  \node[side, minimum height=1.10cm] (r4) at (\xr, 8.85) {%
+    \textbf{Estudios excluidos por calidad}\\
+    (n = 49)\\[1pt]
+    Puntaje de calidad $\leq$ 7,0 / 10};
+  \node[main] (m5) at (\xl, 11.00) {%
+    \textbf{Estudios que superaron la evaluación de calidad}\\
+    (n = 99)\\[1pt]
+    Puntaje de calidad $\geq$ 7,5};
+  \node[side, minimum height=1.10cm] (r6) at (\xr, 11.00) {%
+    \textbf{Elegibles no seleccionados para síntesis en profundidad}\\
+    (n = 64)\\[1pt]
+    Permanecieron en el corpus elegible.};
+
+  % ========================= INCLUIDOS =======================
+  \node[main, minimum height=1.35cm] (m6) at (\xl, 13.35) {%
+    \textbf{Estudios seleccionados para la síntesis en profundidad}\\
+    (n = 35)};
+
+  % ========================= CABECERA ========================
+  \node[draw=headline, fill=headfill, line width=0.6pt,
+        rounded corners=0.8mm, inner sep=0pt,
+        fit={(m1.west |- 0,0.05) (r1.east |- 0,0.55)}] (head) {};
+  \node[font=\sffamily\footnotesize\bfseries] at (head.center)
+    {Identificación de estudios mediante bases de datos};
+
+  % ========================== FLECHAS ========================
+  % Flujo principal vertical (borde inferior -> borde superior)
+  \draw[flow] (m1.south) -- (m2.north);
+  \draw[flow] (m2.south) -- (m3.north);
+  \draw[flow] (m3.south) -- (m4.north);
+  \draw[flow] (m4.south) -- (m5.north);
+  \draw[flow] (m5.south) -- (m6.north);
+  % Salidas laterales: desde el borde derecho de la caja principal
+  \draw[flow] (m1.east) -- (r1.west |- m1.east);
+  \draw[flow] (m2.east) -- (r2.west |- m2.east);
+  \draw[flow] (m3.east) -- (r3.west |- m3.east);
+  \draw[flow] (m4.east) -- (r4.west |- m4.east);
+  \draw[flow] (m5.east) -- (r6.west |- m5.east);
+
+  % ====================== BANDAS DE FASE =====================
+  \def\bxa{0.00}\def\bxb{0.52}
+  \newcommand{\phaseband}[4]{%
+    \node[band, fit={(\bxa, 0 |- #1) (\bxb, 0 |- #2)}] (#3) {};
+    \node[rotate=90, font=\sffamily\footnotesize\bfseries] at (#3.center) {#4};}
+  \phaseband{m1.north}{m1.south}{p1}{Identificación}
+  \phaseband{r2.north}{r3.south}{p2}{Selección}
+  \phaseband{r4.north}{r6.south}{p3}{Elegibilidad}
+  \phaseband{m6.north}{m6.south}{p4}{Incluidos}
+\end{tikzpicture}
