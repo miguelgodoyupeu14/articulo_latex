@@ -20,6 +20,8 @@
 \usepackage{longtable}%
 \usepackage{array}%
 \usepackage{ragged2e}%
+\usepackage{tikz}
+\usetikzlibrary{positioning,fit,calc,arrows.meta}
 \usepackage{placeins}
 \hypersetup{hypertexnames=false}
 % Nombres distintos para enlaces de longtable y tablas flotantes.
@@ -89,197 +91,213 @@ El aporte consiste en relacionar las familias de IA con las tareas evaluadas, cu
 
 \section{Metodología}\label{sec2}
 
-La revisión se estructuró en planificación, selección, evaluación de calidad, extracción y síntesis, conforme a las orientaciones para estudios secundarios en ingeniería de software \cite{kitchenham2007,kitchenham2009}. Parsifal se utilizó para gestionar el protocolo y registrar las decisiones de selección y evaluación. El flujo se reporta de acuerdo con los principios de PRISMA 2020 \cite{page2021}. Se distinguen el corpus elegible de la revisión, el subconjunto de síntesis detallada y el conjunto bibliométrico de Scopus.
+\subsection{Diseño de la revisión sistemática}\label{subsec:diseno}
 
-\subsection{Pregunta de investigación y delimitación conceptual}\label{subsec2_1}
+Este estudio se desarrolló como una revisión sistemática de la literatura (RSL). La revisión se planificó y condujo siguiendo las directrices de Kitchenham y Charters para revisiones sistemáticas en ingeniería de software, que organizan el proceso en las etapas de planificación, conducción y reporte \cite{kitchenham2007}. La declaración PRISMA 2020 se utilizó para documentar el flujo de identificación y selección de los estudios, ya que sus autores la conciben como una guía de reporte y no como un procedimiento para conducir revisiones \cite{page2021}. Esta combinación es coherente con las pautas SEGRESS, que adaptan PRISMA 2020 al reporte de estudios secundarios en ingeniería de software \cite{kitchenham2023}. El protocolo, la importación de los registros, la selección de estudios, la evaluación de calidad y la extracción de datos se gestionaron en Parsifal, una plataforma web de apoyo a revisiones sistemáticas.
 
-La pregunta general fue: ¿Qué modelos y técnicas de inteligencia artificial se han aplicado, entre 2021 y 2026, para la detección de actividades delictivas y el seguimiento de personas u objetos de interés relacionados con eventos de seguridad en sistemas de videovigilancia, y qué resultados de desempeño y evidencias de implementación reportan?
+\subsection{Objetivo y preguntas de investigación}\label{subsec:preguntas}
 
-La delimitación se organizó mediante PICOC: población, intervención, comparación, resultados y contexto \cite{petticrew2006}. El intervalo 2021--2026 corresponde a un filtro temporal de búsqueda y no a un componente adicional del marco.
+El objetivo de la revisión fue sintetizar y analizar críticamente la evidencia publicada entre 2021 y 2026 sobre modelos y técnicas de Inteligencia Artificial aplicados a la detección de actividades delictivas y al seguimiento de personas u objetos de interés en sistemas de videovigilancia, considerando las arquitecturas empleadas, los conjuntos de datos, las métricas de desempeño y la evidencia de implementación y despliegue. La revisión se orientó mediante la siguiente pregunta principal: ¿Qué modelos y técnicas de Inteligencia Artificial se han aplicado, entre 2021 y 2026, para la detección y seguimiento de actividades delictivas en sistemas de videovigilancia urbana, incluyendo técnicas de identificación, re-identificación y seguimiento de personas involucradas, y qué resultados de desempeño y evidencias de implementación y despliegue reportan? A partir de ella se formularon cinco preguntas específicas (Tabla~\ref{tab:rq}), que desagregan la pregunta principal en los modelos empleados, los eventos de seguridad y las capacidades de seguimiento abordadas, los conjuntos de datos y escenarios de evaluación, las métricas de desempeño y la evidencia de implementación y despliegue.
 
-\begin{table}[!htbp]
-\caption{Delimitación de la revisión mediante PICOC}\label{tab:picoc}
-\centering\small
-\begin{tabular}{@{}L{2.4cm}L{9.8cm}@{}}
-\toprule
-Componente & Delimitación \\
-\midrule
-Población & Actividades delictivas y eventos de seguridad observados mediante videovigilancia, incluidas personas y objetos de interés. \\
-Intervención & IA, aprendizaje automático, aprendizaje profundo y visión por computador aplicados a detección y seguimiento. \\
-Comparación & Monitoreo humano, CCTV sin IA, métodos basados en características manuales o modelos de referencia. \\
-Resultados & Accuracy, Precision, Recall, F1-Score, mAP, AUC y, cuando corresponda, métricas de seguimiento, FPS y latencia. \\
-Contexto & Sistemas de videovigilancia vinculados con seguridad pública, urbana o eventos de seguridad. \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\subsection{Preguntas específicas de investigación}\label{subsec2_2}
-
-Las cinco preguntas de la Tabla~\ref{tab:preguntas} orientaron la extracción y la síntesis. La consideración de una capacidad en el protocolo no implica que se haya encontrado evidencia de su evaluación en el corpus.
-
-\begin{table}[!htbp]
-\caption{Preguntas específicas de investigación}\label{tab:preguntas}
-\centering\small
-\begin{tabular}{@{}L{1.05cm}L{11.15cm}@{}}
+\begin{table}[h]
+\hyphenpenalty=10000\exhyphenpenalty=10000
+\caption{Preguntas de investigación de la revisión sistemática}\label{tab:rq}
+\begin{tabular}{@{}L{1.0cm}L{11.5cm}@{}}
 \toprule
 Código & Pregunta \\
 \midrule
-RQ1 & ¿Qué modelos, algoritmos y arquitecturas de IA utilizan los sistemas estudiados? \\
-RQ2 & ¿Qué actividades delictivas y eventos de seguridad abordan, y qué capacidades de detección, identificación y seguimiento incorporan? \\
-RQ3 & ¿Qué conjuntos de datos y escenarios se emplean para el entrenamiento y la evaluación? \\
-RQ4 & ¿Qué métricas y niveles de desempeño se reportan, y bajo qué condiciones resultan comparables? \\
-RQ5 & ¿Qué evidencia de implementación, procesamiento en tiempo real y arquitectura de despliegue se presenta, y qué limitaciones se declaran? \\
+RQ1 & ¿Qué modelos, algoritmos y arquitecturas de Inteligencia Artificial se utilizan para la detección de actividades delictivas y para la identificación, re-identificación y seguimiento de personas involucradas en sistemas de videovigilancia? \\
+\addlinespace
+RQ2 & ¿Qué tipos de actividades delictivas y eventos de seguridad son detectados por los sistemas inteligentes de videovigilancia, y qué capacidades de identificación, re-identificación y seguimiento de las personas involucradas son abordadas? \\
+\addlinespace
+RQ3 & ¿Qué conjuntos de datos y escenarios de videovigilancia se utilizan para entrenar y evaluar los modelos de detección de actividades delictivas y de identificación, re-identificación y seguimiento de personas? \\
+\addlinespace
+RQ4 & ¿Qué métricas y niveles de desempeño reportan los modelos de Inteligencia Artificial aplicados a la detección de actividades delictivas y a la identificación, re-identificación y seguimiento de personas? \\
+\addlinespace
+RQ5 & ¿Qué evidencia de implementación, procesamiento en tiempo real, arquitectura de despliegue y limitaciones reportan los sistemas inteligentes de videovigilancia para la detección y seguimiento de actividades delictivas? \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\subsection{Estrategia de búsqueda}\label{subsec2_3}
+\subsection{Estrategia PICOC}\label{subsec:picoc}
 
-Se consultaron ScienceDirect, Web of Science y Scopus para recuperar artículos publicados entre 2021 y 2026. El protocolo delimitó estudios en inglés y con disponibilidad de acceso abierto. En ScienceDirect, el idioma no estuvo disponible como filtro de la interfaz. Los bloques conceptuales comprendieron videovigilancia, técnicas de IA y actividades delictivas o eventos de seguridad. La combinación de sinónimos mediante OR y de bloques mediante AND sigue la lógica de búsquedas estructuradas en estudios secundarios \cite{petersen2015,zhang2011}. El uso de varias bases amplía la cobertura, aunque no elimina sus diferencias de indexación \cite{martin2021}.
+La pregunta se delimitó con el marco PICOC (población, intervención, comparación, resultados y contexto), descrito por Petticrew y Roberts para estructurar preguntas de revisión \cite{petticrew2006} y recogido por Kitchenham y Charters para la ingeniería de software \cite{kitchenham2007}. La Tabla~\ref{tab:picoc} presenta los cinco componentes registrados en el protocolo. El periodo 2021--2026 no se trató como un componente adicional del marco, sino como una delimitación temporal que se aplicó mediante los filtros de búsqueda.
 
-\begin{table}[!htbp]
-\caption{Registros importados por base de datos}\label{tab:busqueda}
-\centering\small
-\begin{tabular}{@{}lr@{}}
+\begin{table}[h]
+\hyphenpenalty=10000\exhyphenpenalty=10000
+\caption{Componentes PICOC definidos en el protocolo}\label{tab:picoc}
+\begin{tabular}{@{}L{2.4cm}L{10.1cm}@{}}
 \toprule
-Base de datos & Registros \\
+Componente & Definición registrada en el protocolo \\
 \midrule
-ScienceDirect & 260 \\
-Web of Science & 105 \\
-Scopus & 145 \\
-\midrule
-Total & 510 \\
+Población (P) & Actividades delictivas y eventos de seguridad observados mediante sistemas de videovigilancia, incluyendo personas u objetos de interés relacionados con dichos eventos. \\
+\addlinespace
+Intervención (I) & Inteligencia Artificial, aprendizaje automático/profundo y visión por computador aplicados a detección de actividades delictivas y seguimiento de personas u objetos de interés en eventos de seguridad. \\
+\addlinespace
+Comparación (C) & Monitoreo humano tradicional de videovigilancia, sistemas CCTV sin Inteligencia Artificial, métodos convencionales basados en características manuales, modelos \textit{baseline}. \\
+\addlinespace
+Resultados (O) & Accuracy, Precision, Recall, F1-Score, mAP, AUC, métricas de seguimiento como MOTA, MOTP, IDF1 y HOTA, así como FPS y latencia. \\
+\addlinespace
+Contexto (C) & Sistemas de videovigilancia orientados a seguridad en espacios públicos y entornos urbanos. \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-% Las cadenas históricas y las del reporte de Parsifal difieren.
-% No atribuir a los 510 registros una cadena cuya ejecución no esté confirmada.
-La documentación conservada contiene versiones diferentes de las cadenas de búsqueda, especialmente en la inclusión de términos de seguimiento. Su correspondencia con los 510 registros importados requiere cotejo con el historial de ejecución. Por esta razón, las ecuaciones exactas y la fecha de ejecución se mantienen como aspectos pendientes de verificación del protocolo; no se presentan cadenas reconstruidas como si hubieran sido ejecutadas.
+\subsection{Estrategia de búsqueda}\label{subsec:busqueda}
 
-\subsection{Criterios de inclusión y exclusión}\label{subsec2_4}
+Los términos de búsqueda se derivaron de los componentes PICOC y se registraron en el protocolo como términos en inglés agrupados por concepto (Tabla~\ref{tab:keywords}). Las filas de esa tabla indican el componente PICOC al que se vinculó cada concepto. A partir de los conceptos registrados se construyó la cadena base de búsqueda. La cadena base se organizó en tres bloques: videovigilancia, Inteligencia Artificial y eventos de seguridad. Los términos de cada bloque se combinaron con OR y los bloques se relacionaron mediante AND, procedimiento habitual en la construcción de cadenas de búsqueda para estudios secundarios en ingeniería de software \cite{petersen2015}. El bloque de eventos reunió expresiones de detección de actividades delictivas y de seguimiento de personas. No todos los términos registrados se incorporaron a la cadena: de los 45 términos del protocolo, 19 formaron parte de las ecuaciones ejecutadas, que además emplearon cinco expresiones más específicas no registradas en el protocolo, como \textit{crime detection} o \textit{suspect tracking}. Los términos asociados con resultados no se utilizaron para restringir la búsqueda.
 
-La selección aplicó los criterios registrados en Parsifal (Tabla~\ref{tab:criterios}). La regla de aceptación fue IC1 e IC4 junto con IC2 o IC3. Para cada rechazo se registró un motivo principal, de modo que las frecuencias de exclusión son mutuamente excluyentes. La eliminación de duplicados precedió a esta evaluación.
-
-\begingroup\small
-\setlength{\tabcolsep}{4pt}
-\begin{longtable}{@{}L{1.05cm}L{9.35cm}L{1.8cm}@{}}
-\caption{Criterios de selección registrados en Parsifal}\label{tab:criterios}\\
-\toprule Código & Criterio & Rechazos \\
-\midrule\endfirsthead
-\toprule Código & Criterio & Rechazos \\
-\midrule\endhead
-\bottomrule\endlastfoot
-IC1 & Aplicación de IA, aprendizaje automático, aprendizaje profundo o visión por computador en videovigilancia. & --- \\
-IC2 & Detección de actividades delictivas o eventos de seguridad, incluidas violencia, armas y conductas sospechosas. & --- \\
-IC3 & Seguimiento de personas, sospechosos u objetos relacionado con actividades delictivas o eventos de seguridad en videovigilancia. & --- \\
-IC4 & Investigación primaria que proponga, desarrolle, implemente o evalúe un modelo, método o sistema relacionado con el objetivo de la revisión. & --- \\
-\midrule
-EC1 & Sin aplicación de IA, aprendizaje automático, aprendizaje profundo o visión por computador en videovigilancia. & 33 \\
-EC2 & Sin relación con detección de delitos, violencia, armas, comportamientos sospechosos o eventos de seguridad. & 45 \\
-EC3 & Seguimiento de personas u objetos sin relación con actividades delictivas o eventos de seguridad en videovigilancia. & 46 \\
-EC4 & Aplicación exclusiva a contextos ajenos al objetivo de la revisión, como medicina, industria, deportes, comercio o monitoreo de tráfico. & 102 \\
-EC5 & Revisiones, \textit{surveys}, editoriales u otros estudios secundarios sin investigación primaria. & 23 \\
-EC6 & Sin una versión de acceso abierto elegible y verificable. & 0 \\
-\midrule
-\multicolumn{2}{@{}l}{Total de rechazos en selección} & 249 \\
-\end{longtable}
-\endgroup
-
-\subsection{Proceso de selección de estudios}\label{subsec2_5}
-
-De los 510 registros importados se eliminaron 113 duplicados. Los 397 registros únicos pasaron a selección: 249 fueron rechazados y 148 aceptados para evaluación de calidad. Esta última retuvo 99 estudios y excluyó 49. La Tabla~\ref{tab:flujo} conserva la separación entre etapas para evitar confundir los rechazos por elegibilidad con los correspondientes a calidad.
-
-\begin{table}[!htbp]
-\caption{Flujo de selección y conformación del corpus final}\label{tab:flujo}
-\centering\small
-\begin{tabular}{@{}L{10.3cm}r@{}}
+\begin{table}[h]
+\hyphenpenalty=10000\exhyphenpenalty=10000
+\caption{Conceptos y términos registrados en el protocolo para la estrategia de búsqueda}\label{tab:keywords}
+\begin{tabular}{@{}L{3.0cm}L{7.35cm}>{\centering\arraybackslash}p{1.8cm}@{}}
 \toprule
-Etapa & Estudios \\
+Concepto & Términos registrados (en inglés) & Componente\newline PICOC \\
 \midrule
-Registros identificados & 510 \\
-Duplicados eliminados & 113 \\
-Registros únicos evaluados en selección & 397 \\
-Rechazados en selección & 249 \\
-Aceptados para evaluación de calidad & 148 \\
-Excluidos por calidad & 49 \\
-Corpus final elegible & 99 \\
+Actividad delictiva & abnormal behavior; anomaly detection; crime; criminal activity; suspicious activity; violence detection; weapon detection & P \\
+\addlinespace
+Videovigilancia & CCTV; citizen security; intelligent surveillance; public safety; smart surveillance; surveillance camera; surveillance video; urban surveillance; video surveillance & P \\
+\addlinespace
+Inteligencia Artificial & CNN; Faster R-CNN; YOLO; artificial intelligence; computer vision; convolutional neural network; deep learning; machine learning; object detection & I \\
+\addlinespace
+Seguimiento de personas & face recognition; facial recognition; human tracking; multi-camera tracking; multi-object tracking; object tracking; person detection; person identification; person re-ID; person re-identification; person tracking; re-identification & I \\
+\addlinespace
+Resultado & AUC; F1-score; FPS; accuracy; latency; mAP; precision; recall & O \\
+\bottomrule
+\end{tabular}
+\footnotetext{Población (P) e Intervención (I) agrupan más de un concepto y, por ello, aparecen en más de una fila; Comparación (C) y Contexto (C) no se emplearon como grupos independientes de términos de búsqueda. No todos los términos registrados se incorporaron a las ecuaciones ejecutadas: la Tabla~\ref{tab:ecuaciones} presenta las cadenas efectivamente aplicadas, de modo que ambas tablas documentan la trazabilidad entre el protocolo y la búsqueda ejecutada.}
+\end{table}
+
+La búsqueda se ejecutó el 22 de septiembre de 2026 en ScienceDirect, Web of Science Core Collection y Scopus. La consulta de varias bases de datos resulta pertinente porque los estudios comparativos muestran que la cobertura puede diferir de forma sustancial entre fuentes bibliográficas \cite{martin2021}. Las ecuaciones conservaron la misma estructura conceptual y se adaptaron a la sintaxis de cada plataforma (Tabla~\ref{tab:ecuaciones}). En Scopus la búsqueda se aplicó sobre título, resumen y palabras clave (TITLE-ABS-KEY) y los filtros se expresaron dentro de la propia ecuación; en Web of Science se utilizó el campo \textit{Topic} (TS) y los filtros se aplicaron como refinamientos de la interfaz. ScienceDirect limita el número de operadores booleanos por consulta, por lo que la cadena base se descompuso en múltiples subconsultas adaptadas a esa restricción. Cada subconsulta combinó un grupo de términos de videovigilancia, un grupo de términos de Inteligencia Artificial y un grupo de términos de detección o de seguimiento, aplicados sobre el título, el resumen y las palabras clave del autor. Las subconsultas devolvieron 888 resultados brutos que, una vez consolidadas las coincidencias entre ellas, quedaron en 260 registros únicos. Para esta base, la Tabla~\ref{tab:ecuaciones} presenta únicamente subconsultas representativas de las ejecutadas, una del bloque de detección y otra del bloque de seguimiento.
+
+\begin{table}[h]
+\hyphenpenalty=10000\exhyphenpenalty=10000
+\caption{Ecuaciones y subconsultas representativas de la estrategia de búsqueda}\label{tab:ecuaciones}
+\begin{tabular}{@{}L{2.2cm}L{10.3cm}@{}}
+\toprule
+Base de datos & Ecuación o estrategia \\
 \midrule
-Reporting Core (subconjunto del corpus final) & 35 \\
-Otros estudios elegibles incluidos en los conteos globales & 64 \\
+Scopus & {\footnotesize\ttfamily TITLE-ABS-KEY( ("video surveillance" OR "CCTV" OR "smart surveillance" OR "intelligent surveillance" OR "urban surveillance") AND ("artificial intelligence" OR "machine learning" OR "deep learning" OR "computer vision" OR "CNN" OR "YOLO" OR "Faster R-CNN") AND ( ("crime detection" OR "criminal activity detection" OR "criminal activity" OR "weapon detection" OR "violence detection" OR "suspicious activity detection" OR "criminal behavior detection") OR ("person tracking" OR "human tracking" OR "suspect tracking" OR "multi-object tracking" OR "multi-camera tracking") ) ) AND PUBYEAR > 2020 AND PUBYEAR < 2027 AND DOCTYPE(ar) AND LANGUAGE(English) AND OA(all)\par} \\
+\addlinespace
+Web of Science & {\footnotesize\ttfamily TS=( ("video surveillance" OR "CCTV" OR "smart surveillance" OR "intelligent surveillance" OR "urban surveillance") AND ("artificial intelligence" OR "machine learning" OR "deep learning" OR "computer vision" OR "CNN" OR "YOLO" OR "Faster R-CNN") AND ( ("crime detection" OR "criminal activity detection" OR "criminal activity" OR "weapon detection" OR "violence detection" OR "suspicious activity detection" OR "criminal behavior detection") OR ("person tracking" OR "human tracking" OR "suspect tracking" OR "multi-object tracking" OR "multi-camera tracking") ) )\par}\smallskip
+{\footnotesize Filtros aplicados como refinamientos de la interfaz (Tabla~\ref{tab:filtros}).\par} \\
+\addlinespace
+ScienceDirect & {\footnotesize SD26-D01 (detección):\par}
+{\footnotesize\ttfamily ("video surveillance" OR "CCTV") AND ("artificial intelligence" OR "machine learning") AND ("crime detection" OR "criminal activity detection" OR "criminal activity" OR "weapon detection")\par}\smallskip
+{\footnotesize SD26-T01 (seguimiento):\par}
+{\footnotesize\ttfamily ("video surveillance" OR "CCTV") AND ("artificial intelligence" OR "machine learning") AND ("person tracking" OR "human tracking" OR "suspect tracking" OR "multi-object tracking" OR "multi-camera tracking")\par} \\
+\bottomrule
+\end{tabular}
+\footnotetext{Para ScienceDirect se muestran subconsultas representativas de la estrategia ejecutada; la búsqueda completa se realizó mediante múltiples subconsultas debido a las restricciones de la plataforma.}
+\end{table}
+
+Los filtros se aplicaron en las tres bases con la configuración disponible en cada una (Tabla~\ref{tab:filtros}): publicaciones de 2021 a 2026, artículos de investigación y acceso abierto. El filtro de idioma inglés se aplicó en Web of Science y en Scopus; ScienceDirect no ofrecía un filtro de idioma equivalente, por lo que en esa base no se aplicó una restricción idiomática durante la búsqueda. Con esta configuración, la búsqueda recuperó 510 registros: 260 en ScienceDirect, 105 en Web of Science y 145 en Scopus (Tabla~\ref{tab:filtros}).
+
+\begin{table}[h]
+\hyphenpenalty=10000\exhyphenpenalty=10000
+\caption{Filtros aplicados y distribución de registros por base de datos}\label{tab:filtros}
+\begin{tabular}{@{}L{2.95cm}L{2.45cm}L{2.15cm}L{2.45cm}r@{}}
+\toprule
+ & ScienceDirect & Web of Science & Scopus & Total \\
+\midrule
+Campo de búsqueda & Título, resumen y palabras clave del autor & \textit{Topic} (TS) & TITLE-ABS-KEY & \\
+Periodo & 2021--2026 & 2021--2026 & 2021--2026 & \\
+Tipo documental & \textit{Research articles} & \textit{Article} & \textit{Article} (DOCTYPE ar) & \\
+Idioma & Filtro no disponible & Inglés & Inglés & \\
+Acceso abierto & \textit{Open access} y \textit{open archive} & \textit{Open Access} & \textit{All Open Access} & \\
+\midrule
+Registros identificados & 260 & 105 & 145 & 510 \\
+Duplicados eliminados & 16 & 97 & 0 & 113 \\
+Registros únicos tras la deduplicación & 244 & 8 & 145 & 397 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-El reporte de selección documenta doce casos ambiguos con verificación complementaria: diez mediante texto completo y dos mediante contenido indexado. Esta comprobación formó parte de la selección y no se contabilizó como una etapa independiente de evaluación a texto completo.
-
 \FloatBarrier
-\subsection{Evaluación de la calidad}\label{subsec2_6}
+\subsection{Criterios de inclusión y exclusión}\label{subsec:criterios}
 
-Los 148 estudios aceptados se evaluaron mediante diez preguntas (QA1--QA10), referidas al contexto, los datos, el método y la evidencia experimental. Este enfoque es consistente con el uso de listas de evaluación en revisiones de ingeniería de software \cite{dyba2008}. Cada pregunta se calificó como \textit{Yes} = 1, \textit{Partially} = 0,5 o \textit{No} = 0, con un máximo de diez puntos.
+Los registros se evaluaron con cuatro criterios de inclusión (CI1--CI4) y seis criterios de exclusión (CE1--CE6), definidos en el protocolo (Tabla~\ref{tab:criterios}). Un registro se aceptó cuando cumplía CI1 y CI4 y, además, CI2 o CI3; es decir, cuando correspondía a un estudio primario que aplicaba Inteligencia Artificial o visión por computador en videovigilancia y se orientaba a la detección de actividades delictivas o eventos de seguridad, o al seguimiento vinculado con ellos. A cada registro rechazado se le asignó un único criterio de exclusión principal, de modo que las frecuencias por criterio son mutuamente excluyentes. El criterio CE6 formó parte del protocolo, pero no se aplicó a ningún registro.
 
-\begingroup\small
-\begin{longtable}{@{}L{1.05cm}L{11.15cm}@{}}
-\caption{Preguntas de evaluación de calidad registradas en el reporte final}\label{tab:qa}\\
-\toprule Código & Pregunta de calidad \\
-\midrule\endfirsthead
-\toprule Código & Pregunta de calidad \\
-\midrule\endhead
-\bottomrule\endlastfoot
-QA1 & ¿Se describe con suficiente detalle el contexto o escenario de aplicación o evaluación? \\
-QA2 & ¿Se describe el conjunto de datos en cuanto a origen, tamaño y características relevantes? \\
-QA3 & ¿La metodología de evaluación o validación está claramente descrita y es apropiada para el objetivo y la tarea? \\
-QA4 & ¿Se reportan métricas cuantitativas apropiadas para la tarea evaluada? \\
-QA5 & ¿Se declaran limitaciones, amenazas a la validez o problemas de generalización? \\
-QA6 & ¿Los resultados se interpretan en relación con la literatura o con otros métodos, más allá de su presentación? \\
-QA7 & ¿Se proporciona suficiente detalle metodológico y experimental para permitir, en principio, la reproducción o replicación? \\
-QA8 & ¿Se describe con suficiente detalle el modelo, algoritmo o arquitectura de IA y su funcionamiento? \\
-QA9 & ¿Se define el objetivo y existe coherencia entre este, el método y la evaluación? \\
-QA10 & ¿El modelo o método se compara cuantitativamente con al menos una línea base relevante? \\
-\end{longtable}
-\endgroup
-
-En Parsifal se configuró un \textit{cutoff} de 7,0. La clasificación efectiva retuvo puntuaciones estrictamente superiores a ese valor; como la escala avanza en incrementos de 0,5, PASS correspondió a QA $\geq 7{,}5$ y FAIL a QA $\leq 7{,}0$. Los siete estudios con puntuación exactamente igual a 7,0 quedaron en FAIL. En total, 99 estudios fueron clasificados como PASS y 49 como FAIL (Tabla~\ref{tab:qa_resultados}). No se aplicó un criterio inclusivo de 7,0 para definir el corpus final.
-
-\begin{table}[!htbp]
-\caption{Clasificación operativa de la evaluación de calidad}\label{tab:qa_resultados}
-\centering\small
-\begin{tabular}{@{}L{10.0cm}r@{}}
-\toprule Resultado & Estudios \\
+\begin{table}[h]
+\hyphenpenalty=10000\exhyphenpenalty=10000
+\caption{Criterios de inclusión y exclusión aplicados en la selección}\label{tab:criterios}
+\begin{tabular}{@{}L{0.95cm}L{9.95cm}r@{}}
+\toprule
+Código & Criterio & \begin{tabular}[b]{@{}r@{}}Excluidos\\(n)\end{tabular} \\
 \midrule
-PASS: QA $\geq 7{,}5$ & 99 \\
-FAIL: QA $\leq 7{,}0$ & 49 \\
-De los FAIL, puntuación exactamente igual a 7,0 & 7 \\
-\midrule Total evaluado & 148 \\
+CI1 & Estudios que apliquen técnicas de Inteligencia Artificial, aprendizaje automático, aprendizaje profundo o visión por computador en sistemas de videovigilancia. & -- \\
+CI2 & Estudios orientados a la detección de actividades delictivas o eventos de seguridad, incluyendo violencia, armas y comportamientos sospechosos. & -- \\
+CI3 & Estudios que aborden el seguimiento de personas, sospechosos u objetos de interés en videovigilancia, cuando esté relacionado con actividades delictivas o eventos de seguridad. & -- \\
+CI4 & Estudios primarios que propongan, desarrollen, implementen o evalúen un modelo, método o sistema relacionado con el objetivo de la revisión. & -- \\
+\midrule
+CE1 & Estudios que no apliquen Inteligencia Artificial, aprendizaje automático, aprendizaje profundo o visión por computador en sistemas de videovigilancia. & 33 \\
+CE2 & Estudios que no estén relacionados con la detección de actividades delictivas, violencia, armas, comportamientos sospechosos o eventos de seguridad. & 45 \\
+CE3 & Estudios de seguimiento de personas u objetos que no estén relacionados con actividades delictivas o eventos de seguridad en videovigilancia. & 46 \\
+CE4 & Estudios aplicados exclusivamente a contextos ajenos al objetivo de la revisión, como medicina, industria, deportes, comercio o monitoreo de tráfico. & 102 \\
+CE5 & Revisiones sistemáticas, revisiones de literatura, surveys, editoriales u otros estudios secundarios que no presenten una investigación primaria. & 23 \\
+CE6 & Publicaciones que no cumplan con el requisito de disponibilidad en modalidad Open Access mediante una versión elegible y verificable. & 0 \\
+\midrule
+ & Total de registros excluidos & 249 \\
 \bottomrule
 \end{tabular}
+\footnotetext{En Parsifal, los criterios se registraron con los códigos IC1--IC4 y EC1--EC6.}
 \end{table}
 
-\subsection{Extracción de datos y síntesis}\label{subsec2_7}
+\FloatBarrier
+\subsection{Proceso de selección de estudios}\label{subsec:seleccion}
 
-La extracción se completó para los 99 estudios elegibles mediante un formulario de 30 campos, equivalente a 2\,970 celdas. Los campos abarcaron identificación bibliográfica, datos y escenarios, tareas y eventos, capacidades adicionales, modelos de IA, protocolos de evaluación, métricas, eficiencia computacional, tiempo real, arquitectura y plataforma de despliegue, líneas base, hallazgos, limitaciones y calidad. La completitud del formulario no implica que todos los artículos reportaran cada variable: la ausencia de información se conservó como tal.
+Los 510 registros recuperados se importaron en Parsifal, donde la detección de duplicados identificó 113 registros y dejó 397 registros únicos (Tabla~\ref{tab:filtros}). La selección de estos registros se desarrolló en dos pasos, cuyos resultados se registraron en Parsifal. En primer lugar, los 397 registros se cribaron aplicando los criterios de elegibilidad descritos en la subsección anterior. La decisión se apoyó en el título, el resumen y las palabras clave en 391 registros, en el título y el resumen en cuatro, solo en el título en uno y solo en el resumen en otro. En cinco casos dudosos se consultó además el texto completo antes de decidir. El cribado excluyó 247 registros y aceptó 150. En segundo lugar, antes de la evaluación de calidad, se verificó la aplicación de los criterios de inclusión y exclusión en los 150 registros aceptados. Siete de ellos requirieron evidencia adicional y dos se excluyeron por CE2, porque la evaluación experimental de esos estudios correspondía a una detección genérica de anomalías en la que la actividad delictiva solo aparecía como motivación. Como resultado, 148 estudios primarios pasaron a la evaluación de calidad.
 
-Se calcularon frecuencias sobre los 99 estudios. Las familias tecnológicas, los eventos, los conjuntos de datos, las métricas y las limitaciones admitieron múltiples etiquetas por estudio; sus categorías no representan particiones excluyentes. Las comparaciones de desempeño se restringieron a tareas, conjuntos de datos y métricas suficientemente semejantes. La heterogeneidad experimental impidió realizar un metaanálisis o establecer un promedio global de rendimiento.
-
-\subsection{Selección del Reporting Core}\label{subsec:core_method}
-
-Se seleccionaron intencionalmente 35 estudios del corpus elegible para desarrollar una síntesis detallada y vincular los hallazgos con publicaciones concretas. Este \textit{Reporting Core} incluye familias tecnológicas menos frecuentes y permite ilustrar la diversidad de tareas y condiciones de evaluación. No es una muestra aleatoria ni reemplaza al corpus final: los otros 64 estudios continúan en todos los conteos globales. En consecuencia, las proporciones internas del Core no se extrapolan a los 99 estudios.
-
-\subsection{Análisis bibliométrico complementario}\label{subsec:biblio_method}
-
-El análisis bibliométrico utilizó los 145 registros de Scopus y las salidas de Bibliometrix conservadas en el proyecto. Se examinaron producción anual, citas, autoría, fuentes, afiliaciones y palabras clave, junto con redes de colaboración, co-citación, acoplamiento bibliográfico y co-ocurrencia. El mapa conceptual corresponde a un análisis de correspondencias múltiples (MCA), según la figura exportada. Las cifras de citación describen el archivo analizado y no una actualización continua. Las redes se interpretaron de forma descriptiva: no se atribuyeron valores de centralidad, tamaños de efecto ni parámetros de agrupamiento ausentes en las salidas disponibles.
-
-\subsection{Amenazas a la validez}\label{subsec2_8}
-
-Se consideraron amenazas de selección, cobertura, medición e interpretación, habituales en estudios secundarios \cite{ampatzoglou2019}. No se calculó un coeficiente formal de acuerdo interevaluador; por ello, no se atribuye un nivel cuantitativo de concordancia a la selección o a la codificación. Las discrepancias documentales entre versiones de las cadenas requieren aclaración para completar la reproducibilidad del protocolo.
-
-La búsqueda se limitó a tres bases, artículos en inglés, acceso abierto y el periodo 2021--2026. No se complementó con \textit{snowballing}, técnica que puede ampliar la recuperación de trabajos mediante sus relaciones de citación \cite{wohlin2014}. La cobertura de seguimiento y re-identificación debe interpretarse en función de la estrategia efectivamente ejecutada, cuya inclusión de términos específicos está pendiente de confirmación. Los resultados sobre estas capacidades describen el corpus recuperado y no toda la literatura del área.
-
-La extracción depende del detalle reportado por cada publicación. La ausencia de una arquitectura o una métrica en el artículo no demuestra que el sistema carezca de ella. Además, el Reporting Core es intencional y los conjuntos bibliométrico y sistemático tienen criterios y tamaños distintos. Estas diferencias se mantuvieron explícitas para evitar extrapolaciones entre sus resultados.
+En total, doce registros requirieron evidencia adicional a los metadatos: los cinco casos dudosos del cribado y los siete de la verificación. Se consultó el texto completo en nueve de ellos y el contenido indexado en dos; en el caso restante el texto completo no estuvo accesible y solo se dispuso del resumen. Este grupo incluye los dos registros excluidos por CE2 en la verificación; los diez restantes continuaron a la evaluación de calidad y, de ellos, tres superaron la evaluación y siete no alcanzaron el umbral establecido (subsección~\ref{subsec:calidad}). Esta consulta de evidencia adicional formó parte de la selección y no constituyó una etapa independiente de cribado a texto completo. De los 249 registros excluidos durante la selección (Tabla~\ref{tab:criterios}), 247 se excluyeron en el cribado y dos en la verificación de criterios; por ello, las 45 exclusiones por CE2 de la Tabla~\ref{tab:criterios} corresponden a 43 del cribado y dos de la verificación. La Figura~\ref{fig:prisma-argus} resume el flujo completo de identificación y selección.
 
 \FloatBarrier
+\begin{figure}[!t]
+\centering
+\input{figures/prisma_kitchenham}
+\caption{Flujo de identificación y selección de estudios inspirado en PRISMA 2020 \cite{page2021} y adaptado al proceso de revisión sistemática de Kitchenham y Charters \cite{kitchenham2007}. CE: criterio de exclusión (definiciones en la Tabla~\ref{tab:criterios})}\label{fig:prisma-argus}
+\end{figure}
 
 \FloatBarrier
+\subsection{Evaluación de calidad}\label{subsec:calidad}
+
+Los 148 estudios que superaron la selección se sometieron a una evaluación de calidad con un instrumento de diez preguntas (Tabla~\ref{tab:qa}). Las preguntas examinaron el contexto de aplicación, la descripción del conjunto de datos, la metodología de evaluación, las métricas reportadas, la declaración de limitaciones, la discusión frente a trabajos previos, el detalle necesario para la replicación, la descripción del modelo, la coherencia entre objetivo y evaluación y la comparación con al menos una línea base. Kitchenham y Charters recomiendan definir el instrumento de calidad en el protocolo y especificar el uso que se dará a sus resultados \cite{kitchenham2007}, y el empleo de listas de verificación para valorar estudios primarios cuenta con precedentes en revisiones sistemáticas de ingeniería de software \cite{dyba2008}. Cada pregunta se calificó como Sí (1), Parcialmente (0,5) o No (0), por lo que el puntaje máximo fue de 10 puntos. Se consideró que un estudio superaba la evaluación cuando obtenía al menos 7,5 puntos, y que no la superaba con 7,0 puntos o menos; como la escala avanzaba en pasos de 0,5, no existían puntajes intermedios entre ambos límites. Este umbral fue una decisión propia de la revisión: en Parsifal se configuró un punto de corte de 7,0 y solo los puntajes superiores a ese valor se consideraron aprobatorios. Con él, 99 estudios superaron la evaluación y 49 no la superaron; entre estos últimos, siete obtuvieron exactamente 7,0 puntos. En 45 de los 148 estudios se registró acceso limitado al texto completo; en esos casos, la valoración se realizó con la evidencia documental disponible y el acceso limitado no se utilizó como criterio de exclusión: tres de esos estudios superaron la evaluación y 42 no la superaron.
+
+\begin{table}[h]
+\hyphenpenalty=10000\exhyphenpenalty=10000
+\caption{Instrumento de evaluación de calidad de los estudios}\label{tab:qa}
+\begin{tabular}{@{}L{1.0cm}L{11.5cm}@{}}
+\toprule
+Código & Pregunta \\
+\midrule
+QA1 & ¿El estudio describe con suficiente detalle el contexto o escenario de aplicación en el que se desarrolla o evalúa el sistema? \\
+QA2 & ¿El conjunto de datos utilizado está adecuadamente descrito en cuanto a origen, tamaño y características relevantes para la tarea evaluada? \\
+QA3 & ¿La metodología de evaluación o validación está claramente descrita y es apropiada para el objetivo y la tarea del estudio? \\
+QA4 & ¿El estudio reporta métricas cuantitativas de desempeño apropiadas para la tarea evaluada, ya sea detección, seguimiento u otra tarea relacionada? \\
+QA5 & ¿El estudio declara limitaciones, amenazas a la validez o problemas de generalización de los resultados? \\
+QA6 & ¿Los resultados se interpretan o discuten en relación con la literatura previa o con otros métodos, más allá de la mera presentación de resultados? \\
+QA7 & ¿El estudio proporciona suficiente detalle metodológico y experimental para permitir, en principio, la reproducción o replicación del procedimiento realizado? \\
+QA8 & ¿Se describe con suficiente detalle el modelo, algoritmo o arquitectura de Inteligencia Artificial utilizada, permitiendo comprender su funcionamiento? \\
+QA9 & ¿El estudio define con claridad su objetivo o problema de investigación, y existe coherencia entre dicho objetivo, el método propuesto y la evaluación realizada? \\
+QA10 & ¿El modelo o método propuesto se compara cuantitativamente con al menos un método, modelo o línea base relevante? \\
+\bottomrule
+\end{tabular}
+\footnotetext{Escala: Sí = 1; Parcialmente = 0,5; No = 0; puntaje máximo = 10.}
+\end{table}
+
+\FloatBarrier
+\subsection{Extracción de datos y selección para la síntesis}\label{subsec:extraccion}
+
+La extracción de datos se aplicó a los 99 estudios que superaron la evaluación de calidad, mediante un formulario de 30 campos definido en Parsifal, en línea con la recomendación de diseñar los formularios de extracción para recoger la información necesaria para responder las preguntas de la revisión \cite{kitchenham2007}. Los campos registraron la identificación bibliográfica, el país o la ubicación del escenario, el conjunto de datos con su origen y características, el escenario de videovigilancia, la tarea principal y el evento de seguridad específico, la arquitectura o modelo de Inteligencia Artificial, el protocolo de evaluación, las métricas reportadas (exactitud, precisión, recall, F1-Score, mAP, AUC, latencia, FPS y otras métricas), la evidencia de procesamiento en tiempo real, la arquitectura de despliegue, la línea base de comparación, el hallazgo principal, las limitaciones declaradas por los autores y el puntaje de calidad. El formulario comprendió 2\,970 celdas ($99 \times 30$). La extracción sirvió para caracterizar los estudios y no se utilizó como criterio de exclusión.
+
+Los 99 estudios que superaron la evaluación de calidad constituyeron el corpus elegible de la revisión y sustentaron los conteos y frecuencias globales de RQ1--RQ5. Después de la extracción, 35 de ellos se seleccionaron para una síntesis en profundidad mediante un muestreo intencional de máxima variación (\textit{purposeful maximum-variation sampling}), estrategia que, aplicada a la síntesis de investigaciones, consiste en identificar dimensiones clave de variación y elegir estudios que difieran entre sí a lo largo de ellas \cite{suri2011}. Las dimensiones consideradas fueron la tarea principal, la familia de modelos, la cobertura de RQ1--RQ5, los conjuntos de datos, el año de publicación y la evidencia de despliegue o de procesamiento en tiempo real. Además, se redujo la redundancia entre estudios con la misma tarea y familia de modelos y se mantuvieron representadas las familias poco frecuentes en el corpus. El puntaje de calidad y la disponibilidad del texto completo actuaron solo como criterios secundarios de desempate. La selección se basó en un juicio metodológico documentado a partir de los datos extraídos; no respondió a un algoritmo determinista, no estuvo preespecificada en el protocolo inicial y no consideró el desempeño reportado por los modelos. Muestreos intencionales de este tipo se han empleado en síntesis de evidencia para trabajar con un subconjunto de los estudios elegibles, manteniendo identificados los estudios que no se incorporaron al análisis \cite{ames2019}. Los 64 estudios restantes no se excluyeron de la revisión: superaron la evaluación de calidad, permanecieron en el corpus elegible y se consideraron en los conteos globales, aunque no formaron parte de la síntesis en profundidad. De este modo, los 99 estudios sustentaron los conteos globales y el subconjunto de 35 permitió realizar una síntesis más detallada conservando la diversidad del corpus. En la sección de resultados, el subconjunto de 35 estudios se denomina \textit{Reporting Core}.
+
+Siguiendo la recomendación de reportar las amenazas a la validez en estudios secundarios \cite{ampatzoglou2019}, se identificaron las siguientes limitaciones metodológicas. La búsqueda se limitó a tres bases de datos y a los filtros de periodo, tipo documental, idioma (inglés en Web of Science y Scopus; ScienceDirect no ofrecía un filtro equivalente) y acceso abierto, por lo que pueden existir estudios pertinentes que no fueron recuperados; las diferencias de cobertura entre fuentes bibliográficas \cite{martin2021} hacen que esta restricción no sea despreciable. Además, la cadena no incluyó algunos términos registrados en el protocolo, entre ellos los de re-identificación, reconocimiento facial e identificación de personas, lo que pudo reducir la recuperación de estudios centrados en esas técnicas. No se aplicó búsqueda por bola de nieve hacia atrás o hacia adelante (\textit{snowballing}), técnica que permite recuperar estudios no capturados por las cadenas booleanas \cite{wohlin2014}. En los registros del protocolo y de la ejecución de la búsqueda no consta una evaluación de la sensibilidad de la estrategia frente a un conjunto de referencia de estudios relevantes conocidos (cuasi estándar de oro), por lo que no es posible estimar la proporción de estudios pertinentes efectivamente recuperada \cite{zhang2011}. Por último, la valoración de calidad de los estudios con acceso limitado al texto completo se apoyó únicamente en la evidencia documental disponible (subsección~\ref{subsec:calidad}).
+
+
+% ============================================================
+% 3. RESULTADOS
+% ============================================================
+
 \section{Resultados}\label{sec3}
 
 Los estudios analizados muestran distintas aplicaciones de inteligencia artificial
@@ -1201,5 +1219,5 @@ La revisión utiliza registros bibliográficos de ScienceDirect, Web of Science 
 % interés, contribuciones individuales y condiciones de acceso a los datos.
 % No sustituir estos puntos por declaraciones de ausencia sin confirmación.
 
-\bibliography{snbibliography,core35_refs}
+\bibliography{snbibliography,methodology10_refs,core35_refs}
 \end{document}
