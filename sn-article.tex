@@ -282,32 +282,14 @@ La extracción depende del detalle reportado por cada publicación. La ausencia 
 \FloatBarrier
 \section{Resultados}\label{sec3}
 
-Los resultados se presentan de acuerdo con las preguntas de investigación.
-Se analizaron las técnicas de inteligencia artificial empleadas en videovigilancia,
-los eventos de seguridad abordados, los conjuntos de datos utilizados, las métricas
-de evaluación y las condiciones de implementación reportadas.
-
-Los resultados generales consideran los 99 estudios que superaron la evaluación
-de calidad. De ellos, 35 se seleccionaron para el análisis detallado y la comparación
-de las propuestas, vinculando los hallazgos con investigaciones específicas.
-Un estudio puede aparecer en varias categorías cuando combina técnicas, eventos,
-conjuntos de datos o métricas; por ello, los porcentajes no siempre suman 100\,\%.
-
-% ============================================================
-% 3.1 PREGUNTA GENERAL
-% ============================================================
-
-\subsection{Estudios seleccionados}
-\label{subsec:rq_general}
-
-Cada estudio fue revisado considerando las técnicas de inteligencia artificial
-empleadas, el evento de seguridad analizado, las capacidades de identificación
-o seguimiento y el desempeño y la implementación reportados.
-
-La Tabla~\ref{tab:general_synthesis} presenta una visión comparativa de los
-35 estudios utilizados para el análisis detallado. Esta organización permite
-reconocer las principales tendencias tecnológicas y relacionar los modelos
-propuestos con las distintas aplicaciones de videovigilancia.
+Los estudios analizados muestran distintas aplicaciones de inteligencia artificial
+para detectar eventos de seguridad y reconocer o seguir personas y objetos en
+videovigilancia. La Tabla~\ref{tab:general_synthesis} compara las técnicas,
+los eventos abordados, las capacidades de identificación y seguimiento y el
+desempeño y la implementación descritos en los 35 estudios analizados en detalle.
+Las frecuencias generales que se presentan a continuación corresponden a los
+99 estudios incluidos. Un mismo trabajo puede aparecer en varias categorías;
+por ello, los porcentajes no siempre suman 100\,\%.
 
 \begingroup
 \footnotesize
@@ -563,31 +545,12 @@ Evaluación en múltiples datasets \\
 \setlength{\tabcolsep}{6pt}
 \endgroup
 
-De manera global, la síntesis muestra un predominio de modelos de aprendizaje
-profundo orientados a la detección de violencia, armas y comportamiento anómalo.
-Las arquitecturas CNN, los detectores basados en YOLO y los modelos
-espacio-temporales aparecen de forma recurrente, mientras que las funciones de
-identificación y seguimiento presentan una presencia comparativamente menor.
+La comparación permite distinguir propuestas centradas en localizar objetos de
+aquellas que analizan acciones a lo largo de una secuencia. Las funciones de
+identificación y seguimiento aparecen con menor frecuencia, y la descripción de
+una arquitectura completa de despliegue es menos habitual que la evaluación del modelo.
 
-También se observa que una parte importante de las evaluaciones se realiza sobre
-datasets públicos y benchmarks. Aunque varios trabajos reportan o declaran
-procesamiento en tiempo real, la documentación de arquitecturas completas de
-despliegue es menos frecuente. Estos patrones generales se analizan de manera
-específica en las preguntas RQ1--RQ5.
-
-\subsection{Desarrollo de las preguntas de investigación}
-\label{subsec:rq_development}
-
-Las preguntas de investigación organizaron los hallazgos en cinco aspectos:
-las técnicas de inteligencia artificial empleadas, los eventos de seguridad
-abordados, los conjuntos de datos y escenarios utilizados, las métricas de
-evaluación y las condiciones de implementación. A continuación, se presentan
-las tendencias más frecuentes y los estudios que las ejemplifican.
-
-\subsubsection{RQ1: Modelos, algoritmos y arquitecturas de inteligencia artificial}
-\label{subsec:rq1_results}
-
-El análisis de las técnicas utilizadas muestra un predominio de modelos de aprendizaje profundo,
+En cuanto a las técnicas de inteligencia artificial empleadas, predominan los modelos de aprendizaje profundo,
 aunque con diferencias según la tarea abordada. Las CNN 2D fueron identificadas
 en 25 de los 99 estudios (25,3\,\%), constituyendo la familia más frecuente.
 Los detectores de objetos basados principalmente en YOLO aparecieron en 20 estudios
@@ -625,6 +588,7 @@ GCN / modelos basados en grafos (6/99) & \citet{janbi2024}; \citet{g2025}; \cite
 \bottomrule
 \end{tabular}
 \end{table}
+\FloatBarrier
 \endgroup
 
 La distribución indica que no existe una única arquitectura empleada de forma
@@ -634,16 +598,8 @@ objetos utiliza con mayor frecuencia detectores de una etapa, mientras que el
 reconocimiento de acciones incorpora modelos capaces de representar relaciones
 espacio-temporales.
 
-
-% ============================================================
-% 3.2.2 RQ2
-% ============================================================
-
 \FloatBarrier
-\subsubsection{RQ2: Actividades delictivas, eventos de seguridad y capacidades de seguimiento}
-\label{subsec:rq2_results}
-
-La violencia o agresión física fue el evento más frecuente entre los estudios analizados,
+Respecto a los eventos de seguridad, la violencia o agresión física fue el más frecuente entre los estudios analizados,
 identificado en 52 de los 99 estudios (52,5\,\%). La detección de armas de fuego
 ocupó el segundo lugar, con 29 estudios (29,3\,\%). También se identificaron
 eventos delictivos o anómalos múltiples en 15 trabajos (15,2\,\%),
@@ -655,7 +611,7 @@ en 11 (11,1\,\%), armas no especificadas en 11 (11,1\,\%) y robo o hurto en 10 (
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.15}
 \begin{longtable}{@{}L{3.2cm}L{5.0cm}L{4.1cm}@{}}
-\caption{Resultados para RQ2: eventos de seguridad y capacidades de seguimiento}
+\caption{Eventos de seguridad y capacidades de seguimiento}
 \label{tab:rq2_results}\\
 \toprule
 \textbf{Evento / capacidad} & \textbf{Referencias representativas} & \textbf{Función} \\
@@ -693,16 +649,8 @@ identificaron estudios que evaluaran explícitamente re-identificación de perso
 métricas especializadas. Este resultado corresponde únicamente a los estudios analizados y no implica ausencia de trabajos sobre
 \textit{person re-identification} en la literatura general.
 
-
-% ============================================================
-% 3.2.3 RQ3
-% ============================================================
-
 \FloatBarrier
-\subsubsection{RQ3: Conjuntos de datos y escenarios de videovigilancia}
-\label{subsec:rq3_results}
-
-Los experimentos se concentraron en un número limitado de conjuntos de datos.
+Al analizar los conjuntos de datos utilizados, se observa que los experimentos se concentraron en un número limitado de colecciones.
 Hockey Fight fue utilizado en 19 estudios (19,2\,\%), UCF-Crime en 15
 (15,2\,\%), RWF-2000 en 14 (14,1\,\%), Movie Fights en 11 (11,1\,\%)
 y RLVS en 10 (10,1\,\%). En cuanto al origen, 56 estudios utilizaron
@@ -715,7 +663,7 @@ y 19 emplearon principalmente conjuntos propios o privados.
 \renewcommand{\arraystretch}{1.15}
 \begin{table}[!htbp]
 \centering
-\caption{Resultados para RQ3: principales conjuntos de datos identificados}
+\caption{Principales conjuntos de datos identificados}
 \label{tab:rq3_results}
 \begin{tabular}{@{}L{3.2cm}L{5.0cm}L{4.1cm}@{}}
 \toprule
@@ -731,6 +679,7 @@ Evaluación \textit{cross-dataset} explícita (3/99) & \citet{ciampi2024}; \cite
 \bottomrule
 \end{tabular}
 \end{table}
+\FloatBarrier
 \endgroup
 
 Cuarenta y dos estudios evaluaron sus modelos empleando dos o más conjuntos de
@@ -759,6 +708,7 @@ Espacios públicos & 5 \\
 \bottomrule
 \end{tabular}
 \end{table}
+\FloatBarrier
 \endgroup
 
 La Tabla~\ref{tab:rq3_scenarios} presenta las categorías más frecuentes;
@@ -770,16 +720,8 @@ explícita captura u operación en un entorno real confirmado. El país o ubicac
 del escenario fue reportado únicamente en 28 de los 99 trabajos, lo que limita
 la interpretación de la capacidad de generalización geográfica de los modelos.
 
-
-% ============================================================
-% 3.2.4 RQ4
-% ============================================================
-
 \FloatBarrier
-\subsubsection{RQ4: Métricas y niveles de desempeño}
-\label{subsec:rq4_results}
-
-La evaluación del desempeño presentó una marcada heterogeneidad entre los estudios.
+En relación con las métricas de evaluación, los estudios emplearon distintos indicadores de desempeño y eficiencia.
 Accuracy fue reportada en 60 estudios (60,6\,\%), F1-Score en 30 (30,3\,\%),
 Precision y Recall en 28 estudios cada una (28,3\,\%), AUC en 16 (16,2\,\%)
 y mAP en 14 (14,1\,\%). Respecto de la eficiencia computacional, 30 estudios
@@ -791,7 +733,7 @@ reportaron latencia y 15 informaron FPS.
 \renewcommand{\arraystretch}{1.15}
 \begin{table}[!htbp]
 \centering
-\caption{Resultados para RQ4: métricas utilizadas para evaluar los modelos}
+\caption{Métricas utilizadas para evaluar los modelos}
 \label{tab:rq4_results}
 \begin{tabular}{@{}L{3.2cm}L{5.0cm}L{4.1cm}@{}}
 \toprule
@@ -808,12 +750,12 @@ Latencia (30/99) & Frecuencia en los estudios analizados & Tiempo de respuesta d
 \bottomrule
 \end{tabular}
 \end{table}
+\FloatBarrier
 \endgroup
 
 Los conteos de FPS y latencia proceden de la síntesis agregada; el reporte
 no individualiza sus referencias en esa tabla. Su interpretación requiere
 considerar el hardware y las condiciones de medición.
-
 
 Debido a las diferencias entre tareas, datasets, particiones experimentales,
 protocolos de evaluación y escalas de las métricas, no se calculó un promedio global
@@ -833,16 +775,8 @@ re-identificación como MOTA, MOTP, IDF1, HOTA, Rank-1, Rank-5, CMC o TAR.
 Por tanto, los componentes de seguimiento encontrados fueron evaluados principalmente
 mediante métricas generales de detección o clasificación.
 
-
-% ============================================================
-% 3.2.5 RQ5
-% ============================================================
-
 \FloatBarrier
-\subsubsection{RQ5: Procesamiento en tiempo real, despliegue y limitaciones}
-\label{subsec:rq5_results}
-
-Treinta y uno de los 99 estudios (31,3\,\%) presentaron evidencia experimental de
+Por otro lado, las evidencias de implementación muestran que 31 de los 99 estudios (31,3\,\%) presentaron evidencia experimental de
 procesamiento en tiempo real y 27 (27,3\,\%) lo declararon sin una demostración
 equivalente. Un estudio señaló explícitamente que no operaba en tiempo real y en
 40 trabajos (40,4\,\%) esta característica no fue reportada.
@@ -856,7 +790,7 @@ despliegue, mientras que 78 (78,8\,\%) no proporcionaron esta información.
 \renewcommand{\arraystretch}{1.15}
 \begin{table}[!htbp]
 \centering
-\caption{Resultados para RQ5: evidencia de tiempo real y despliegue}
+\caption{Evidencia de tiempo real y despliegue}
 \label{tab:rq5_results}
 \begin{tabular}{@{}L{3.2cm}L{5.0cm}L{4.1cm}@{}}
 \toprule
@@ -868,6 +802,7 @@ Arquitectura de despliegue descrita (21/99) & \citet{munoz2025}; \citet{fierrosi
 \bottomrule
 \end{tabular}
 \end{table}
+\FloatBarrier
 \endgroup
 
 En cuanto a la implementación descrita, siete estudios
@@ -921,31 +856,10 @@ correspondió principalmente a mediciones experimentales de velocidad o latencia
 a una descripción completa de operación dentro de una infraestructura real de
 videovigilancia.
 
-
-% ============================================================
-% 3.3 ANÁLISIS BIBLIOMÉTRICO
-% ============================================================
-
 \FloatBarrier
-\subsection{Resultados del análisis bibliométrico}
-\label{subsec:bibliometric_results}
-
-El análisis bibliométrico permitió examinar la evolución de la producción
-científica, los principales autores y fuentes de publicación, las redes de
-colaboración y la organización temática de las investigaciones sobre
-videovigilancia inteligente.
-
-Primero se presenta la evolución anual de las publicaciones y las citas.
-Luego se describen la productividad científica, las relaciones de colaboración
-entre autores y países, la estructura intelectual y los principales conceptos
-identificados en las publicaciones analizadas.
-
-% ------------------------------------------------------------
-% BQ
-% ------------------------------------------------------------
-
-\subsubsection{BQ: Evolución de la producción científica y de las citas}
-\label{subsubsec:bq}
+De manera complementaria, el análisis bibliométrico permite situar estos
+hallazgos en la evolución de las publicaciones, las relaciones de colaboración
+y los temas presentes en la literatura analizada.
 
 La producción científica presentó una tendencia creciente entre 2021 y 2025.
 El número de publicaciones pasó de 13 documentos en 2021 a 16 en 2022,
@@ -983,17 +897,10 @@ las publicaciones recientes acumulen citas.
 \footnotesize $^{a}$ Año incompleto al momento de recuperar los registros.
 \end{flushleft}
 \end{table}
-
-
-% ------------------------------------------------------------
-% AB1
-% ------------------------------------------------------------
+\FloatBarrier
 
 \FloatBarrier
-\subsubsection{AB1: Productividad e influencia científica}
-\label{subsubsec:ab1}
-
-El archivo de Scopus contiene 555 nombres completos de autor distintos, de los cuales 521 aparecen en un solo documento. Este conteo corresponde a las etiquetas bibliográficas conservadas, sin una desambiguación manual adicional. La producción presentó una elevada
+En cuanto a la participación de autores, se identificaron 555 nombres completos distintos, de los cuales 521 aparecen en un solo documento. Este conteo corresponde a las etiquetas bibliográficas conservadas, sin una desambiguación manual adicional. La producción presentó una elevada
 dispersión, mientras que
 únicamente un grupo reducido apareció de manera recurrente en varias publicaciones.
 Juan A. Álvarez-García registró cinco publicaciones entre los documentos analizados, seguido por
@@ -1046,6 +953,7 @@ País & China & 16 \\
 \bottomrule
 \end{tabular}
 \end{table}
+\FloatBarrier
 
 El gráfico de tres campos (Figura~\ref{fig:threefield}) relaciona términos extraídos de títulos (\texttt{TI\_TM}), palabras clave de indexación (\texttt{ID}) y palabras clave combinadas (\texttt{KW\_Merged}). La columna central contiene términos como \textit{deep learning}, \textit{computer vision} y \textit{object detection}; no representa identificadores de documentos. Los flujos muestran asociaciones entre los términos de las publicaciones analizadas, no vínculos de autoría o afiliación.
 
@@ -1056,17 +964,9 @@ El gráfico de tres campos (Figura~\ref{fig:threefield}) relaciona términos ext
 \caption{Relaciones entre términos de títulos, palabras clave de indexación y palabras clave combinadas de las publicaciones analizadas.}
 \label{fig:threefield}
 \end{figure}
-
-
-% ------------------------------------------------------------
-% AB2
-% ------------------------------------------------------------
-
 \FloatBarrier
-\subsubsection{AB2: Estructura de la colaboración científica}
-\label{subsubsec:ab2}
 
-La producción analizada comprendió afiliaciones procedentes de 50 países.
+La colaboración internacional también se refleja en las afiliaciones, que abarcaron 50 países.
 De los 145 documentos, 45 (31,0\,\%) incluyeron autores afiliados a más de un país,
 mientras que 100 (69,0\,\%) correspondieron a publicaciones desarrolladas dentro
 de un único país.
@@ -1083,6 +983,7 @@ entre los países representados en las publicaciones analizadas.
 \caption{Mapa de producción y colaboración científica internacional en las publicaciones analizadas.}
 \label{fig:country_collaboration}
 \end{figure}
+\FloatBarrier
 
 La red de coautoría muestra, además, la existencia de distintos grupos de
 investigadores. Algunos conglomerados presentan conexiones internas densas,
@@ -1096,15 +997,7 @@ estructura constituida por múltiples núcleos de colaboración.
 \caption{Red de colaboración entre los autores de las publicaciones analizadas.}
 \label{fig:collaboration_network}
 \end{figure}
-
-
-% ------------------------------------------------------------
-% AB3
-% ------------------------------------------------------------
-
 \FloatBarrier
-\subsubsection{AB3: Estructura intelectual y frentes de investigación}
-\label{subsubsec:ab3}
 
 La estructura intelectual del campo fue examinada mediante co-citación,
 historiografía y acoplamiento bibliográfico. La red de co-citación permite
@@ -1121,6 +1014,7 @@ La Figura~\ref{fig:cocitation_network} presenta varios grupos conectados de refe
 conjuntos de referencias que tienden a ser citadas conjuntamente.}
 \label{fig:cocitation_network}
 \end{figure}
+\FloatBarrier
 
 El historiograma (Figura~\ref{fig:historiograph}) organiza documentos y relaciones de citación a través del tiempo. Entre las etiquetas visibles se encuentran Sernani (2021), Huszár (2023) y Berardini (2024 y 2025). Los enlaces permiten examinar antecedentes bibliográficos y continuidad de referencias; no demuestran causalidad ni dependencia metodológica entre los trabajos. La figura representa una selección de documentos, no toda la producción anual.
 
@@ -1131,6 +1025,7 @@ El historiograma (Figura~\ref{fig:historiograph}) organiza documentos y relacion
 \caption{Historiograma de las relaciones de citación entre documentos destacados en las publicaciones analizadas.}
 \label{fig:historiograph}
 \end{figure}
+\FloatBarrier
 
 El acoplamiento bibliográfico agrupa documentos que comparten referencias. En la Figura~\ref{fig:coupling} se distinguen grupos y nodos periféricos; entre las etiquetas legibles figuran Huszár (2023), Berardini (2025) y Dalal (2024). Los vínculos indican semejanza bibliográfica, pero la disposición espacial por sí sola no constituye una medida de desempeño ni permite nombrar todos los frentes de investigación.
 
@@ -1142,15 +1037,7 @@ El acoplamiento bibliográfico agrupa documentos que comparten referencias. En l
 representan publicaciones y los enlaces indican similitud en las referencias utilizadas.}
 \label{fig:coupling}
 \end{figure}
-
-
-% ------------------------------------------------------------
-% AB4
-% ------------------------------------------------------------
-
 \FloatBarrier
-\subsubsection{AB4: Estructura conceptual y evolución temática}
-\label{subsubsec:ab4}
 
 Las palabras clave de autor muestran que \textit{deep learning} constituye el término
 con mayor presencia, identificado en 67 de los 145 documentos. Le siguen
@@ -1171,6 +1058,7 @@ seguimiento multiobjeto, reconocimiento de actividades y detección de objetos.
 \caption{Red de co-ocurrencia de las principales palabras clave identificadas.}
 \label{fig:cooccurrence}
 \end{figure}
+\FloatBarrier
 
 La distribución temporal describe cambios en la frecuencia de las palabras clave.
 Durante 2021--2022 predominaron \textit{deep learning}, videovigilancia,
@@ -1209,6 +1097,7 @@ YOLO (5), attention mechanism (4) \\
 \bottomrule
 \end{tabular}
 \end{table}
+\FloatBarrier
 
 El mapa de acoplamiento (Figura~\ref{fig:thematic_map}) sitúa los clusters según los ejes \textit{Centrality} e \textit{Impact}. Las posiciones hacia la derecha y hacia arriba corresponden, respectivamente, a mayor centralidad e impacto relativos en esa salida. Se observan etiquetas de detección de armas, vigilancia y seguimiento multiobjeto. No se interpreta como el mapa temático clásico de centralidad y densidad, ni se asigna significado cuantitativo al tamaño de las burbujas sin la configuración original. Algunas etiquetas del borde derecho están truncadas en el archivo exportado.
 
@@ -1232,7 +1121,7 @@ El mapa factorial corresponde a un análisis de correspondencias múltiples (MCA
 \end{figure}
 \FloatBarrier
 
-La nube de palabras resume frecuencias relativas: \textit{deep learning} ocupa el mayor tamaño, acompañado por videovigilancia, visión por computador y detección de violencia. Se utiliza como descripción del vocabulario; la cercanía gráfica de dos términos no demuestra una relación entre ellos.
+De manera complementaria, la nube de palabras (Figura~\ref{fig:wordcloud}) resume frecuencias relativas: \textit{deep learning} ocupa el mayor tamaño, acompañado por videovigilancia, visión por computador y detección de violencia. Se utiliza como descripción del vocabulario; la cercanía gráfica de dos términos no demuestra una relación entre ellos.
 
 \begin{figure}[!htbp]
 \centering
@@ -1241,44 +1130,25 @@ La nube de palabras resume frecuencias relativas: \textit{deep learning} ocupa e
 \caption{Nube de palabras de los términos más frecuentes en las publicaciones analizadas.}
 \label{fig:wordcloud}
 \end{figure}
-
-
-% ============================================================
-% SÍNTESIS DE RESULTADOS
-% ============================================================
-
 \FloatBarrier
-\subsection{Síntesis de los principales resultados}
-\label{subsec:results_synthesis}
 
-La integración de los resultados de la revisión sistemática y del análisis
-bibliométrico muestra que la investigación reciente sobre videovigilancia inteligente
-se concentra principalmente en la detección automática de violencia, armas y
-comportamientos anómalos mediante técnicas de aprendizaje profundo.
+En conjunto, los estudios analizados se concentran en la detección de violencia,
+armas y comportamientos anómalos mediante aprendizaje profundo. Las CNN
+bidimensionales, los detectores YOLO, las arquitecturas recurrentes y las 3D-CNN
+son las familias más frecuentes. Esta orientación también se reconoce en los
+términos \textit{deep learning}, \textit{video surveillance}, \textit{violence detection},
+\textit{computer vision} y \textit{weapon detection} del análisis bibliométrico.
+El seguimiento, la identificación y, especialmente, la re-identificación tienen
+una presencia menor que las tareas de detección.
 
-Las CNN bidimensionales, los detectores YOLO, las arquitecturas recurrentes y las
-3D-CNN constituyen las familias tecnológicas más frecuentes. De manera coherente,
-el análisis conceptual identifica \textit{deep learning}, \textit{video surveillance},
-\textit{violence detection}, \textit{computer vision} y
-\textit{weapon detection} como parte del núcleo temático de la literatura analizada.
-
-No obstante, los resultados también evidencian una diferencia entre el desempeño
-experimental reportado y el grado de madurez de las soluciones. Aunque 58 de los
-99 estudios declararon o demostraron procesamiento en tiempo real, únicamente
-21 describieron una arquitectura de despliegue y ninguno documentó una operación
-sostenida en producción.
-
-Asimismo, el predominio de datasets públicos y la limitada cantidad de evaluaciones
-\textit{cross-dataset} indican que la generalización entre dominios continúa siendo
-un aspecto poco evaluado. Las capacidades de seguimiento, identificación y,
-especialmente, re-identificación presentan además una representación menor que las
-tareas de detección.
-
-En conjunto, los hallazgos muestran un campo con una producción científica creciente
-y un desarrollo consolidado de modelos orientados a detección y reconocimiento de
-eventos de seguridad, aunque persisten vacíos relacionados con validación en escenarios
-reales, generalización entre conjuntos de datos, métricas especializadas de seguimiento
-y documentación de arquitecturas completas de despliegue.
+Los resultados muestran, además, una diferencia entre el rendimiento experimental
+y la implementación descrita: 58 de los 99 estudios declararon o demostraron
+procesamiento en tiempo real, pero solo 21 detallaron una arquitectura de despliegue
+y ninguno documentó operación sostenida en producción. El predominio de datos
+públicos, las pocas evaluaciones entre conjuntos diferentes y la escasa validación
+en escenarios reales delimitan el alcance de los hallazgos. Junto con las métricas
+especializadas de seguimiento, estos aspectos siguen poco documentados en las
+investigaciones revisadas.
 
 \FloatBarrier
 \section{Discusión}\label{sec12}
