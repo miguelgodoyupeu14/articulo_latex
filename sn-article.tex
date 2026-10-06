@@ -12,7 +12,6 @@
 \usepackage[title]{appendix}%
 \usepackage{xcolor}%
 \usepackage{textcomp}%
-\usepackage{manyfoot}%
 \usepackage{booktabs}%
 \usepackage{algorithm}%
 \usepackage{algorithmicx}%
@@ -214,6 +213,7 @@ Otros estudios elegibles incluidos en los conteos globales & 64 \\
 
 El reporte de selección documenta doce casos ambiguos con verificación complementaria: diez mediante texto completo y dos mediante contenido indexado. Esta comprobación formó parte de la selección y no se contabilizó como una etapa independiente de evaluación a texto completo.
 
+\FloatBarrier
 \subsection{Evaluación de la calidad}\label{subsec2_6}
 
 Los 148 estudios aceptados se evaluaron mediante diez preguntas (QA1--QA10), referidas al contexto, los datos, el método y la evidencia experimental. Este enfoque es consistente con el uso de listas de evaluación en revisiones de ingeniería de software \cite{dyba2008}. Cada pregunta se calificó como \textit{Yes} = 1, \textit{Partially} = 0,5 o \textit{No} = 0, con un máximo de diez puntos.
@@ -279,47 +279,35 @@ La extracción depende del detalle reportado por cada publicación. La ausencia 
 
 \FloatBarrier
 
+\FloatBarrier
 \section{Resultados}\label{sec3}
 
-Los resultados se organizaron en tres niveles. Primero, se presenta una síntesis
-integral orientada a responder la pregunta general de investigación mediante los
-estudios que conforman el \textit{Reporting Core}. Posteriormente, se desarrollan
-las cinco preguntas específicas de investigación (RQ1--RQ5), considerando los
-modelos de inteligencia artificial, los eventos de seguridad abordados, los
-conjuntos de datos y escenarios utilizados, las métricas de evaluación y la
-evidencia de implementación. Finalmente, se presentan los resultados del análisis
-bibliométrico desarrollado a partir de los registros recuperados de Scopus.
+Los resultados se presentan de acuerdo con las preguntas de investigación.
+Se analizaron las técnicas de inteligencia artificial empleadas en videovigilancia,
+los eventos de seguridad abordados, los conjuntos de datos utilizados, las métricas
+de evaluación y las condiciones de implementación reportadas.
 
-El corpus final estuvo conformado por 99 estudios que superaron la evaluación de
-calidad. Estos trabajos constituyen la base de los conteos y frecuencias globales.
-Dentro de este conjunto se seleccionaron 35 estudios como \textit{Reporting Core},
-los cuales fueron utilizados para profundizar la síntesis cualitativa y conservar
-la trazabilidad de los principales hallazgos hacia publicaciones específicas.
-
-Debido a que un mismo estudio puede utilizar diferentes arquitecturas, analizar
-más de un evento de seguridad, emplear varios conjuntos de datos o reportar
-múltiples métricas, algunas categorías fueron consideradas multietiqueta. Por ello,
-los porcentajes correspondientes no necesariamente suman 100\,\%.
+Los resultados generales consideran los 99 estudios que superaron la evaluación
+de calidad. De ellos, 35 se seleccionaron para el análisis detallado y la comparación
+de las propuestas, vinculando los hallazgos con investigaciones específicas.
+Un estudio puede aparecer en varias categorías cuando combina técnicas, eventos,
+conjuntos de datos o métricas; por ello, los porcentajes no siempre suman 100\,\%.
 
 % ============================================================
 % 3.1 PREGUNTA GENERAL
 % ============================================================
 
-\subsection{Síntesis de la pregunta general de investigación}
+\subsection{Estudios seleccionados}
 \label{subsec:rq_general}
 
-La pregunta general buscó determinar qué modelos y técnicas de Inteligencia
-Artificial han sido aplicados entre 2021 y 2026 en sistemas de videovigilancia
-orientados a la detección de actividades delictivas y al seguimiento de personas
-u objetos relacionados con eventos de seguridad, considerando también el desempeño
-alcanzado y las evidencias de implementación reportadas.
+Cada estudio fue revisado considerando las técnicas de inteligencia artificial
+empleadas, el evento de seguridad analizado, las capacidades de identificación
+o seguimiento y el desempeño y la implementación reportados.
 
-Para responder esta pregunta de manera integrada, los estudios del
-\textit{Reporting Core} fueron organizados según cuatro dimensiones principales:
-la tecnología de inteligencia artificial empleada, el tipo de actividad o evento
-de seguridad analizado, las capacidades de identificación o seguimiento y la
-evidencia relacionada con evaluación e implementación. La
-Tabla~\ref{tab:general_synthesis} resume esta información.
+La Tabla~\ref{tab:general_synthesis} presenta una visión comparativa de los
+35 estudios utilizados para el análisis detallado. Esta organización permite
+reconocer las principales tendencias tecnológicas y relacionar los modelos
+propuestos con las distintas aplicaciones de videovigilancia.
 
 \begingroup
 \footnotesize
@@ -328,7 +316,7 @@ Tabla~\ref{tab:general_synthesis} resume esta información.
 
 \begin{longtable}{@{}L{2.0cm}L{2.5cm}L{2.55cm}L{2.4cm}L{2.9cm}@{}}
 
-\caption{Síntesis de los estudios del Reporting Core para la pregunta general de investigación}
+\caption{Comparación de los 35 estudios seleccionados para el análisis detallado}
 \label{tab:general_synthesis}\\
 
 \toprule
@@ -590,17 +578,16 @@ específica en las preguntas RQ1--RQ5.
 \subsection{Desarrollo de las preguntas de investigación}
 \label{subsec:rq_development}
 
-A partir de los patrones identificados en la síntesis general, las cinco preguntas
-específicas permitieron examinar con mayor detalle las dimensiones tecnológicas,
-experimentales y operativas de los sistemas de videovigilancia inteligente. Cada
-pregunta se analizó utilizando los 99 estudios del corpus final para los conteos
-globales y los trabajos del \textit{Reporting Core} para ejemplificar los hallazgos
-más representativos.
+Las preguntas de investigación organizaron los hallazgos en cinco aspectos:
+las técnicas de inteligencia artificial empleadas, los eventos de seguridad
+abordados, los conjuntos de datos y escenarios utilizados, las métricas de
+evaluación y las condiciones de implementación. A continuación, se presentan
+las tendencias más frecuentes y los estudios que las ejemplifican.
 
 \subsubsection{RQ1: Modelos, algoritmos y arquitecturas de inteligencia artificial}
 \label{subsec:rq1_results}
 
-La evidencia muestra una concentración en arquitecturas de aprendizaje profundo,
+El análisis de las técnicas utilizadas muestra un predominio de modelos de aprendizaje profundo,
 aunque con diferencias según la tarea abordada. Las CNN 2D fueron identificadas
 en 25 de los 99 estudios (25,3\,\%), constituyendo la familia más frecuente.
 Los detectores de objetos basados principalmente en YOLO aparecieron en 20 estudios
@@ -622,7 +609,7 @@ modelos causales y técnicas inspiradas en computación cuántica.
 \renewcommand{\arraystretch}{1.15}
 \begin{table}[!htbp]
 \centering
-\caption{Resultados para RQ1: principales familias de modelos y estudios representados en el Reporting Core}
+\caption{Principales familias de modelos y estudios representativos}
 \label{tab:rq1_results}
 \begin{tabular}{@{}L{3.2cm}L{5.0cm}L{4.1cm}@{}}
 \toprule
@@ -656,7 +643,7 @@ espacio-temporales.
 \subsubsection{RQ2: Actividades delictivas, eventos de seguridad y capacidades de seguimiento}
 \label{subsec:rq2_results}
 
-La violencia o agresión física fue el evento con mayor presencia en el corpus,
+La violencia o agresión física fue el evento más frecuente entre los estudios analizados,
 identificado en 52 de los 99 estudios (52,5\,\%). La detección de armas de fuego
 ocupó el segundo lugar, con 29 estudios (29,3\,\%). También se identificaron
 eventos delictivos o anómalos múltiples en 15 trabajos (15,2\,\%),
@@ -694,18 +681,16 @@ Seguimiento general (13/99) & \citet{bhavani2025}; \citet{janbi2024}; \citet{fie
 Seguimiento de personas (8/99) & \citet{janbi2024}; \citet{muriithi2024}; \citet{matei2025}; \citet{garciacobo2023} & Seguir personas dentro de una secuencia \\
 Seguimiento multicámara (1/99) & \citet{fierrosilva2026} & Relacionar el seguimiento entre cámaras \\
 Identificación / reconocimiento de personas & \citet{sandhya2022} & Reconocer la identidad de una persona \\
-Re-identificación explícitamente evaluada (0/99) & No se identificaron estudios en el corpus final & Asociar identidades entre observaciones; sin evaluación explícita en este corpus \\
+Re-identificación explícitamente evaluada (0/99) & No se identificaron estudios con esta evaluación & Asociar identidades entre observaciones; sin evaluación explícita en los estudios analizados \\
 \end{longtable}
 \endgroup
 
-El seguimiento general estuvo presente en 13 estudios: ocho incluyeron seguimiento de personas, cinco esquelético, tres de objetos, tres multiobjeto y uno multicámara. Este desglose es multietiqueta. Se registraron además tres estudios con identificación y cinco con reconocimiento facial.
+El seguimiento general estuvo presente en 13 estudios: ocho incluyeron seguimiento de personas, cinco esquelético, tres de objetos, tres multiobjeto y uno multicámara. Un mismo trabajo puede incorporar más de una modalidad de seguimiento. Se registraron además tres estudios con identificación y cinco con reconocimiento facial.
 
-La unión deduplicada alcanzó 18 de los 99 estudios con alguna capacidad de seguimiento o
-identificación. El seguimiento apareció mayoritariamente como componente complementario
+En total, 18 estudios incorporaron alguna función de seguimiento o identificación. El seguimiento apareció mayoritariamente como componente complementario
 a la tarea principal y no como objetivo experimental independiente. Asimismo, no se
 identificaron estudios que evaluaran explícitamente re-identificación de personas con
-métricas especializadas. Este resultado describe exclusivamente el corpus recuperado
-por la estrategia de búsqueda y no implica ausencia de trabajos sobre
+métricas especializadas. Este resultado corresponde únicamente a los estudios analizados y no implica ausencia de trabajos sobre
 \textit{person re-identification} en la literatura general.
 
 
@@ -818,8 +803,8 @@ Precision (28/99) & \citet{singhal2026}; \citet{bhavani2025}; \citet{fathy2022};
 Recall (28/99) & \citet{singhal2026}; \citet{bhavani2025}; \citet{fathy2022}; \citet{muriithi2024} & Proporción de positivos reales recuperados \\
 AUC (16/99) & \citet{singhal2026}; \citet{shin2025}; \citet{sernani2021}; \citet{salman2026} & Capacidad discriminativa mediante el área bajo la curva \\
 mAP (14/99) & \citet{munoz2025}; \citet{fathy2022}; \citet{dalal2024}; \citet{ingle2022} & Precisión media de detección de objetos \\
-FPS (15/99) & Conteo agregado del corpus & Velocidad: fotogramas procesados por segundo \\
-Latencia (30/99) & Conteo agregado del corpus & Tiempo de respuesta del procesamiento \\
+FPS (15/99) & Frecuencia en los estudios analizados & Velocidad: fotogramas procesados por segundo \\
+Latencia (30/99) & Frecuencia en los estudios analizados & Tiempo de respuesta del procesamiento \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -885,7 +870,7 @@ Arquitectura de despliegue descrita (21/99) & \citet{munoz2025}; \citet{fierrosi
 \end{table}
 \endgroup
 
-Según el nivel de evidencia documentado en el corpus completo, siete estudios
+En cuanto a la implementación descrita, siete estudios
 presentaron un prototipo demostrado, 14 describieron una arquitectura propuesta,
 26 reportaron únicamente el hardware utilizado durante la evaluación y 52 no
 proporcionaron evidencia suficiente sobre despliegue. Ningún estudio documentó
@@ -903,7 +888,7 @@ concurridas (9/99) y generalización limitada entre datasets (7/99).
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.15}
 \begin{longtable}{@{}L{9.0cm}L{3.6cm}@{}}
-\caption{Limitaciones declaradas con mayor frecuencia en el corpus}
+\caption{Limitaciones declaradas con mayor frecuencia en los estudios analizados}
 \label{tab:rq5_limitations}\\
 \toprule
 \textbf{Limitación} & \textbf{Frecuencia (N=99)} \\
@@ -928,7 +913,7 @@ Generalización limitada entre datasets & 7 \\
 \end{longtable}
 \endgroup
 
-Las limitaciones son multietiqueta: un estudio puede declarar más de una.
+Un estudio puede declarar más de una limitación.
 
 Un hallazgo adicional es que 25 de los 78 estudios que no describieron una arquitectura
 de despliegue afirmaron procesamiento en tiempo real. En estos casos, la evidencia
@@ -945,18 +930,15 @@ videovigilancia.
 \subsection{Resultados del análisis bibliométrico}
 \label{subsec:bibliometric_results}
 
-Como complemento de la revisión sistemática, se realizó un análisis bibliométrico
-sobre los 145 registros recuperados de Scopus mediante el paquete
-\textit{Bibliometrix}. Este conjunto se utilizó exclusivamente para caracterizar la
-evolución temporal de la producción científica, la productividad de autores, revistas,
-instituciones y países, las redes de colaboración y las estructuras intelectual y
-conceptual del campo.
+El análisis bibliométrico permitió examinar la evolución de la producción
+científica, los principales autores y fuentes de publicación, las redes de
+colaboración y la organización temática de las investigaciones sobre
+videovigilancia inteligente.
 
-Los resultados bibliométricos se interpretan de manera independiente de los conteos
-de la revisión sistemática. Mientras que la síntesis de RQ1--RQ5 utiliza el corpus
-final elegible de 99 estudios, el análisis bibliométrico emplea los 145 documentos
-correspondientes a Scopus.
-
+Primero se presenta la evolución anual de las publicaciones y las citas.
+Luego se describen la productividad científica, las relaciones de colaboración
+entre autores y países, la estructura intelectual y los principales conceptos
+identificados en las publicaciones analizadas.
 
 % ------------------------------------------------------------
 % BQ
@@ -968,7 +950,7 @@ correspondientes a Scopus.
 La producción científica presentó una tendencia creciente entre 2021 y 2025.
 El número de publicaciones pasó de 13 documentos en 2021 a 16 en 2022,
 21 en 2023, 26 en 2024 y alcanzó su valor máximo con 40 publicaciones en 2025.
-Para 2026 se recuperaron 29 documentos; sin embargo, debido a que la búsqueda se
+Para 2026 se identificaron 29 publicaciones; sin embargo, debido a que la búsqueda se
 realizó antes de finalizar dicho año, este valor no representa una producción anual
 completa.
 
@@ -980,7 +962,7 @@ Esta reducción debe interpretarse considerando el menor tiempo disponible para 
 las publicaciones recientes acumulen citas.
 
 \begin{table}[htbp]
-\caption{Producción científica y citas medias por año en el corpus bibliométrico}
+\caption{Producción científica y citas medias por año en las publicaciones analizadas}
 \label{tab:bq_annual}
 \centering
 \small
@@ -1014,7 +996,7 @@ las publicaciones recientes acumulen citas.
 El archivo de Scopus contiene 555 nombres completos de autor distintos, de los cuales 521 aparecen en un solo documento. Este conteo corresponde a las etiquetas bibliográficas conservadas, sin una desambiguación manual adicional. La producción presentó una elevada
 dispersión, mientras que
 únicamente un grupo reducido apareció de manera recurrente en varias publicaciones.
-Juan A. Álvarez-García registró cinco documentos en el corpus, seguido por
+Juan A. Álvarez-García registró cinco publicaciones entre los documentos analizados, seguido por
 Oscar Deniz con cuatro. Fernando J. Rendón-Segador, Jesús Ruiz-Santaquiteria
 y José L. Salazar-González registraron tres documentos cada uno.
 
@@ -1065,13 +1047,13 @@ País & China & 16 \\
 \end{tabular}
 \end{table}
 
-El gráfico de tres campos (Figura~\ref{fig:threefield}) relaciona términos extraídos de títulos (\texttt{TI\_TM}), palabras clave de indexación (\texttt{ID}) y palabras clave combinadas (\texttt{KW\_Merged}). La columna central contiene términos como \textit{deep learning}, \textit{computer vision} y \textit{object detection}; no representa identificadores de documentos. Los flujos muestran asociaciones entre vocabularios del corpus, no vínculos de autoría o afiliación.
+El gráfico de tres campos (Figura~\ref{fig:threefield}) relaciona términos extraídos de títulos (\texttt{TI\_TM}), palabras clave de indexación (\texttt{ID}) y palabras clave combinadas (\texttt{KW\_Merged}). La columna central contiene términos como \textit{deep learning}, \textit{computer vision} y \textit{object detection}; no representa identificadores de documentos. Los flujos muestran asociaciones entre los términos de las publicaciones analizadas, no vínculos de autoría o afiliación.
 
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.95\textwidth]
 {ThreeFieldPlot-2026-09-28010254.817106.png}
-\caption{Relaciones entre términos de títulos, palabras clave de indexación y palabras clave combinadas del corpus de Scopus.}
+\caption{Relaciones entre términos de títulos, palabras clave de indexación y palabras clave combinadas de las publicaciones analizadas.}
 \label{fig:threefield}
 \end{figure}
 
@@ -1092,14 +1074,13 @@ de un único país.
 La distribución geográfica evidencia una participación importante de países
 asiáticos, junto con conexiones con Europa, América y otras regiones. El mapa de
 colaboración permite observar los principales vínculos internacionales establecidos
-entre los países presentes en el corpus.
+entre los países representados en las publicaciones analizadas.
 
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.95\textwidth]
 {CountryCollaborationMap-2026-09-28010452.678578.png}
-\caption{Mapa de producción y colaboración científica internacional en el corpus
-bibliométrico de Scopus.}
+\caption{Mapa de producción y colaboración científica internacional en las publicaciones analizadas.}
 \label{fig:country_collaboration}
 \end{figure}
 
@@ -1112,7 +1093,7 @@ estructura constituida por múltiples núcleos de colaboración.
 \centering
 \includegraphics[width=0.95\textwidth]
 {Collaboration_Network-2026-09-28010442.151916.png}
-\caption{Red de colaboración científica entre autores del corpus bibliométrico.}
+\caption{Red de colaboración entre los autores de las publicaciones analizadas.}
 \label{fig:collaboration_network}
 \end{figure}
 
@@ -1127,7 +1108,7 @@ estructura constituida por múltiples núcleos de colaboración.
 
 La estructura intelectual del campo fue examinada mediante co-citación,
 historiografía y acoplamiento bibliográfico. La red de co-citación permite
-identificar referencias que son citadas conjuntamente por los documentos del corpus
+identificar referencias que son citadas conjuntamente por las publicaciones analizadas
 y, por tanto, forman parte de una base intelectual compartida.
 
 La Figura~\ref{fig:cocitation_network} presenta varios grupos conectados de referencias citadas conjuntamente. Sus enlaces describen co-citación, no colaboración entre autores. Las etiquetas superpuestas no permiten asignar de manera inequívoca un tema a cada conglomerado; por ello, no se atribuyen especialidades a partir únicamente del color o de la posición de los nodos.
@@ -1136,7 +1117,7 @@ La Figura~\ref{fig:cocitation_network} presenta varios grupos conectados de refe
 \centering
 \includegraphics[width=0.95\textwidth]
 {Co_citationNetwork-2026-09-29134854.493069.png}
-\caption{Red de co-citación del corpus bibliométrico. Los agrupamientos representan
+\caption{Red de co-citación de las referencias citadas en las publicaciones analizadas. Los agrupamientos representan
 conjuntos de referencias que tienden a ser citadas conjuntamente.}
 \label{fig:cocitation_network}
 \end{figure}
@@ -1147,8 +1128,7 @@ El historiograma (Figura~\ref{fig:historiograph}) organiza documentos y relacion
 \centering
 \includegraphics[width=0.95\textwidth]
 {Historiograph-2026-09-29134936.207564.png}
-\caption{Historiograma de las relaciones de citación entre documentos relevantes
-del corpus bibliométrico.}
+\caption{Historiograma de las relaciones de citación entre documentos destacados en las publicaciones analizadas.}
 \label{fig:historiograph}
 \end{figure}
 
@@ -1188,7 +1168,7 @@ seguimiento multiobjeto, reconocimiento de actividades y detección de objetos.
 \centering
 \includegraphics[width=0.95\textwidth]
 {Co_occurrenceNetwork-2026-10-04220412.241765.png}
-\caption{Red de co-ocurrencia de palabras clave del corpus bibliométrico.}
+\caption{Red de co-ocurrencia de las principales palabras clave identificadas.}
 \label{fig:cooccurrence}
 \end{figure}
 
@@ -1247,7 +1227,7 @@ El mapa factorial corresponde a un análisis de correspondencias múltiples (MCA
 \centering
 \includegraphics[width=0.86\textwidth]
 {FactorialMap_2026-09-28.png}
-\caption{Mapa factorial de la estructura conceptual del corpus bibliométrico.}
+\caption{Mapa factorial de los principales conceptos identificados en las publicaciones analizadas.}
 \label{fig:factorial_map}
 \end{figure}
 \FloatBarrier
@@ -1258,7 +1238,7 @@ La nube de palabras resume frecuencias relativas: \textit{deep learning} ocupa e
 \centering
 \includegraphics[width=0.70\linewidth,trim=1250 600 1250 600,clip]
 {WordCloud-2026-10-04215400.72303.png}
-\caption{Nube de palabras de los términos más frecuentes del corpus bibliométrico.}
+\caption{Nube de palabras de los términos más frecuentes en las publicaciones analizadas.}
 \label{fig:wordcloud}
 \end{figure}
 
