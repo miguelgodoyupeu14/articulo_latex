@@ -8,27 +8,29 @@ La edición se limitó a Introducción, Discusión y Conclusiones. El texto y lo
 
 La comparación de solapamiento utilizó los 99 registros de la hoja `ARTÍCULOS PRESELECCIONADOS` del archivo `Articulos (1).xlsx`, identificados por DOI. Se consultó `Manual Parsifal Cypher.docx` para comprobar el alcance del protocolo; el manual no contiene una lista independiente de artículos semilla. Se revisó el texto completo de los 15 antecedentes usados en Introducción y se verificaron sus metadatos bibliográficos por DOI.
 
-## A. Artículos semilla de Introducción
+## A. Antecedentes científicos de Introducción
 
-| Clave BibTeX | Título | Año | DOI | Idea que respalda | ¿Está entre los 99? |
-|---|---|---:|---|---|---|
-| `sultani2018` | Real-World Anomaly Detection in Surveillance Videos | 2018 | 10.1109/CVPR.2018.00678 | Diversidad de anomalías y aprendizaje con etiquetas a nivel de video | No |
-| `cheng2021` | RWF-2000: An Open Large Scale Video Database for Violence Detection | 2021 | 10.1109/ICPR48806.2021.9412502 | Costo del monitoreo manual, violencia en CCTV y RWF-2000 | No |
-| `tran2015` | Learning Spatiotemporal Features with 3D Convolutional Networks | 2015 | 10.1109/ICCV.2015.510 | Representación espacio-temporal mediante C3D | No |
-| `wang2016` | Temporal Segment Networks: Towards Good Practices for Deep Action Recognition | 2016 | 10.1007/978-3-319-46484-8_2 | Estructura temporal de largo alcance en reconocimiento de acciones | No |
-| `olmos2018` | Automatic handgun detection alarm in videos using deep learning | 2018 | 10.1016/j.neucom.2017.05.012 | Detección de pistolas, falsas alarmas y condiciones visuales | No |
-| `carreira2017` | Quo Vadis, Action Recognition? A New Model and the Kinetics Dataset | 2017 | 10.1109/CVPR.2017.502 | I3D, Kinetics y transferencia para reconocimiento de acciones | No |
-| `liuswin2022` | Video Swin Transformer | 2022 | 10.1109/CVPR52688.2022.00320 | Atención en ventanas espacio-temporales para video | No |
-| `liu2018` | Future Frame Prediction for Anomaly Detection – A New Baseline | 2018 | 10.1109/CVPR.2018.00684 | Predicción de fotogramas y restricciones de apariencia y movimiento | No |
-| `gong2019` | Memorizing Normality to Detect Anomaly: Memory-Augmented Deep Autoencoder for Unsupervised Anomaly Detection | 2019 | 10.1109/ICCV.2019.00179 | Memoria de patrones normales para detectar anomalías | No |
-| `ullah2021` | An Efficient Anomaly Recognition Framework Using an Attention Residual LSTM in Surveillance Videos | 2021 | 10.3390/s21082811 | CNN ligera y LSTM residual con atención para anomalías | No |
-| `wojke2017` | Simple Online and Realtime Tracking with a Deep Association Metric | 2017 | 10.1109/ICIP.2017.8296962 | Seguimiento mediante asociación de movimiento y apariencia | No |
-| `zhang2022` | ByteTrack: Multi-Object Tracking by Associating Every Detection Box | 2022 | 10.1007/978-3-031-20047-2_1 | Uso de detecciones de baja confianza para evitar trayectorias fragmentadas | No |
-| `zheng2015` | Scalable Person Re-identification: A Benchmark | 2015 | 10.1109/ICCV.2015.133 | Definición y evaluación de re-identificación en múltiples cámaras | No |
-| `zhou2019` | Omni-Scale Feature Learning for Person Re-Identification | 2019 | 10.1109/ICCV.2019.00380 | Representaciones a distintas escalas para re-identificación | No |
-| `barthelemy2024` | Safety After Dark: A Privacy Compliant and Real-Time Edge Computing Intelligent Video Analytics for Safer Public Transportation | 2024 | 10.3390/s24248102 | Integración local, comunicación de alertas y prueba de campo | No |
+La columna Scopus se verificó mediante consulta individual del DOI en la API oficial de Scopus. Cada respuesta devolvió un EID `2-s2.0-*`. No se atribuyó indexación en Web of Science sin una consulta verificable a esa base. `olmos2018` también se verificó en ScienceDirect mediante su DOI y PII; los demás trabajos están alojados en otras plataformas editoriales.
 
-`ullah2021` y `barthelemy2024` ya estaban en `snbibliography.bib`. Las otras trece entradas se incorporaron después de revisar su texto completo. Se denominan antecedentes externos o semillas en el artículo y en esta auditoría, pero no se afirma que hayan formado parte documental del protocolo antes de ejecutar la revisión; el manual de Parsifal no registra tal lista histórica.
+| Clave BibTeX | Título | Año | DOI | Scopus | Web of Science | ScienceDirect | Fuente verificada | Idea que respalda en la Introducción | ¿Pertenece a los 99? |
+|---|---|---:|---|---|---|---|---|---|---|
+| `sultani2018` | Real-World Anomaly Detection in Surveillance Videos | 2018 | 10.1109/CVPR.2018.00678 | Sí | No comprobado | No | Scopus EID 2-s2.0-85056851488 | Diversidad de anomalías y aprendizaje con etiquetas a nivel de video | No |
+| `cheng2021` | RWF-2000: An Open Large Scale Video Database for Violence Detection | 2021 | 10.1109/ICPR48806.2021.9412502 | Sí | No comprobado | No | Scopus EID 2-s2.0-85110515836 | Costo del monitoreo manual, violencia en CCTV y RWF-2000 | No |
+| `tran2015` | Learning Spatiotemporal Features with 3D Convolutional Networks | 2015 | 10.1109/ICCV.2015.510 | Sí | No comprobado | No | Scopus EID 2-s2.0-84973865953 | Representación espacio-temporal mediante C3D | No |
+| `wang2016` | Temporal Segment Networks: Towards Good Practices for Deep Action Recognition | 2016 | 10.1007/978-3-319-46484-8_2 | Sí | No comprobado | No | Scopus EID 2-s2.0-84990047892 | Estructura temporal de largo alcance en reconocimiento de acciones | No |
+| `olmos2018` | Automatic handgun detection alarm in videos using deep learning | 2018 | 10.1016/j.neucom.2017.05.012 | Sí | No comprobado | Sí | Scopus EID 2-s2.0-85019947234; ScienceDirect PII S0925231217308196 | Detección de pistolas, falsas alarmas y condiciones visuales | No |
+| `carreira2017` | Quo Vadis, Action Recognition? A New Model and the Kinetics Dataset | 2017 | 10.1109/CVPR.2017.502 | Sí | No comprobado | No | Scopus EID 2-s2.0-85044290845 | I3D, Kinetics y transferencia para reconocimiento de acciones | No |
+| `liuswin2022` | Video Swin Transformer | 2022 | 10.1109/CVPR52688.2022.00320 | Sí | No comprobado | No | Scopus EID 2-s2.0-85132940057 | Atención en ventanas espacio-temporales para video | No |
+| `liu2018` | Future Frame Prediction for Anomaly Detection – A New Baseline | 2018 | 10.1109/CVPR.2018.00684 | Sí | No comprobado | No | Scopus EID 2-s2.0-85062695405 | Predicción de fotogramas y restricciones de apariencia y movimiento | No |
+| `gong2019` | Memorizing Normality to Detect Anomaly: Memory-Augmented Deep Autoencoder for Unsupervised Anomaly Detection | 2019 | 10.1109/ICCV.2019.00179 | Sí | No comprobado | No | Scopus EID 2-s2.0-85081894025 | Memoria de patrones normales para detectar anomalías | No |
+| `ullah2021` | An Efficient Anomaly Recognition Framework Using an Attention Residual LSTM in Surveillance Videos | 2021 | 10.3390/s21082811 | Sí | No comprobado | No | Scopus EID 2-s2.0-85104309011 | CNN ligera y LSTM residual con atención para anomalías | No |
+| `wojke2017` | Simple Online and Realtime Tracking with a Deep Association Metric | 2017 | 10.1109/ICIP.2017.8296962 | Sí | No comprobado | No | Scopus EID 2-s2.0-85045318361 | Seguimiento mediante asociación de movimiento y apariencia | No |
+| `zhang2022` | ByteTrack: Multi-Object Tracking by Associating Every Detection Box | 2022 | 10.1007/978-3-031-20047-2_1 | Sí | No comprobado | No | Scopus EID 2-s2.0-85142725518 | Uso de detecciones de baja confianza para evitar trayectorias fragmentadas | No |
+| `zheng2015` | Scalable Person Re-identification: A Benchmark | 2015 | 10.1109/ICCV.2015.133 | Sí | No comprobado | No | Scopus EID 2-s2.0-84973855896 | Definición y evaluación de re-identificación en múltiples cámaras | No |
+| `zhou2019` | Omni-Scale Feature Learning for Person Re-Identification | 2019 | 10.1109/ICCV.2019.00380 | Sí | No comprobado | No | Scopus EID 2-s2.0-85081935131 | Representaciones a distintas escalas para re-identificación | No |
+| `barthelemy2024` | Safety After Dark: A Privacy Compliant and Real-Time Edge Computing Intelligent Video Analytics for Safer Public Transportation | 2024 | 10.3390/s24248102 | Sí | No comprobado | No | Scopus EID 2-s2.0-85213079003 | Integración local, comunicación de alertas y prueba de campo | No |
+
+`ullah2021` y `barthelemy2024` ya estaban en `snbibliography.bib`. Las otras trece entradas se incorporaron después de revisar su texto completo. En el artículo se describen únicamente como antecedentes científicos utilizados para contextualizar la Introducción. No se afirma que hayan sido semillas originales del protocolo: el manual de Parsifal no registra una lista histórica de artículos semilla.
 
 ## B. Referencias eliminadas de Introducción
 
@@ -61,10 +63,13 @@ La Conclusión no contiene citas externas. Resume los resultados ya expuestos: t
 
 ## G. Solapamiento y controles automáticos
 
-- Artículos semilla presentes también entre los 99: **0**.
+- Antecedentes de Introducción presentes también entre los 99: **0**.
+- Antecedentes confirmados en Scopus: **15 de 15**.
+- Antecedentes confirmados adicionalmente en ScienceDirect: **1 de 15** (`olmos2018`).
+- Indexación en Web of Science: no se atribuyó cuando no pudo consultarse directamente; no es necesaria para cumplir la condición porque todos fueron confirmados en Scopus.
 - Claves BibTeX usadas sin entrada: **0**.
 - DOI duplicados entre los tres archivos bibliográficos: **0**.
-- Artículos semilla diferentes en Introducción: **15**.
+- Antecedentes científicos diferentes en Introducción: **15**.
 - Citas múltiples en Introducción: **0**.
 - Referencias únicas: Introducción 15; Metodología 13; Resultados 35; Discusión 11; Conclusiones 0; total del artículo 67.
 - Metodología: idéntica a la versión anterior a esta tarea.
