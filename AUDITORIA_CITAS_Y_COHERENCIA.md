@@ -1,5 +1,7 @@
 # Auditoría de citas y coherencia — 6 de octubre de 2026
 
+> Esta auditoría corresponde a la revisión anterior. La separación posterior entre artículos semilla y los 99 estudios se documenta en `AUDITORIA_CONTROLADA_SEMILLAS.md` y reemplaza las conclusiones de este archivo sobre la Introducción.
+
 Se contrastaron el Excel de 99 estudios, el reporte Parsifal y los metadatos y resúmenes del archivo Scopus facilitados por los autores. Esta comprobación no equivale a revisar el texto completo de los 99 artículos. No se alteraron las claves existentes ni los resultados científicos.
 
 ## Referencias únicas por sección
@@ -119,3 +121,21 @@ No consta una fecha exacta verificable de ejecución ni un historial completo de
 PDF de 36 páginas generado con latexmk (salida 0). Se revisaron visualmente todas las páginas. Sin citas indefinidas ni marcadores [?], sin desbordamientos Overfull. Resultados conserva sus cinco preguntas respondidas y no contiene subsecciones. Resumen: 191 palabras. Se añadió codificación T1 y Latin Modern para representar correctamente apellidos acentuados.
 
 Avisos restantes del registro: {"Overfull": 0, "Underfull": 50, "ignored error": 3, "Font Warning": 4, "undefined": 0, "float specifier": 4, "bookmark levels": 1}. Los tres avisos de Infinite glue shrinkage se producen al componer tablas largas; no impiden la compilación ni se observaron recortes en esas tablas. Persisten avisos de espacios verticales, sustitución de tamaños matemáticos y ajuste de flotantes. MiKTeX recuerda que no se han comprobado actualizaciones. No se declara una compilación libre de avisos.
+
+## Integración del cambio del colaborador
+
+Se integró el commit remoto 46856b6, que reduce repeticiones en Metodología sin retirar referencias únicas. Se conservaron las correcciones documentales de esta auditoría.
+
+Repeticiones reducidas en el artículo completo:
+
+| Clave | Antes | Después |
+|---|---:|---:|
+| barthelemy2024 | 1 | 0 |
+| fathy2022 | 11 | 10 |
+| huszar2023 | 8 | 7 |
+| kitchenham2007 | 6 | 3 |
+| martin2021 | 2 | 1 |
+| page2021 | 3 | 1 |
+| park2024 | 2 | 1 |
+| silva2026 | 3 | 2 |
+| ullah2021 | 2 | 0 |
