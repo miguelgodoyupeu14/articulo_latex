@@ -31,8 +31,8 @@
 \renewcommand{\tablename}{Tabla}
 \renewcommand{\figurename}{Figura}
 \renewcommand{\refname}{Referencias}
-\renewcommand{\keywordname}{Palabras clave}
-\AtBeginDocument{\renewcommand{\abstractname}{Resumen}}
+\renewcommand{\keywordname}{Keywords}
+\AtBeginDocument{\renewcommand{\abstractname}{Abstract}}
 
 \newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
 
@@ -53,13 +53,10 @@
 
 \title[Videovigilancia inteligente: revisión sistemática]{Sistemas inteligentes de videovigilancia y técnicas de inteligencia artificial para la detección y el seguimiento de actividades delictivas: una revisión sistemática de la literatura}
 
-\author*[1]{\fnm{Mixel} \sur{Meza}}\email{prantxes.meza@upeu.edu.pe}
-
-\author[1]{\fnm{Juan} \sur{Espiritu}}
-
-\author[1]{\fnm{Miguel} \sur{Godoy}}
-
-\author[1]{\fnm{Juan Jesús} \sur{Soria Quijaite}}
+\author*[1]{\fnm{Mixel} \sur{Meza}}\email{prantxes.meza@upeu.edu.pe}%
+\author[1]{\fnm{Juan} \sur{Espiritu}}%
+\author[1]{\fnm{Miguel} \sur{Godoy}}%
+\author[1]{\fnm{Juan Jesús} \sur{Soria Quijaite}}%
 
 \affil*[1]{
 \orgdiv{Facultad de Ingeniería y Arquitectura},
@@ -67,13 +64,13 @@
 \orgaddress{
 \city{Lima},
 \state{Lima},
-\country{Perú}
+\country{Perú}%
 }}
     
 
-\abstract{La inteligencia artificial permite automatizar el análisis de video de vigilancia, aunque el rendimiento experimental no describe por sí solo la capacidad operativa de un sistema. Esta revisión examina modelos aplicados entre 2021 y 2026 a la detección de actividades delictivas y al seguimiento de personas u objetos relacionados con eventos de seguridad. Se siguieron las orientaciones de Kitchenham y los principios de reporte de PRISMA. La búsqueda en ScienceDirect, Web of Science y Scopus reunió 510 registros, de los cuales 99 superaron la selección y la evaluación de calidad. El análisis detallado de 35 trabajos permitió desarrollar la síntesis, complementada con bibliometría sobre 145 registros de Scopus. Predominaron las CNN bidimensionales (25 estudios), YOLO (20), las arquitecturas recurrentes (16) y las 3D-CNN (13), principalmente para violencia y armas. Treinta y un estudios demostraron procesamiento en tiempo real y 21 describieron una arquitectura de despliegue. La heterogeneidad experimental impidió establecer un ranking global. Persisten vacíos en generalización entre datasets, seguimiento avanzado y documentación de operación sostenida. La revisión relaciona técnicas, tareas y condiciones de evaluación, y distingue velocidad de procesamiento de evidencia de despliegue para orientar el diseño de sistemas completos.}
+\abstract{Artificial intelligence enables automated surveillance-video analysis, but experimental performance alone does not establish the operational capability of a system. This systematic literature review examines models published between 2021 and 2026 for detecting criminal activities and tracking people or objects associated with security events. The review followed Kitchenham's guidelines and PRISMA reporting principles. Searches in ScienceDirect, Web of Science, and Scopus yielded 510 records; 99 studies passed the selection and quality assessment. A detailed analysis of 35 studies supported the synthesis, while a separate bibliometric analysis covered 145 Scopus documents. Two-dimensional CNNs (25 studies), YOLO-based detectors (20), recurrent architectures (16), and 3D CNNs (13) were the most common approaches, mainly for violence and weapon detection. Thirty-one studies provided experimental evidence of real-time processing, a further 27 claimed real-time operation without equivalent evidence, and 21 described a deployment architecture. Heterogeneous datasets, tasks, and evaluation protocols precluded a global ranking. Evidence remains limited for cross-dataset generalization, advanced tracking, and sustained operational deployment. The findings connect techniques, tasks, evaluation settings, and implementation evidence, and distinguish processing speed from system deployment when assessing the maturity of intelligent video-surveillance solutions.}
 
-\keywords{Intelligent video surveillance, Artificial intelligence, Deep learning, Violence detection, Weapon detection, Person tracking, Computer vision, Systematic literature review}
+\keywords{Intelligent video surveillance, Artificial intelligence, Deep learning, Violence detection, Weapon detection, Object tracking}
 
 \maketitle
 
@@ -110,7 +107,7 @@ Este estudio se desarrolló como una revisión sistemática de la literatura (RS
 
 El objetivo de la revisión fue sintetizar y analizar críticamente la evidencia publicada entre 2021 y 2026 sobre modelos y técnicas de Inteligencia Artificial aplicados a la detección de actividades delictivas y al seguimiento de personas u objetos de interés en sistemas de videovigilancia, considerando las arquitecturas empleadas, los conjuntos de datos, las métricas de desempeño y la evidencia de implementación y despliegue. La revisión se orientó mediante la siguiente pregunta principal: ¿Qué modelos y técnicas de Inteligencia Artificial se han aplicado, entre 2021 y 2026, para la detección y seguimiento de actividades delictivas en sistemas de videovigilancia urbana, incluyendo técnicas de identificación, re-identificación y seguimiento de personas involucradas, y qué resultados de desempeño y evidencias de implementación y despliegue reportan? A partir de ella se formularon cinco preguntas específicas (Tabla~\ref{tab:rq}), que desagregan la pregunta principal en los modelos empleados, los eventos de seguridad y las capacidades de seguimiento abordadas, los conjuntos de datos y escenarios de evaluación, las métricas de desempeño y la evidencia de implementación y despliegue.
 
-\begin{table}[h]
+\begin{table}[htbp]
 \hyphenpenalty=10000\exhyphenpenalty=10000
 \caption{Preguntas de investigación de la revisión sistemática}\label{tab:rq}
 \begin{tabular}{@{}L{1.0cm}L{11.5cm}@{}}
@@ -134,7 +131,7 @@ RQ5 & ¿Qué evidencia de implementación, procesamiento en tiempo real, arquite
 
 La pregunta se delimitó con el marco PICOC (población, intervención, comparación, resultados y contexto), descrito por Petticrew y Roberts para estructurar preguntas de revisión \cite{petticrew2006}. La Tabla~\ref{tab:picoc} presenta los cinco componentes registrados en el protocolo. El periodo 2021--2026 no se trató como un componente adicional del marco, sino como una delimitación temporal que se aplicó mediante los filtros de búsqueda.
 
-\begin{table}[h]
+\begin{table}[htbp]
 \hyphenpenalty=10000\exhyphenpenalty=10000
 \caption{Componentes PICOC definidos en el protocolo}\label{tab:picoc}
 \begin{tabular}{@{}L{2.4cm}L{10.1cm}@{}}
@@ -158,7 +155,7 @@ Contexto (C) & Sistemas de videovigilancia orientados a seguridad pública, urba
 
 Los términos de búsqueda se derivaron de los componentes PICOC y se registraron en el protocolo como términos en inglés agrupados por concepto (Tabla~\ref{tab:keywords}). Las filas de esa tabla indican el componente PICOC al que se vinculó cada concepto. A partir de los conceptos registrados se construyó la cadena base de búsqueda. La cadena base se organizó en tres bloques: videovigilancia, Inteligencia Artificial y eventos de seguridad. Los términos de cada bloque se combinaron con OR y los bloques se relacionaron mediante AND, procedimiento habitual en la construcción de cadenas de búsqueda para estudios secundarios en ingeniería de software \cite{petersen2015}. El bloque de eventos reunió expresiones de detección de actividades delictivas y de seguimiento de personas. No todos los términos registrados se incorporaron a la cadena: de los 45 términos del protocolo, 19 formaron parte de las ecuaciones ejecutadas, que además emplearon cinco expresiones más específicas no registradas en el protocolo, como \textit{crime detection} o \textit{suspect tracking}. Los términos asociados con resultados no se utilizaron para restringir la búsqueda.
 
-\begin{table}[h]
+\begin{table}[htbp]
 \hyphenpenalty=10000\exhyphenpenalty=10000
 \caption{Conceptos y términos registrados en el protocolo para la estrategia de búsqueda}\label{tab:keywords}
 \begin{tabular}{@{}L{3.0cm}L{7.35cm}>{\centering\arraybackslash}p{1.8cm}@{}}
@@ -179,9 +176,9 @@ Resultado & AUC; F1-score; FPS; accuracy; latency; mAP; precision; recall & O \\
 \footnotetext{Población (P) e Intervención (I) agrupan más de un concepto y, por ello, aparecen en más de una fila; Comparación (C) y Contexto (C) no se emplearon como grupos independientes de términos de búsqueda. No todos los términos registrados se incorporaron a las ecuaciones ejecutadas: la Tabla~\ref{tab:ecuaciones} presenta las cadenas efectivamente aplicadas, de modo que ambas tablas documentan la trazabilidad entre el protocolo y la búsqueda ejecutada.}
 \end{table}
 
-La búsqueda se realizó en ScienceDirect, Web of Science Core Collection y Scopus. Las ecuaciones reproducidas a continuación corresponden a las documentadas en el reporte de Parsifal; la fecha exacta de ejecución no consta en las fuentes cotejadas. La consulta de varias bases de datos resulta pertinente porque los estudios comparativos muestran que la cobertura puede diferir de forma sustancial entre fuentes bibliográficas \cite{martin2021}. Las ecuaciones conservaron la misma estructura conceptual y se adaptaron a la sintaxis de cada plataforma (Tabla~\ref{tab:ecuaciones}). En Scopus la búsqueda se aplicó sobre título, resumen y palabras clave (TITLE-ABS-KEY) y los filtros se expresaron dentro de la propia ecuación; en Web of Science se utilizó el campo \textit{Topic} (TS) y los filtros se aplicaron como refinamientos de la interfaz. ScienceDirect limita el número de operadores booleanos por consulta, por lo que la cadena base se descompuso en múltiples subconsultas adaptadas a esa restricción. Cada subconsulta combinó un grupo de términos de videovigilancia, un grupo de términos de Inteligencia Artificial y un grupo de términos de detección o de seguimiento, aplicados sobre el título, el resumen y las palabras clave del autor. La consolidación de las subconsultas produjo 260 registros únicos. Para esta base, la Tabla~\ref{tab:ecuaciones} presenta únicamente subconsultas representativas de las ejecutadas, una del bloque de detección y otra del bloque de seguimiento.
+La búsqueda se realizó en ScienceDirect, Web of Science Core Collection y Scopus. Las ecuaciones reproducidas a continuación corresponden a las documentadas en el reporte de Parsifal; la fecha exacta de ejecución no consta en las fuentes cotejadas. La consulta de varias bases de datos resulta pertinente porque los estudios comparativos muestran que la cobertura puede diferir de forma sustancial entre fuentes bibliográficas \cite{martin2021}. Las ecuaciones conservaron la misma estructura conceptual y se adaptaron a la sintaxis de cada plataforma (Tabla~\ref{tab:ecuaciones}). En Scopus la búsqueda se aplicó sobre título, resumen y palabras clave (TITLE-ABS-KEY) y los filtros se expresaron dentro de la propia ecuación; en Web of Science se utilizó el campo \textit{Topic} (TS) y los filtros se aplicaron como refinamientos de la interfaz. ScienceDirect limita el número de operadores booleanos por consulta, por lo que la cadena base se descompuso en múltiples subconsultas adaptadas a esa restricción. Cada subconsulta combinó un grupo de términos de videovigilancia, un grupo de términos de Inteligencia Artificial y un grupo de términos de detección o de seguimiento, aplicados sobre el título, el resumen y las palabras clave del autor. Las subconsultas ejecutadas en ScienceDirect produjeron 888 resultados brutos que, tras consolidar las coincidencias entre consultas, correspondieron a 260 registros únicos. Para esta base, la Tabla~\ref{tab:ecuaciones} presenta únicamente subconsultas representativas de las ejecutadas, una del bloque de detección y otra del bloque de seguimiento.
 
-\begin{table}[h]
+\begin{table}[htbp]
 \hyphenpenalty=10000\exhyphenpenalty=10000
 \caption{Ecuaciones y subconsultas representativas de la estrategia de búsqueda}\label{tab:ecuaciones}
 \begin{tabular}{@{}L{2.2cm}L{10.3cm}@{}}
@@ -204,7 +201,7 @@ ScienceDirect & {\footnotesize Ejemplo de detección:\par}
 
 Los filtros se aplicaron en las tres bases con la configuración disponible en cada una (Tabla~\ref{tab:filtros}): publicaciones de 2021 a 2026, artículos de investigación y acceso abierto. El filtro de idioma inglés se aplicó en Web of Science y en Scopus; ScienceDirect no ofrecía un filtro de idioma equivalente, por lo que en esa base no se aplicó una restricción idiomática durante la búsqueda. Con esta configuración, la búsqueda recuperó 510 registros: 260 en ScienceDirect, 105 en Web of Science y 145 en Scopus (Tabla~\ref{tab:filtros}).
 
-\begin{table}[h]
+\begin{table}[htbp]
 \hyphenpenalty=10000\exhyphenpenalty=10000
 \caption{Filtros aplicados y distribución de registros por base de datos}\label{tab:filtros}
 \begin{tabular}{@{}L{2.95cm}L{2.45cm}L{2.15cm}L{2.45cm}r@{}}
@@ -229,7 +226,7 @@ Registros únicos tras la deduplicación & 244 & 8 & 145 & 397 \\
 
 Los registros se evaluaron con cuatro criterios de inclusión (CI1--CI4) y seis criterios de exclusión (CE1--CE6), definidos en el protocolo (Tabla~\ref{tab:criterios}). Un registro se aceptó cuando cumplía CI1 y CI4 y, además, CI2 o CI3; es decir, cuando correspondía a un estudio primario que aplicaba Inteligencia Artificial o visión por computador en videovigilancia y se orientaba a la detección de actividades delictivas o eventos de seguridad, o al seguimiento vinculado con ellos. A cada registro rechazado se le asignó un único criterio de exclusión principal, de modo que las frecuencias por criterio son mutuamente excluyentes. El criterio CE6 formó parte del protocolo, pero no se aplicó a ningún registro.
 
-\begin{table}[h]
+\begin{table}[htbp]
 \hyphenpenalty=10000\exhyphenpenalty=10000
 \caption{Criterios de inclusión y exclusión aplicados en la selección}\label{tab:criterios}
 \begin{tabular}{@{}L{0.95cm}L{9.95cm}r@{}}
@@ -273,7 +270,7 @@ El reporte documenta doce casos ambiguos que requirieron verificación complemen
 
 Los 148 estudios que superaron la selección se sometieron a una evaluación de calidad con un instrumento de diez preguntas (Tabla~\ref{tab:qa}). Las preguntas examinaron el contexto de aplicación, la descripción del conjunto de datos, la metodología de evaluación, las métricas reportadas, la declaración de limitaciones, la discusión frente a trabajos previos, el detalle necesario para la replicación, la descripción del modelo, la coherencia entre objetivo y evaluación y la comparación con al menos una línea base. Kitchenham y Charters recomiendan definir el instrumento de calidad en el protocolo y especificar el uso que se dará a sus resultados \cite{kitchenham2007}, y el empleo de listas de verificación para valorar estudios primarios cuenta con precedentes en revisiones sistemáticas de ingeniería de software \cite{dyba2008}. Cada pregunta se calificó como Sí (1), Parcialmente (0,5) o No (0), por lo que el puntaje máximo fue de 10 puntos. Se consideró que un estudio superaba la evaluación cuando obtenía al menos 7,5 puntos, y que no la superaba con 7,0 puntos o menos; como la escala avanzaba en pasos de 0,5, no existían puntajes intermedios entre ambos límites. Este umbral fue una decisión propia de la revisión: en Parsifal se configuró un punto de corte de 7,0 y solo los puntajes superiores a ese valor se consideraron aprobatorios. Con él, 99 estudios superaron la evaluación y 49 no la superaron; entre estos últimos, siete obtuvieron exactamente 7,0 puntos. En 45 de los 148 estudios se registró acceso limitado al texto completo; en esos casos, la valoración se realizó con la evidencia documental disponible y el acceso limitado no se utilizó como criterio de exclusión: tres de esos estudios superaron la evaluación y 42 no la superaron.
 
-\begin{table}[h]
+\begin{table}[htbp]
 \hyphenpenalty=10000\exhyphenpenalty=10000
 \caption{Instrumento de evaluación de calidad de los estudios}\label{tab:qa}
 \begin{tabular}{@{}L{1.0cm}L{11.5cm}@{}}
@@ -602,6 +599,7 @@ mayor diversidad arquitectónica, incluyendo CNN 2D, 3D-CNN, LSTM, GRU,
 Transformers y modelos basados en grafos. También se identificaron aproximaciones
 menos frecuentes basadas en aprendizaje federado, autoencoders, métodos bayesianos,
 modelos causales y técnicas inspiradas en computación cuántica.
+La Tabla~\ref{tab:rq1_results} resume las principales familias y sus aplicaciones predominantes.
 
 \begingroup
 \small
@@ -642,6 +640,7 @@ ocupó el segundo lugar, con 29 estudios (29,3\,\%). También se identificaron
 eventos delictivos o anómalos múltiples en 15 trabajos (15,2\,\%),
 comportamiento sospechoso o anomalía general en 13 (13,1\,\%), armas blancas
 en 11 (11,1\,\%), armas no especificadas en 11 (11,1\,\%) y robo o hurto en 10 (10,1\,\%).
+La Tabla~\ref{tab:rq2_results} relaciona estos eventos con las capacidades de seguimiento identificadas.
 
 \begingroup
 \small
@@ -692,7 +691,8 @@ Hockey Fight fue utilizado en 19 estudios (19,2\,\%), UCF-Crime en 15
 (15,2\,\%), RWF-2000 en 14 (14,1\,\%), Movie Fights en 11 (11,1\,\%)
 y RLVS en 10 (10,1\,\%). En cuanto al origen, 56 estudios utilizaron
 principalmente datos públicos o benchmarks, 24 combinaron datos públicos y propios,
-y 19 emplearon principalmente conjuntos propios o privados.
+y 19 emplearon principalmente conjuntos propios o privados. La Tabla~\ref{tab:rq3_results}
+presenta los conjuntos de datos más frecuentes y sus aplicaciones.
 
 \begingroup
 \small
@@ -723,7 +723,8 @@ Cuarenta y dos estudios evaluaron sus modelos empleando dos o más conjuntos de
 datos; sin embargo, únicamente tres realizaron una evaluación
 \textit{cross-dataset} explícita. Adicionalmente, el escenario de videovigilancia
 no fue especificado en 38 estudios y otros 18 lo describieron únicamente como
-CCTV genérico.
+CCTV genérico. La Tabla~\ref{tab:rq3_scenarios} presenta las categorías más
+frecuentes; no constituye una distribución exhaustiva de los 99 estudios.
 
 \begingroup
 \small
@@ -748,9 +749,6 @@ Espacios públicos & 5 \\
 \FloatBarrier
 \endgroup
 
-La Tabla~\ref{tab:rq3_scenarios} presenta las categorías más frecuentes;
-no constituye una distribución exhaustiva de los 99 estudios.
-
 Entre los escenarios explícitos se identificaron entornos interiores, transporte
 público o estaciones y espacios públicos. Solo dos estudios documentaron de forma
 explícita captura u operación en un entorno real confirmado. El país o ubicación
@@ -763,6 +761,7 @@ Accuracy fue reportada en 60 estudios (60,6\,\%), F1-Score en 30 (30,3\,\%),
 Precision y Recall en 28 estudios cada una (28,3\,\%), AUC en 16 (16,2\,\%)
 y mAP en 14 (14,1\,\%). Respecto de la eficiencia computacional, 30 estudios
 reportaron latencia y 15 informaron FPS.
+La Tabla~\ref{tab:rq4_results} resume las métricas y su función en la evaluación.
 
 \begingroup
 \small
@@ -820,6 +819,7 @@ equivalente. Un estudio señaló explícitamente que no operaba en tiempo real y
 
 Solo 21 estudios (21,2\,\%) describieron explícitamente una arquitectura de
 despliegue, mientras que 78 (78,8\,\%) no proporcionaron esta información.
+La Tabla~\ref{tab:rq5_results} diferencia la evidencia de tiempo real de la descripción del despliegue.
 
 \begingroup
 \small
@@ -853,7 +853,8 @@ Las plataformas identificadas con mayor frecuencia fueron dispositivos
 Asimismo, 75 estudios declararon al menos una limitación. Las más frecuentes fueron
 oclusión (16/99), falsos positivos o negativos (16/99), variaciones de iluminación
 (13/99), baja diversidad de los conjuntos de datos (10/99), escenas complejas o
-concurridas (9/99) y generalización limitada entre datasets (7/99).
+concurridas (9/99) y generalización limitada entre datasets (7/99), como se resume
+en la Tabla~\ref{tab:rq5_limitations}.
 
 \begingroup
 \small
@@ -910,7 +911,8 @@ publicados en 2021 y 2022 registraron los mayores promedios de citación, con
 52,38 y 53,63 citas por publicación, respectivamente. Posteriormente, el promedio
 disminuyó a 25,76 en 2023, 13,19 en 2024, 4,80 en 2025 y 0,38 en 2026.
 Esta reducción debe interpretarse considerando el menor tiempo disponible para que
-las publicaciones recientes acumulen citas.
+las publicaciones recientes acumulen citas. La Tabla~\ref{tab:bq_annual} presenta
+la producción y las citas medias por año.
 
 \begin{table}[htbp]
 \caption{Producción científica y citas medias por año en las publicaciones analizadas}
@@ -952,7 +954,8 @@ documentos cada una, seguidas por Islamia College Peshawar con cuatro.
 
 En la dimensión geográfica, India presentó la mayor frecuencia de participación
 (30 documentos), seguida por Pakistán (21), Arabia Saudita (20), Corea del Sur
-(16), China (16), España (12), Egipto (10) e Italia (8).
+(16), China (16), España (12), Egipto (10) e Italia (8). La Tabla~\ref{tab:ab1_productivity}
+resume los principales autores, fuentes, instituciones y países.
 
 \begin{table}[!htbp]
 \caption{Principales actores identificados mediante el análisis bibliométrico}
@@ -1011,7 +1014,7 @@ de un único país.
 La distribución geográfica evidencia una participación importante de países
 asiáticos, junto con conexiones con Europa, América y otras regiones. El mapa de
 colaboración permite observar los principales vínculos internacionales establecidos
-entre los países representados en las publicaciones analizadas.
+entre los países representados en las publicaciones analizadas (Figura~\ref{fig:country_collaboration}).
 
 \begin{figure}[!htbp]
 \centering
@@ -1022,7 +1025,7 @@ entre los países representados en las publicaciones analizadas.
 \end{figure}
 \FloatBarrier
 
-La red de coautoría muestra, además, la existencia de distintos grupos de
+La red de coautoría (Figura~\ref{fig:collaboration_network}) muestra, además, la existencia de distintos grupos de
 investigadores. Algunos conglomerados presentan conexiones internas densas,
 mientras que las relaciones entre grupos son menos frecuentes, lo que sugiere una
 estructura constituida por múltiples núcleos de colaboración.
@@ -1087,6 +1090,7 @@ entre sí. \textit{Deep learning} ocupa una posición central y se conecta con
 videovigilancia, visión por computador, detección de violencia y detección de armas.
 En torno a este núcleo aparecen términos más específicos relacionados con anomalías,
 seguimiento multiobjeto, reconocimiento de actividades y detección de objetos.
+Estas relaciones se representan en la Figura~\ref{fig:cooccurrence}.
 
 \begin{figure}[!htbp]
 \centering
@@ -1105,6 +1109,7 @@ asociados con vigilancia inteligente, ciudades inteligentes y seguimiento
 multiobjeto. Durante 2025--2026 se registraron mayores conteos de
 \textit{weapon detection}, \textit{anomaly detection},
 \textit{multi-object tracking}, YOLO y mecanismos de atención.
+La Tabla~\ref{tab:ab4_keywords} resume esta evolución por periodo.
 
 \begin{table}[!htbp]
 \caption{Evolución de las principales palabras clave de autor por periodo}
@@ -1147,7 +1152,7 @@ El mapa de acoplamiento (Figura~\ref{fig:thematic_map}) sitúa los clusters seg�
 \end{figure}
 \FloatBarrier
 
-El mapa factorial corresponde a un análisis de correspondencias múltiples (MCA). Sus ejes muestran Dim~1 (24,41\,\%) y Dim~2 (18,12\,\%). La proximidad entre términos resume patrones de co-ocurrencia en la proyección: aparecen, entre otros, \textit{violence detection}, \textit{anomaly detection}, \textit{object tracking} y \textit{edge computing}. El área del polígono no se interpreta como predominio o importancia de un grupo.
+El mapa factorial (Figura~\ref{fig:factorial_map}) corresponde a un análisis de correspondencias múltiples (MCA). Sus ejes muestran Dim~1 (24,41\,\%) y Dim~2 (18,12\,\%). La proximidad entre términos resume patrones de co-ocurrencia en la proyección: aparecen, entre otros, \textit{violence detection}, \textit{anomaly detection}, \textit{object tracking} y \textit{edge computing}. El área del polígono no se interpreta como predominio o importancia de un grupo.
 
 \begin{figure}[!htbp]
 \centering
@@ -1190,48 +1195,42 @@ investigaciones revisadas.
 \FloatBarrier
 \section{Discusión}\label{sec12}
 
-\subsection{Arquitecturas, tareas y alcance de la evidencia}
+En conjunto, los hallazgos describen una literatura con avances consistentes en la detección automática de eventos, pero con evidencia más limitada sobre seguimiento persistente, transferencia entre entornos y operación sostenida. Esta diferencia es relevante porque reconocer un episodio en un conjunto de prueba, mantener la identidad o trayectoria de una persona y operar un sistema completo son capacidades distintas. La contribución de la revisión consiste en relacionar esas capacidades con las técnicas, los datos, las métricas y las condiciones de implementación con las que fueron evaluadas.
 
-La distribución de modelos refleja diferencias en el problema que se busca resolver. Localizar un arma exige reconocer y delimitar un objeto; identificar una agresión requiere interpretar una secuencia. La detección de armas con cámaras térmicas ejemplifica una aplicación de detectores YOLO \cite{munoz2025}. Para violencia, los modelos espacio-temporales permiten incorporar el movimiento de la escena \cite{sernani2021}. El diseño ligero de Vijeikis y colaboradores combina un extractor basado en MobileNet V2 con LSTM y evalúa violencia en grabaciones de vigilancia \cite{vijeikis2022}. Estas diferencias ayudan a interpretar el predominio del aprendizaje profundo: las arquitecturas se adaptan a la localización de objetos o a la representación temporal de acciones. Su frecuencia de uso no establece superioridad y un mismo sistema puede combinar componentes con funciones diferentes.
+La distribución de arquitecturas responde a la naturaleza de las tareas. Localizar un arma exige reconocer y delimitar un objeto, mientras que identificar una agresión requiere interpretar la evolución de una secuencia. La asociación de 14 de los 20 estudios basados en YOLO con la detección de armas es coherente con esa necesidad de localización; la detección con cámaras térmicas ofrece un ejemplo de esta aplicación \cite{munoz2025}. En cambio, los modelos recurrentes y las convoluciones tridimensionales incorporan información temporal para analizar acciones \cite{sernani2021}. El diseño ligero de Vijeikis y colaboradores combina MobileNet V2 con LSTM para evaluar violencia en grabaciones de vigilancia \cite{vijeikis2022}. LightAnomalyNet aborda caídas, conductas sospechosas y violencia con una CNN ligera orientada a reducir la complejidad computacional del análisis \cite{mehmood2021}. Los enfoques basados en pose y grafos añaden una representación estructurada del movimiento corporal. Estas diferencias explican la convivencia de modelos espaciales y espacio-temporales, sin establecer la superioridad general de una familia.
 
-El predominio de violencia y armas indica que la detección de eventos concentra buena parte de la evidencia recuperada. Las capacidades de seguimiento e identificación aparecen con menor frecuencia y no cuentan, en este corpus, con métricas especializadas que permitan valorar de forma independiente la continuidad de las trayectorias o la asociación de identidades. Los trabajos basados en esqueletos aportan representaciones del movimiento corporal \cite{garciacobo2023}. La fusión temporal entre cámaras permite contrastar detecciones y confirmar alertas \cite{fierrosilva2026}, sin demostrar por sí sola que el seguimiento persistente esté resuelto. La ausencia de evaluación explícita de \textit{person re-identification} debe leerse dentro del alcance de la búsqueda, considerando los términos incluidos y omitidos en las cadenas documentadas.
+El mayor énfasis en violencia y armas indica que las investigaciones revisadas se orientan principalmente a determinar qué sucede en la escena. El seguimiento y la identificación aparecen con menor frecuencia y, cuando están presentes, no se evalúan con MOTA, MOTP, IDF1, HOTA, Rank-1, Rank-5, CMC o TAR. Los métodos basados en esqueletos permiten representar el movimiento corporal \cite{garciacobo2023}, y la fusión temporal entre cámaras puede contrastar detecciones y confirmar alertas \cite{fierrosilva2026}; ninguna de esas funciones demuestra por sí sola la continuidad de una trayectoria o la asociación persistente de identidades. Asociar un arma detectada con la persona que la porta constituye otra tarea distinta: Amado-Garfias y colaboradores emplean relaciones entre las cajas delimitadoras de personas, rostros y armas para identificar personas armadas \cite{amado2024}. No se identificó una evaluación explícita de \textit{person re-identification} dentro de los estudios incluidos. Este resultado debe interpretarse considerando que la estrategia histórica de búsqueda incorporó términos de seguimiento dentro del bloque de eventos, pero no utilizó tracking o re-identificación como un bloque booleano independiente.
 
-\subsection{Generalización y comparabilidad del desempeño}
+Los conjuntos públicos proporcionan referencias comunes, aunque su uso no garantiza que el rendimiento se mantenga fuera del entorno de prueba. Evaluar un modelo por separado en varias colecciones tampoco equivale a transferirlo entre ellas. Los experimentos de ViolenceNet distinguen ambas situaciones y reportan una reducción del desempeño en las pruebas entre datasets respecto de la validación dentro de una misma colección \cite{rendon2021}. El trabajo de adaptación de dominio de \citet{ciampi2024} aborda directamente ese problema. A su vez, los autores del conjunto ACF advierten que sus capturas diurnas de pistolas y cuchillos no permiten asumir el mismo comportamiento bajo iluminación nocturna, en otros entornos o con objetos no representados \cite{hnoohom2022}. La escasa evaluación \textit{cross-dataset} deja todavía poco examinada la transferencia entre cámaras, resoluciones, condiciones de iluminación, densidades de personas y ubicaciones.
 
-Los conjuntos públicos proporcionan una base común para la evaluación, pero no garantizan que los modelos mantengan su rendimiento fuera del entorno de prueba. Probar por separado en varias colecciones amplía la evaluación, pero no demuestra que un modelo entrenado en una de ellas se transfiera a otra. Los experimentos de ViolenceNet distinguen ambas situaciones y documentan una reducción del desempeño en las pruebas entre datasets respecto de la validación dentro de una misma colección \cite{rendon2021}. El trabajo sobre adaptación de dominio de \citet{ciampi2024} ofrece un ejemplo directamente relacionado con ese problema. Las limitaciones del conjunto ACF aportan otro ejemplo: sus autores advierten que la captura diurna de pistolas y cuchillos no garantiza detección correcta bajo iluminación nocturna, en otros entornos o para objetos no representados \cite{hnoohom2022}. La escasa documentación de escenarios reales limita, además, la evaluación de cambios de cámara, iluminación, densidad de personas y distribución de eventos.
+La heterogeneidad de tareas y protocolos impide interpretar las métricas como una escala común. Accuracy resume aciertos de clasificación y mAP evalúa detección de objetos; incluso cuando dos estudios reportan la misma métrica, pueden cambiar el dataset, la partición y las condiciones de prueba. Los grupos con comparabilidad moderada permiten contrastes acotados, pero no sostienen un modelo ganador global ni justifican promedios entre resultados metodológicamente diferentes. Un valor elevado debe interpretarse dentro del diseño experimental que lo produjo y no como una estimación directa del desempeño en otra instalación de videovigilancia.
 
-La heterogeneidad de protocolos impide interpretar las métricas como una escala común. Accuracy resume aciertos de clasificación, mientras que mAP evalúa detección de objetos; incluso dentro de una misma métrica, las particiones y las condiciones de prueba pueden cambiar. Los cuatro grupos de comparabilidad moderada identificados permiten describir intervalos acotados, pero no sostienen un ranking general de modelos. Un valor elevado debe examinarse junto con el conjunto de datos, la tarea y el protocolo que lo produjo, sin extrapolarlo a una instalación de videovigilancia diferente.
+La evidencia de tiempo real y la evidencia de despliegue responden a preguntas diferentes. El hecho de que 25 de los 78 estudios sin una arquitectura de despliegue descrita afirmaran procesamiento en tiempo real muestra que FPS o latencia pueden caracterizar la inferencia sin documentar la integración del sistema. La comparación de Ahmed y colaboradores entre plataformas de cómputo y su optimización con TensorRT para Jetson Nano muestra que la velocidad depende del dispositivo y de la configuración del modelo \cite{ahmed2022}. Una medición obtenida en una GPU de mayor capacidad no puede atribuirse automáticamente a un dispositivo de borde. En un nivel mayor de integración, Berardini y colaboradores conectaron una Jetson Nano a una cámara IP e implementaron en el dispositivo el flujo de adquisición y detección de armas \cite{berardini2024}. Esta diferencia no invalida los resultados experimentales; delimita lo que puede concluirse sobre disponibilidad, escalabilidad y operación continua.
 
-\subsection{Del rendimiento experimental a la operación}
+Desde la ingeniería de sistemas, una solución de videovigilancia comprende captura, comunicaciones, procesamiento, almacenamiento y generación de alertas. También debe gestionar múltiples cámaras, tiempos de respuesta, recuperación ante fallos, mantenimiento y cambios del entorno. La integración de IoT, computación en la niebla y redes definidas por software ilustra decisiones sobre la distribución del procesamiento \cite{fathy2022}, mientras que el diseño de unidades orientadas al ahorro de energía aborda restricciones de implementación \cite{pereatrigo2023}. Sin embargo, los estudios analizados no documentan operación sostenida en producción. El reto consiste, por tanto, en evaluar la arquitectura completa y sus condiciones operativas, además del modelo de aprendizaje automático.
 
-La evidencia de tiempo real y la evidencia de despliegue responden a preguntas distintas. Los 31 estudios que demuestran procesamiento en tiempo real aportan información sobre velocidad bajo determinadas condiciones experimentales. Los 21 que describen una arquitectura de despliegue permiten examinar también cómo se organizan los componentes del sistema. La comparación de Ahmed y colaboradores entre plataformas de cómputo y su optimización con TensorRT para Jetson Nano muestran que la evaluación debe especificar el dispositivo y la configuración del modelo \cite{ahmed2022}. Una velocidad obtenida en una GPU de mayor capacidad no puede atribuirse automáticamente a un dispositivo de borde. La falta de descripción arquitectónica en parte de los trabajos que afirman tiempo real no invalida sus mediciones; limita lo que puede concluirse sobre integración y operación continua.
+De manera complementaria, la bibliometría sitúa el aprendizaje profundo, la videovigilancia, la visión por computador y la detección de violencia o armas en el núcleo conceptual de las publicaciones analizadas. La presencia reciente de términos relacionados con detección de anomalías, seguimiento multiobjeto, YOLO y mecanismos de atención sugiere una diversificación de técnicas y tareas, aunque las redes bibliométricas describen relaciones temáticas o bibliográficas y no prueban desempeño ni madurez operativa. Las estructuras temáticas y de colaboración obtenidas mediante Bibliometrix reflejan específicamente la cobertura de Scopus y no deben interpretarse como una representación idéntica de Web of Science y ScienceDirect.
 
-Desde la ingeniería de sistemas, el problema abarca la captura de video, el procesamiento, las comunicaciones, el almacenamiento y la gestión de alertas. También exige considerar concurrencia entre cámaras, recuperación ante fallos y mantenimiento. La integración de IoT, computación en la niebla y redes definidas por software ilustra decisiones sobre la distribución del procesamiento \cite{fathy2022}. El diseño de unidades orientadas al ahorro de energía aborda otra restricción de implementación \cite{pereatrigo2023}. Sin embargo, la evidencia extraída de los 99 estudios no documenta operación sostenida en producción; esta observación se limita al conjunto seleccionado y no describe toda la literatura sobre videovigilancia. Por ello, las propuestas futuras deberían evaluar el sistema completo y reportar sus condiciones operativas, además del modelo. Esta es una implicación de los vacíos observados, no una capacidad demostrada por los estudios revisados.
+Las limitaciones declaradas por los estudios incluyen oclusiones, cambios de iluminación, objetos pequeños, falsos positivos y negativos, escasa diversidad de datos y escenas complejas. El tamaño reducido de las armas ilustra además una tensión entre precisión y costo computacional: YOLOSR emplea superresolución durante el entrenamiento y retira esa rama en la inferencia para no aumentar la complejidad del detector en el dispositivo de borde \cite{berardini2025}. A estas dificultades se suman la poca evaluación entre dominios y la documentación limitada del despliegue. En consecuencia, los resultados informan sobre el comportamiento bajo condiciones experimentales concretas, pero ofrecen menos evidencia sobre robustez ante variaciones ambientales y continuidad operativa.
 
-\subsection{Relación con la bibliometría y límites de la revisión}
+La propia revisión está condicionada por las tres bases consultadas, el periodo 2021--2026, la restricción al inglés en Web of Science y Scopus, el acceso abierto y la ausencia de \textit{snowballing}. La estrategia histórica tampoco utilizó tracking o re-identificación como bloque booleano independiente, lo que pudo reducir la recuperación de estudios centrados en esas capacidades. La heterogeneidad de tareas, datos y evaluaciones impidió realizar un metaanálisis, y la bibliometría representa únicamente la colección de Scopus. Estas condiciones limitan la generalización de la síntesis y aconsejan interpretar las ausencias como características de los estudios recuperados.
 
-El análisis de Scopus muestra una presencia destacada de aprendizaje profundo, videovigilancia y detección de violencia o armas, consistente con los temas de la síntesis sistemática. Esa coincidencia es descriptiva: los 145 registros bibliométricos no equivalen a los 99 estudios que superaron la evaluación de calidad. La coautoría informa sobre colaboración; la co-citación y el acoplamiento, sobre vínculos bibliográficos; y la co-ocurrencia, sobre asociaciones entre términos. Ninguna de estas redes sustituye una evaluación del desempeño o de la madurez de implementación.
-
-La interpretación está limitada por las tres bases consultadas, la restricción al inglés en Web of Science y Scopus, el periodo 2021--2026, el acceso abierto y la ausencia de \textit{snowballing}. Tampoco se cuantificó el acuerdo interevaluador. Las ecuaciones se presentan conforme al reporte disponible, pero falta confirmar la fecha exacta de ejecución y conservar el historial completo de subconsultas para facilitar su reproducción. La heterogeneidad de tareas y evaluaciones impidió el metaanálisis, y el detalle de la síntesis depende de lo reportado por los autores. Estas condiciones acotan la generalización de los hallazgos, sin alterar los conteos del corpus auditado.
-
-La contribución de la revisión reside en conectar la selección de técnicas con las condiciones de evaluación y de implementación. Esta lectura permite distinguir una solución que reconoce eventos en un banco de pruebas de otra para la que existe evidencia de integración operativa. Los vacíos en validación entre dominios, seguimiento avanzado y despliegue constituyen prioridades de investigación derivadas de esa distinción.
+Las investigaciones futuras deberían evaluar transferencia entre dominios, seguimiento e identidad con métricas específicas y arquitecturas completas en condiciones cercanas a la operación. Además de reportar exactitud o velocidad, conviene documentar el flujo de datos, el hardware, la concurrencia entre cámaras, la generación de alertas, la tolerancia a fallos y la continuidad del servicio. Esta combinación permitiría valorar con mayor precisión cuándo un avance algorítmico puede integrarse en un sistema de videovigilancia mantenible y escalable.
 
 \section{Conclusiones}\label{sec13}
 
-La revisión de 99 estudios muestra que las aplicaciones de IA a videovigilancia publicadas entre 2021 y 2026 se concentran en detectar violencia, armas y comportamientos anómalos. Las CNN bidimensionales, los detectores YOLO, las arquitecturas recurrentes y las 3D-CNN son las familias más frecuentes. Su uso responde a tareas de localización de objetos o de análisis temporal, por lo que no procede tratarlas como alternativas equivalentes para todos los escenarios.
+La revisión muestra que la inteligencia artificial aplicada a videovigilancia se concentra principalmente en la detección de violencia, armas y comportamientos anómalos. Las arquitecturas más utilizadas combinan modelos espaciales para localizar objetos con modelos espacio-temporales para interpretar acciones, de acuerdo con las exigencias de cada tarea. Esta diversidad impide considerar una familia como solución general para todos los escenarios.
 
-El seguimiento y la identificación tienen una presencia menor que la detección. No se encontró evaluación explícita de re-identificación con métricas especializadas entre los estudios seleccionados. Este resultado delimita la evidencia de la revisión y no implica ausencia de investigación sobre esas capacidades fuera de ella.
+La evidencia es menor para el seguimiento persistente, la identificación y la re-identificación. Tampoco permite establecer un modelo ganador, porque los estudios difieren en datos, tareas, particiones y métricas. El predominio de conjuntos públicos y la escasa validación entre dominios mantienen abierta la cuestión de cómo se comportan los modelos ante nuevas cámaras, ubicaciones y condiciones ambientales.
 
-La evaluación depende principalmente de conjuntos públicos. El uso de varios datasets es más frecuente que la validación \textit{cross-dataset}, de modo que persiste incertidumbre sobre la transferencia a condiciones diferentes. Las diferencias entre tareas, particiones y métricas impiden establecer un modelo ganador o un promedio global de desempeño.
+La revisión también muestra que el rendimiento experimental y el despliegue operativo deben valorarse por separado. Una medición de FPS o latencia no describe por sí sola una solución integrable, escalable y mantenible. Desde la ingeniería de sistemas, el avance requiere evaluar conjuntamente el modelo, la infraestructura de captura y comunicaciones, el procesamiento de múltiples fuentes, la generación de alertas, la disponibilidad y la tolerancia a fallos.
 
-La implementación constituye otra brecha: demostrar velocidad de procesamiento no equivale a documentar un sistema desplegado. Aunque 31 estudios aportaron evidencia experimental de tiempo real, 21 describieron una arquitectura y la extracción no identificó documentación de operación sostenida en producción en esos 99 estudios. Estas categorías permiten valorar por separado rendimiento computacional y evidencia operativa.
-
-El trabajo aporta una síntesis que relaciona técnicas, tareas, datos, métricas y madurez de implementación, con 35 estudios analizados en detalle para vincular los hallazgos con publicaciones concretas. La bibliometría de 145 registros de Scopus complementa esa lectura sin reemplazar la evidencia de los estudios seleccionados. Como trabajo futuro, se requiere fortalecer la validación entre dominios, evaluar seguimiento e identidad con métricas apropiadas y documentar sistemas completos en condiciones reales, con protocolos reproducibles y evidencia de continuidad operativa.
+El aporte del estudio consiste en relacionar técnicas, tareas, datos, métricas y evidencia de implementación para precisar el alcance de los resultados disponibles. El análisis bibliométrico complementa esta síntesis al mostrar el predominio conceptual del aprendizaje profundo, la videovigilancia y la detección de violencia y armas. Como trabajo futuro, se requiere fortalecer la validación entre dominios, emplear métricas específicas para seguimiento e identidad y documentar sistemas completos en condiciones cercanas a la operación real.
 
 \backmatter
 \section*{Declaraciones}
 
-\bmhead{Disponibilidad de datos}
+\noindent\textbf{Disponibilidad de datos.}
 La revisión utiliza registros bibliográficos de ScienceDirect, Web of Science y Scopus, y datos extraídos de publicaciones científicas. La documentación del proyecto incluye el reporte de Parsifal y archivos de análisis bibliométrico. No se declara en esta versión un depósito público de la matriz completa de extracción.
 
 % Pendiente de confirmación por los autores: financiamiento, conflictos de
